@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint": "eslint .",
+    "lint": "eslint ./src",
     "lint:fix": "eslint --cache ./src --ext .jsx,.js,.ts,.tsx --quiet --fix --ignore-path ./.gitignore ",
     "lint:format": "prettier --write  --loglevel warn  \"./**/*.{js,jsx,ts,tsx,css,md,json}\"",
     "tsc": "tsc --incremental",
