@@ -21,10 +21,12 @@
     "no-console": "warn",
     "@typescript-eslint/no-shadow": "off",
     "react/jsx-curly-brace-presence": ["error", "never"],
+    "import/newline-after-import": "error",
+    "newline-before-return": "error",
     "padding-line-between-statements": [
       "error",
-      { "blankLine": "always", "prev": "*", "next": "return" },
-      { "blankLine": "always", "prev": "*", "next": "export" }
+      { "blankLine": "always", "prev": "*", "next": "export" },
+      { "blankLine": "always", "prev": "export", "next": "*" }
     ],
     "import/order": [
       "error",
