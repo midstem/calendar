@@ -5,11 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
     "test": "vitest --watch=false",
+    "build": "tsc && vite build",
     "preview": "vite preview",
-    "tsc": "tsc --incremental",
     "lint": "eslint ./src",
+    "tsc": "tsc --incremental",
     "lint:format": "prettier --write --loglevel warn \"./**/*.{js,jsx,ts,tsx,css,md,json}\"",
     "lint:fix": "eslint --cache ./src --ext .jsx,.js,.ts,.tsx --fix --ignore-path ./.gitignore",
     "lint-tsc": "yarn tsc && yarn lint:format && yarn lint:fix && yarn test"
