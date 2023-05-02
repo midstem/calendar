@@ -1,3 +1,10 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - 3-configure-cicd-for-github-pages
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
