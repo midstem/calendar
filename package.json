@@ -2,6 +2,7 @@
   "name": "calendar",
   "private": true,
   "version": "0.0.0",
+  "homepage": "http://{Github-username}.github.io/{Github-repo-name}",
   "type": "module",
   "scripts": {
     "dev": "vite",
