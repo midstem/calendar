@@ -2,7 +2,7 @@ name: Deploy
 on:
   push:
     branches:
-      - 3-configure-cicd-for-github-pages
+      - main
 jobs:
   build:
     name: Build
