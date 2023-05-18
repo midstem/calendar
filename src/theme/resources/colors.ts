@@ -1,0 +1,24 @@
+const colors = {
+  white: '#FFFFFF',
+  // PINK
+  crimson: '#CC0056',
+  pitchPuff: '#FFD4C6',
+  mistyRose: '#FFE9E2',
+  seaShel: '#FFF4F0',
+  // GREEN
+  darkGreen: '#002729',
+  teal: '#006C73',
+  powderBlue: '#B9E9E0',
+  aliseBlue: '#F1FAF9',
+  lightTeal: '#5FEDD3',
+  // GREY
+  eerieBlack: '#1F1F1F',
+  dimGrey: '#585858',
+  grey: '#BCBCBC',
+  whiteSmoke: '#F4F4F4',
+
+  outrageousOrange: '#F4511E',
+  fuego: '#C0CA33'
+}
+
+export default colors
