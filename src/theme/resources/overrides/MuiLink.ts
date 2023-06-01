@@ -10,13 +10,13 @@ const MuiLink = {
       fontSize: 12,
       lineHeight: '1.02rem',
       '&:active': {
-        color: theme.palette.text.secondary,
+        color: theme.palette.text.secondary
       },
       '&:disabled': {
-        color: theme.palette.text.disabled,
-      },
-    }),
-  },
+        color: theme.palette.text.disabled
+      }
+    })
+  }
 }
 
 export default MuiLink

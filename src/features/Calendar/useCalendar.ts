@@ -2,7 +2,6 @@ import { ChangeEvent, useCallback, useMemo, useState } from 'react'
 import { addDays, subDays, isBefore, isAfter } from 'date-fns'
 
 import { DAYS_IN_YEAR } from './constants'
-import { useStyles } from './styles'
 import { UseCalendarProps, Views } from './types'
 import {
   getEndOfWeek,
@@ -18,8 +17,6 @@ export const useCalendar = ({
   onClickEvent = () => {},
   onChangeDate = () => {}
 }: UseCalendarProps) => {
-  const classes = useStyles()
-
   const [viewMode, setViewMode] = useState<Views>(Views.WEEK)
   const [currentDate, setCurrentDate] = useState<Date>(currentDay)
   const [selectedDate, setSelectedDate] = useState<Date>(new Date())
@@ -85,7 +82,6 @@ export const useCalendar = ({
   }, [])
 
   return {
-    classes,
     viewMode,
     handleChangeView,
     handleClickEvent,

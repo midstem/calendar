@@ -2,7 +2,6 @@ import { Stack, Typography, Box } from '@mui/material'
 import { format } from 'date-fns'
 
 import { dateFormat } from '../constants'
-import { useStyles } from '../styles'
 import { EventComponentProps } from '../types'
 import { applyOpacity, isClientEvent } from '../helpers'
 
@@ -11,12 +10,10 @@ const EventItem = ({
   isSelected,
   onClick = () => {}
 }: EventComponentProps): JSX.Element => {
-  const classes = useStyles()
-
   return (
     <Stack
       onClick={() => onClick(event.id)}
-      className={`${classes.slot}  ${isSelected && classes.selected}`}
+      className={`slot  ${isSelected && 'selected'}`}
       sx={{
         backgroundColor: applyOpacity(
           event?.color ?? '',

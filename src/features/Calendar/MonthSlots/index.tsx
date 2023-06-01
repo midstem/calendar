@@ -1,9 +1,6 @@
 import { generateSlotsForDaysOfMonth } from '../helpers'
-import { useStyles } from '../styles'
 
 const MonthSlots = ({ slotsData }: any) => {
-  const classes = useStyles()
-
   const currentDate = new Date()
   const currentMonth = currentDate.getMonth()
   const currentYear = currentDate.getFullYear()
@@ -20,23 +17,15 @@ const MonthSlots = ({ slotsData }: any) => {
   return (
     <>
       {[...Array(firstDayOfMonth)].map((_, index) => (
-        <div
-          className={`${classes.cell} ${classes.monthCell}`}
-          key={`empty-${String(index)}`}
-        ></div>
+        <div className="cell month-cell" key={`empty-${String(index)}`}></div>
       ))}
       {slotCells.map(({ date, slots }) => (
-        <div
-          className={`${classes.cell} ${classes.monthCell}`}
-          key={date.toLocaleString()}
-        >
+        <div className="cell month-cell" key={date.toLocaleString()}>
           <div>{date.getDate()}</div>
           {slots.map(({ slot, type }: any) => (
             <div
               key={slot.start}
-              className={`${classes.slot} ${
-                type === 'member' ? classes.slotRight : ''
-              }`}
+              className={`slot ${type === 'member' ? 'slot-right' : ''}`}
             >
               {slot.start} - {slot.end} - {type}
             </div>

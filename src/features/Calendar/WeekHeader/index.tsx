@@ -3,7 +3,6 @@ import { IconButton } from '@mui/material'
 import { format, isSameDay } from 'date-fns'
 
 import { dateFormat } from '../constants'
-import { useStyles } from '../styles'
 import { WeekHeaderProps } from '../types'
 
 const WeekHeader = ({
@@ -12,14 +11,12 @@ const WeekHeader = ({
   onSelectDate,
   formatOfDay = dateFormat.DAY_LONG
 }: WeekHeaderProps) => {
-  const classes = useStyles()
-
   return (
     <>
-      <div className={`${classes.day} ${classes.time}`}></div>
+      <div className="day time"></div>
       {weekDays.map((day) => {
         return (
-          <div className={classes.day} key={day.toLocaleString()}>
+          <div className="day" key={day.toLocaleString()}>
             <div>{format(day, formatOfDay)}</div>
             <div>
               <IconButton

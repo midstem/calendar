@@ -1,7 +1,4 @@
-import { v4 as uuid } from 'uuid'
-
 import { CalendarEventType } from './types'
-import { colors } from './constants'
 
 export const mockEvents: CalendarEventType[] = [
   {

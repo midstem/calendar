@@ -7,13 +7,13 @@ const MuiCheckbox = {
       padding: 5,
       '& .MuiSvgIcon-root': {
         width: 16,
-        height: 16,
+        height: 16
       },
       '&.Mui-checked': {
-        color: theme.palette.secondary.main,
-      },
-    }),
-  },
+        color: theme.palette.secondary.main
+      }
+    })
+  }
 }
 
 export default MuiCheckbox
