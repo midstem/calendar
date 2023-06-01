@@ -225,3 +225,12 @@ export const applyOpacity = (hexColor: string, opacity: number): string => {
 export const isClientEvent = (type: string): boolean =>
   type === CalendarSlotType.CLIENT_APPOINTMENT ||
   type === CalendarSlotType.CLIENT_AVAILABILITY
+
+export const generateUniqueID = (): string => {
+  const characters = 'abcdefghijklmnopqrstuvwxyz0123456789'
+
+  return characters
+    .split('')
+    .map(() => characters.charAt(Math.floor(Math.random() * characters.length)))
+    .join('')
+}
