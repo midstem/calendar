@@ -6,7 +6,6 @@ import WeekSlots from '../WeekSlots'
 import { dateFormat } from '../constants'
 import { getWeekDays } from '../helpers'
 import { WeekViewProps } from '../types'
-import { useStyles } from '../styles'
 
 const WeekView = ({
   events,
@@ -18,8 +17,6 @@ const WeekView = ({
   renderRows,
   renderEventComponent
 }: WeekViewProps): JSX.Element => {
-  const classes = useStyles()
-
   const weekDays = useMemo(() => getWeekDays(startDate), [startDate])
 
   const eventsByDay = useMemo(
@@ -36,14 +33,14 @@ const WeekView = ({
 
   return (
     <>
-      <div className={classes.header}>
+      <div className="header">
         <WeekHeader
           weekDays={weekDays}
           selectedDay={selectedDate}
           onSelectDate={selectDateHandler}
         />
       </div>
-      <div className={classes.body}>
+      <div className="body">
         <WeekSlots
           eventsByDay={eventsByDay}
           selectedEvent={selectedEvent}

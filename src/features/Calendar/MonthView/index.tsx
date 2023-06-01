@@ -1,16 +1,13 @@
 import MonthHeader from '../MonthHeader'
 import MonthSlots from '../MonthSlots'
-import { useStyles } from '../styles'
 
 const MonthView = ({ events }: any): JSX.Element => {
-  const classes = useStyles()
-
   return (
     <>
-      <div className={classes.header}>
+      <div className="header">
         <MonthHeader slotsFirstDateInList={events[0].date} />
       </div>
-      <div className={classes.body}>
+      <div className="body">
         <MonthSlots slotsData={events} />
       </div>
     </>

@@ -1,0 +1,92 @@
+:root {
+  --border-styles: 1px solid #dadce0;
+  --cell-height: 60px;
+}
+
+.calendar {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+}
+
+.day {
+  flex-grow: 0;
+  flex-basis: 20%;
+  text-align: center;
+  padding: 10px;
+  border-bottom: var(--border-styles);
+  min-width: 80px;
+}
+
+.day:first-child {
+  border-left: none;
+}
+.body {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.cell {
+  flex-grow: 0;
+  flex-basis: 20%;
+  border-right: var(--border-styles);
+  border-bottom: var(--border-styles);
+  min-width: 80px;
+  height: var(--cell-height);
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+.time {
+  display: flex;
+  border-left: var(--border-styles);
+  max-width: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+.month-cell {
+  flex-basis: auto;
+}
+
+.slot-container {
+  position: absolute;
+  overflow: hidden;
+  background-color: var(--white);
+}
+
+.slot {
+  height: inherit;
+  border-radius: 4px;
+  padding: 5px;
+  box-sizing: border-box;
+  z-index: 1;
+  border: solid 1px var(--white);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.slot-left {
+  left: 0;
+}
+
+.slot-right {
+  right: 0;
+}
+
+.selected {
+  opacity: 1;
+  z-index: 20;
+  overflow: hidden;
+}

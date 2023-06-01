@@ -1,19 +1,13 @@
-import {
-  Box,
-  Stack,
-  Typography,
-  MenuItem,
-  Select,
-  Button,
-  IconButton
-} from '@mui/material'
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+/* eslint-disable import/order */
+import { Box, Stack, Typography, Button, IconButton } from '@mui/material'
+
+import '../../theme/resources/colors.css'
+import './styles.css'
+
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft'
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
-import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 import { format } from 'date-fns'
 
-import MonthView from './MonthView'
 import WeekView from './WeekView'
 import { dateFormat } from './constants'
 import { Views, CalendarProps } from './types'
@@ -29,9 +23,7 @@ const Calendar = ({
   renderEventComponent
 }: CalendarProps): JSX.Element => {
   const {
-    classes,
     viewMode,
-    handleChangeView,
     handleClickEvent,
     startDate,
     endDate,
@@ -100,7 +92,7 @@ const Calendar = ({
           </Select> */}
         </Stack>
       </Stack>
-      <div className={classes.calendar}>
+      <div className="calendar">
         {viewMode === Views.WEEK ? (
           <WeekView
             events={events}
