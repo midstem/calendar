@@ -3,7 +3,7 @@ import { format, isSameDay } from 'date-fns'
 
 import { colors, dateFormat } from '../constants'
 import { WeekHeaderProps } from '../types'
-import IconButton from '../../../UI/IconButton'
+import IconButton from '../../../components/IconButton'
 
 const WeekHeader = ({
   weekDays,
