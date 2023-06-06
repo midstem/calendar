@@ -11,6 +11,7 @@ const colors = {
   powderBlue: '#B9E9E0',
   aliseBlue: '#F1FAF9',
   lightTeal: '#5FEDD3',
+  transparentGreen: '#17b37c1f',
   // GREY
   eerieBlack: '#1F1F1F',
   dimGrey: '#585858',

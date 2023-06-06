@@ -2,6 +2,7 @@ import { CSSProperties, ReactNode } from 'react'
 
 import './styles.css'
 import { useButton } from './useButton'
+import colors from '../../theme/resources/colors'
 
 type ButtonProps = {
   onClick?: () => void
@@ -16,7 +17,7 @@ const Button = ({
   children,
   className = '',
   sx = {},
-  rippleColor = '#17b37c1f'
+  rippleColor = colors.transparentGreen
 }: ButtonProps): JSX.Element => {
   const { handleClick, ripples } = useButton()
 
