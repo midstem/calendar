@@ -5,16 +5,16 @@ import '../../theme/resources/colors.css'
 import './styles.css'
 
 import { format } from 'date-fns'
-import IconButton from '../../componetns/IconButton'
+import IconButton from '../../components/IconButton'
 import WeekView from './WeekView'
 import { colors, dateFormat } from './constants'
 import { Views, CalendarProps } from './types'
 import { useCalendar } from './useCalendar'
 import { mockEvents } from './mockData'
-import Button from '../../componetns/Button'
-import Text from '../../componetns/Text'
-import RightArrow from '../../componetns/RightArrow'
-import LeftArrow from '../../componetns/LeftArrow'
+import Button from '../../components/Button'
+import Text from '../../components/Text'
+import RightArrow from '../../components/RightArrow'
+import LeftArrow from '../../components/LeftArrow'
 
 const Calendar = ({
   events = mockEvents,
