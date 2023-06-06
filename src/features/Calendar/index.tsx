@@ -7,14 +7,14 @@ import './styles.css'
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft'
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
 import { format } from 'date-fns'
-import IconButton from '../../UI/IconButton'
+import IconButton from '../../components/IconButton'
 import WeekView from './WeekView'
 import { colors, dateFormat } from './constants'
 import { Views, CalendarProps } from './types'
 import { useCalendar } from './useCalendar'
 import { mockEvents } from './mockData'
-import Button from '../../UI/Button'
-import Text from '../../UI/Text'
+import Button from '../../components/Button'
+import Text from '../../components/Text'
 
 const Calendar = ({
   events = mockEvents,

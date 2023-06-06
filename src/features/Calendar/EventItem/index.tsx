@@ -4,7 +4,7 @@ import { format } from 'date-fns'
 import { dateFormat } from '../constants'
 import { EventComponentProps } from '../types'
 import { applyOpacity, isClientEvent } from '../helpers'
-import Text from '../../../UI/Text'
+import Text from '../../../components/Text'
 
 const EventItem = ({
   event,
