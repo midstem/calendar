@@ -1,26 +1,9 @@
 import { createTheme } from '@mui/material'
 
-import { colors, componentsOverrides, Typography, sizes } from './resources'
+import colors from './resources/colors'
 
 // add custom fields to the theme object
 declare module '@mui/material/styles' {
-  interface Theme {
-    header: {
-      height: string | number
-    }
-    sidebar: {
-      width: string | number
-    }
-  }
-  // allow configuration using `createTheme`
-  interface ThemeOptions {
-    header?: {
-      height?: string | number
-    }
-    sidebar?: {
-      width?: string | number
-    }
-  }
   // custom breakpoints
   interface BreakpointOverrides {
     tablet: true
@@ -76,16 +59,6 @@ const theme = createTheme({
       lg: 1200,
       xl: 1440
     }
-  },
-  //@ts-ignore
-  components: componentsOverrides,
-  typography: Typography,
-
-  header: {
-    height: sizes.header.height
-  },
-  sidebar: {
-    width: sizes.sidebar.width
   }
 })
 

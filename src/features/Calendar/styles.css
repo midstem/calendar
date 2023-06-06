@@ -90,3 +90,8 @@
   z-index: 20;
   overflow: hidden;
 }
+
+.arrow-button {
+  padding: 5px;
+  border-color: var(--powder-blue);
+}

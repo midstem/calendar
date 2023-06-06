@@ -1,9 +1,10 @@
-import { Stack, Typography, Box } from '@mui/material'
+import { Stack, Box } from '@mui/material'
 import { format } from 'date-fns'
 
 import { dateFormat } from '../constants'
 import { EventComponentProps } from '../types'
 import { applyOpacity, isClientEvent } from '../helpers'
+import Text from '../../../UI/Text'
 
 const EventItem = ({
   event,
@@ -35,15 +36,15 @@ const EventItem = ({
         </Stack>
       )}
       <Stack direction="row" flexWrap="wrap">
-        <Typography variant="caption">
+        <Text variant="caption">
           {isClientEvent(event?.type) ? event.title : ''}
-        </Typography>
+        </Text>
       </Stack>
       {isClientEvent(event.type) ? (
-        <Typography variant="caption" fontWeight="bold" mt={1}>
+        <Text variant="caption" sx={{ fontWeight: 'bold', marginTop: 8 }}>
           {format(new Date(event.start), dateFormat.MERIDIEM_TIME)} -{' '}
           {format(new Date(event.end), dateFormat.MERIDIEM_TIME)}
-        </Typography>
+        </Text>
       ) : null}
     </Stack>
   )
