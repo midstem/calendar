@@ -4,8 +4,6 @@ import { Box, Stack } from '@mui/material'
 import '../../theme/resources/colors.css'
 import './styles.css'
 
-import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft'
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
 import { format } from 'date-fns'
 import IconButton from '../../components/IconButton'
 import WeekView from './WeekView'
@@ -15,6 +13,8 @@ import { useCalendar } from './useCalendar'
 import { mockEvents } from './mockData'
 import Button from '../Button'
 import Text from '../../components/Text'
+import RightArrow from '../../components/RightArrow'
+import LeftArrow from '../../components/LeftArrow'
 
 const Calendar = ({
   events = mockEvents,
@@ -58,7 +58,7 @@ const Calendar = ({
               outlined
               hoverBG={colors.powderBlue}
             >
-              <KeyboardArrowLeftIcon sx={{ color: colors.teal }} />
+              <LeftArrow color={colors.teal} />
             </IconButton>
           </Box>
           <Box sx={{ ml: 2 }}>
@@ -69,7 +69,7 @@ const Calendar = ({
               outlined
               hoverBG={colors.powderBlue}
             >
-              <KeyboardArrowRightIcon sx={{ color: colors.teal }} />
+              <RightArrow color={colors.teal} />
             </IconButton>
           </Box>
           <Text sx={{ marginRight: 8 }}>
