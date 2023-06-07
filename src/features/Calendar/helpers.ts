@@ -8,7 +8,7 @@ import {
   addWeeks
 } from 'date-fns'
 
-import { CalendarEventType, Views, WeekRowsType } from './types'
+import { CalendarEventType, Views, WeekRowsType } from '../../types'
 import {
   DAY_IN_HOURS,
   DaysOfTheWeek,

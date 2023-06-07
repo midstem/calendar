@@ -46,45 +46,6 @@ export type WeekCellType = CalendarEventType & {
   duration?: Duration
 }
 
-export type WeekHeaderProps = {
-  weekDays: Date[]
-  selectedDay: Date
-  onSelectDate: (data: Date) => void
-  formatOfDay?: string
-}
-
-export type WeekSlotsProps = {
-  eventsByDay: WeekCellType[][]
-  renderRows: WeekRowsType[]
-  selectedEvent?: string
-  renderEventComponent?: FunctionComponent<EventComponentProps>
-  onClickEvent?: (data?: string) => void
-}
-
-export type WeekViewProps = {
-  events: WeekCellType[]
-  startDate: Date
-  selectedDate: Date
-  renderRows: WeekRowsType[]
-  selectDateHandler: (data: Date) => void
-  selectedEvent?: string
-  onClickEvent: (data?: string) => void
-  renderEventComponent?: FunctionComponent<EventComponentProps>
-}
-
-export type CalendarProps = {
-  events?: CalendarEventType[]
-  currentDay?: Date | string
-  selectedEvent?: string
-  onClickEvent?: (data?: string) => void
-  onChangeDate?: (start: Date, end: Date) => void
-  renderEventComponent?: FunctionComponent<EventComponentProps>
-}
-
-export type UseCalendarProps = CalendarProps & {
-  currentDay: Date
-}
-
 export type EventComponentProps = {
   event: CalendarEventType
   isSelected: boolean

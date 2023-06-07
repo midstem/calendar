@@ -5,7 +5,7 @@ import WeekHeader from '../WeekHeader'
 import WeekSlots from '../WeekSlots'
 import { dateFormat } from '../../constants'
 import { getWeekDays } from './helpers'
-import { WeekViewProps } from '../../types'
+import { WeekViewProps } from './types'
 
 const WeekView = ({
   events,

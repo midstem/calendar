@@ -6,7 +6,7 @@ import { format } from 'date-fns'
 import IconButton from '../../components/IconButton'
 import WeekView from '../WeekView'
 import { dateFormat } from '../../constants'
-import { Views, CalendarProps } from './types'
+import { CalendarProps } from './types'
 import { useCalendar } from './useCalendar'
 import { mockEvents } from './mockData'
 import Button from '../Button'
@@ -15,6 +15,7 @@ import RightArrow from '../../components/RightArrow'
 import LeftArrow from '../../components/LeftArrow'
 import Flex from '../../components/Flex'
 import colors from '../../theme/colors'
+import { Views } from '../../types'
 
 const Calendar = ({
   events = mockEvents,

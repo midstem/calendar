@@ -1,7 +1,7 @@
 import { EVENT_GAP } from '../../constants'
 import EventItem from '../EventItem'
 import { checkSelected, getBlockHeight, getStartPosition } from './helpers'
-import { WeekSlotsProps } from '../../types'
+import { WeekSlotsProps } from './types'
 
 const WeekSlots = ({
   eventsByDay,
