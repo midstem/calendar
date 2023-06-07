@@ -1,5 +1,3 @@
-import { Box } from '@mui/material'
-
 import { EVENT_GAP } from '../constants'
 import EventItem from '../EventItem'
 import { checkSelected, getBlockHeight, getStartPosition } from '../helpers'
@@ -29,10 +27,10 @@ const WeekSlots = ({
                   )
 
                   return (
-                    <Box
+                    <div
                       key={`${event.id}`}
                       className={`slot-container ${isSelected && 'selected'} `}
-                      sx={{
+                      style={{
                         zIndex: event?.overlapping ? event.overlapping + 1 : 1,
                         top: `${getStartPosition(event.start)}px`,
                         height: `${getBlockHeight(event?.duration)}px`,
@@ -49,7 +47,7 @@ const WeekSlots = ({
                         isSelected={isSelected}
                         onClick={onClickEvent}
                       />
-                    </Box>
+                    </div>
                   )
                 })}
               </div>

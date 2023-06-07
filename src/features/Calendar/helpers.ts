@@ -222,6 +222,6 @@ export const applyOpacity = (hexColor: string, opacity: number): string => {
   return modifiedHexColor
 }
 
-export const isClientEvent = (type: string): boolean =>
+export const isClientEvent = (type?: string): boolean =>
   type === CalendarSlotType.CLIENT_APPOINTMENT ||
   type === CalendarSlotType.CLIENT_AVAILABILITY

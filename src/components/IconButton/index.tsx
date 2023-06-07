@@ -12,6 +12,7 @@ type IconButtonProps = {
   hoverBG?: string
   outlined?: boolean
   isDisabled?: boolean
+  activeColor?: string
 }
 
 const IconButton = ({
@@ -20,11 +21,13 @@ const IconButton = ({
   sx,
   onClick = () => {},
   hoverBG = 'transparent',
+  activeColor = 'transparent',
   outlined = false,
   isDisabled = false
 }: IconButtonProps) => {
   const { handleClick, handleMouseOut, handleMouseOver } = useIconButton({
     hoverBG,
+    activeColor,
     onClick
   })
 
@@ -39,7 +42,7 @@ const IconButton = ({
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
     >
-      <Flex sx={{ alignItems: 'center', justifyContent: 'center' }}>
+      <Flex align="center" justify="center">
         {children}
       </Flex>
     </button>

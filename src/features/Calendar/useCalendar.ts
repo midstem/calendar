@@ -50,9 +50,7 @@ export const useCalendar = ({
   )
 
   const handleClickEvent = useCallback(
-    (event?: string) => {
-      onClickEvent && onClickEvent(event)
-    },
+    (event?: string) => onClickEvent && onClickEvent(event),
     [onClickEvent]
   )
 
@@ -73,7 +71,7 @@ export const useCalendar = ({
 
     setSelectedDate(now)
     setCurrentDate(now)
-    onChangeDate && onChangeDate(getStartOfWeek(now), getEndOfWeek(now))
+    if (onChangeDate) onChangeDate(getStartOfWeek(now), getEndOfWeek(now))
   }, [onChangeDate])
 
   const selectDateHandler = useCallback((date: Date) => {

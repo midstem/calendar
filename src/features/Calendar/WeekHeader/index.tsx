@@ -29,7 +29,8 @@ const WeekHeader = ({
                     ? colors.powderBlue
                     : 'transparent'
                 }}
-                hoverBG="var(--powder-blue)"
+                hoverBG={colors.powderBlue}
+                activeColor={colors.powderBlue}
               >
                 {format(day, dateFormat.DAY_NUMBER)}
               </IconButton>

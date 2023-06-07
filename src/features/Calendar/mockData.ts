@@ -2,62 +2,6 @@ import { CalendarEventType } from './types'
 
 export const mockEvents: CalendarEventType[] = [
   {
-    id: '741d3832-f3b7-4b51-85be-929d61a24f0d',
-    title: 'Temp Client',
-    start: '2023-05-15T16:00:00',
-    end: '2023-05-15T22:00:00',
-    type: 'client_availability',
-    overlapping: 0,
-    position: '0%',
-    width: '50%',
-    color: '#F4511E',
-    textColor: '#FFFFFF',
-    opacity: 0.3,
-    markerColor: ''
-  },
-  {
-    id: '4858d405-37f5-4f0b-8dfd-fa410924d89f',
-    title: 'Temp Client',
-    start: '2023-05-15T07:00:00',
-    end: '2023-05-15T14:00:00',
-    type: 'client_availability',
-    overlapping: 0,
-    position: '0%',
-    width: '50%',
-    color: '#F4511E',
-    textColor: '#FFFFFF',
-    opacity: 0.3,
-    markerColor: ''
-  },
-  {
-    id: '14a81dd5-bf15-4dda-bdc7-66656e81245f',
-    title: 'Temp Client & Dakota Roman',
-    start: '2023-05-15T07:00:00',
-    end: '2023-05-15T10:00:00',
-    type: 'client_appointment',
-    overlapping: 1,
-    position: '8%',
-    width: '42%',
-    color: '#F4511E',
-    textColor: '#FFFFFF',
-    opacity: 0.8,
-    markerColor: 'success.main'
-  },
-  {
-    id: 'd9206949-a191-47b9-be18-dddac5bfcfce',
-    title: 'Temp Client & Allison Bond',
-    start: '2023-05-15T07:00:00',
-    end: '2023-05-15T10:30:00',
-    type: 'client_appointment',
-    overlapping: 2,
-    position: '16%',
-    width: '34%',
-    color: '#F4511E',
-    textColor: '#FFFFFF',
-    opacity: 0.8,
-    markerColor: 'secondary.light'
-  },
-  {
     id: '312de45c-62cb-4da8-ad9e-c973090d7e3c',
     title: 'Temp Client & Anna Adkins',
     start: '2023-05-15T07:00:00',
@@ -69,7 +13,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: 'secondary.light'
+    markerColor: '#B9E9E0'
   },
   {
     id: 'c0e982c0-c152-4930-8aae-b2a9b334052b',
@@ -83,7 +27,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: 'secondary.light'
+    markerColor: '#B9E9E0'
   },
   {
     id: '14e19a7b-997b-4264-a88d-ddc706d1ac70',
@@ -97,7 +41,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: 'secondary.light'
+    markerColor: '#B9E9E0'
   },
   {
     id: 'fe4ce757-8590-4310-864d-f418b7c9a554',
@@ -111,7 +55,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: 'secondary.light'
+    markerColor: '#B9E9E0'
   },
   {
     id: '29af7782-5383-4a05-8d7a-ec402d6c9e47',
@@ -125,7 +69,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: 'secondary.light'
+    markerColor: '#B9E9E0'
   },
   {
     id: '2c256c4a-1437-41c9-a133-44ee5419d208',
@@ -139,22 +83,9 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: 'secondary.light'
+    markerColor: '#B9E9E0'
   },
-  {
-    id: 'a495fa4b-674f-49b0-8ba7-a63480e73ca7',
-    title: 'Dakota Roman & Temp Client',
-    start: '2023-05-15T07:00:00',
-    end: '2023-05-15T10:00:00',
-    type: 'member_appointment',
-    overlapping: 0,
-    position: '50%',
-    width: '50%',
-    color: '#C0CA33',
-    textColor: '#1F1F1F',
-    opacity: 0.8,
-    markerColor: 'success.main'
-  },
+
   {
     id: 'f3597ec3-9219-43a2-9694-f06e0630c8ed',
     title: 'Temp Client',
@@ -169,118 +100,7 @@ export const mockEvents: CalendarEventType[] = [
     opacity: 0.3,
     markerColor: ''
   },
-  {
-    id: '35764b45-a47b-4b23-895f-09c8b6293923',
-    title: 'Temp Client & Amy Smith',
-    start: '2023-05-16T07:00:00',
-    end: '2023-05-16T09:30:00',
-    type: 'client_appointment',
-    overlapping: 1,
-    position: '8%',
-    width: '42%',
-    color: '#F4511E',
-    textColor: '#FFFFFF',
-    opacity: 0.8,
-    markerColor: 'secondary.light'
-  },
-  {
-    id: '7930c58b-5a57-44c1-aacf-1ea100dfd3ea',
-    title: 'Temp Client & Allison Bond',
-    start: '2023-05-16T10:00:00',
-    end: '2023-05-16T12:00:00',
-    type: 'client_appointment',
-    overlapping: 1,
-    position: '8%',
-    width: '42%',
-    color: '#F4511E',
-    textColor: '#FFFFFF',
-    opacity: 0.8,
-    markerColor: 'secondary.light'
-  },
-  {
-    id: 'de0f7dd0-8ce7-46b0-a2e7-3325554533a5',
-    title: 'Temp Client & Allison Bond',
-    start: '2023-05-16T14:45:00',
-    end: '2023-05-16T20:30:00',
-    type: 'client_appointment',
-    overlapping: 1,
-    position: '8%',
-    width: '42%',
-    color: '#F4511E',
-    textColor: '#FFFFFF',
-    opacity: 0.8,
-    markerColor: 'secondary.light'
-  },
-  {
-    id: 'f5c2954d-fd84-4f77-9ed6-0b46bd4fe401',
-    title: 'Dakota Roman',
-    start: '2023-05-16T16:30:00',
-    end: '2023-05-16T22:00:00',
-    type: 'member_availability',
-    overlapping: 0,
-    position: '50%',
-    width: '50%',
-    color: '#C0CA33',
-    textColor: '#1F1F1F',
-    opacity: 0.3,
-    markerColor: ''
-  },
-  {
-    id: 'a38feb92-6363-4256-975c-5183467d8400',
-    title: 'Dakota Roman',
-    start: '2023-05-16T07:00:00',
-    end: '2023-05-16T16:00:00',
-    type: 'member_availability',
-    overlapping: 0,
-    position: '50%',
-    width: '50%',
-    color: '#C0CA33',
-    textColor: '#1F1F1F',
-    opacity: 0.3,
-    markerColor: ''
-  },
-  {
-    id: 'eb02208f-9f5d-4362-bf5e-4d0e3e834d12',
-    title: 'Dakota Roman & Gary Brown',
-    start: '2023-05-16T07:00:00',
-    end: '2023-05-16T16:00:00',
-    type: 'member_appointment',
-    overlapping: 1,
-    position: '58%',
-    width: '42%',
-    color: '#C0CA33',
-    textColor: '#1F1F1F',
-    opacity: 0.8,
-    markerColor: 'success.main'
-  },
-  {
-    id: 'e6427f35-4ea3-4460-8bd8-ff2748c11e19',
-    title: 'Temp Client',
-    start: '2023-05-17T07:00:00',
-    end: '2023-05-17T22:00:00',
-    type: 'client_availability',
-    overlapping: 0,
-    position: '0%',
-    width: '50%',
-    color: '#F4511E',
-    textColor: '#FFFFFF',
-    opacity: 0.3,
-    markerColor: ''
-  },
-  {
-    id: 'fcd2ab9c-13e6-4c56-a5d2-670c5bf30664',
-    title: 'Temp Client & Allison Bond',
-    start: '2023-05-17T07:00:00',
-    end: '2023-05-17T22:00:00',
-    type: 'client_appointment',
-    overlapping: 1,
-    position: '8%',
-    width: '42%',
-    color: '#F4511E',
-    textColor: '#FFFFFF',
-    opacity: 0.8,
-    markerColor: 'success.main'
-  },
+
   {
     id: 'c122da4d-056c-4b18-87f5-e141169607cd',
     title: 'Temp Client & Angela Stephens',
@@ -293,7 +113,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: 'secondary.light'
+    markerColor: '#B9E9E0'
   },
   {
     id: '3db62b4c-ab38-43bd-a69e-e8884ae48bbc',
@@ -307,7 +127,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: 'secondary.light'
+    markerColor: '#B9E9E0'
   },
   {
     id: '81cac69e-9da8-43b1-8765-9cec7aceafbc',
@@ -321,22 +141,9 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: 'secondary.light'
+    markerColor: '#B9E9E0'
   },
-  {
-    id: 'bcf46e38-e52e-4244-93bd-69fde714c656',
-    title: 'Temp Client & Angela Stephens',
-    start: '2023-05-17T19:00:00',
-    end: '2023-05-17T21:00:00',
-    type: 'client_appointment',
-    overlapping: 2,
-    position: '16%',
-    width: '34%',
-    color: '#F4511E',
-    textColor: '#FFFFFF',
-    opacity: 0.8,
-    markerColor: 'secondary.light'
-  },
+
   {
     id: '8ac82952-4633-46d4-93e4-526015bdd7d5',
     title: 'Temp Client & Amy Smith',
@@ -349,105 +156,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: 'secondary.light'
-  },
-  {
-    id: '5331e9b3-5ab0-41b3-ae4d-8366679ce200',
-    title: 'Temp Client & Alexis Jensen',
-    start: '2023-05-17T21:00:00',
-    end: '2023-05-17T22:00:00',
-    type: 'client_appointment',
-    overlapping: 2,
-    position: '16%',
-    width: '34%',
-    color: '#F4511E',
-    textColor: '#FFFFFF',
-    opacity: 0.8,
-    markerColor: 'secondary.light'
-  },
-  {
-    id: '92e16abf-8b6c-44b2-9f99-0959bde3131a',
-    title: 'Dakota Roman',
-    start: '2023-05-17T16:30:00',
-    end: '2023-05-17T22:00:00',
-    type: 'member_availability',
-    overlapping: 0,
-    position: '50%',
-    width: '50%',
-    color: '#C0CA33',
-    textColor: '#1F1F1F',
-    opacity: 0.3,
-    markerColor: ''
-  },
-  {
-    id: '66a67739-1b7b-4637-9453-637157f39109',
-    title: 'Dakota Roman',
-    start: '2023-05-17T07:00:00',
-    end: '2023-05-17T16:00:00',
-    type: 'member_availability',
-    overlapping: 0,
-    position: '50%',
-    width: '50%',
-    color: '#C0CA33',
-    textColor: '#1F1F1F',
-    opacity: 0.3,
-    markerColor: ''
-  },
-  {
-    id: 'bb867060-b4c1-44ae-b539-34990563680a',
-    title: 'Temp Client',
-    start: '2023-05-18T07:30:00',
-    end: '2023-05-18T15:30:00',
-    type: 'client_availability',
-    overlapping: 0,
-    position: '0%',
-    width: '50%',
-    color: '#F4511E',
-    textColor: '#FFFFFF',
-    opacity: 0.3,
-    markerColor: ''
-  },
-  {
-    id: '6b53ffe2-6b62-422b-96a4-7ff8d8fb65ef',
-    title: 'Temp Client & Ashley Horton',
-    start: '2023-05-18T07:00:00',
-    end: '2023-05-18T08:00:00',
-    type: 'client_appointment',
-    overlapping: 1,
-    position: '8%',
-    width: '42%',
-    color: '#F4511E',
-    textColor: '#FFFFFF',
-    opacity: 0.8,
-    markerColor: 'secondary.light'
-  },
-  {
-    id: '33e71a11-9aa3-4e12-befe-a755499cbf3d',
-    title: 'Temp Client & Stanley Mack',
-    start: '2023-05-18T07:00:00',
-    end: '2023-05-18T22:00:00',
-    type: 'client_appointment',
-    overlapping: 2,
-    position: '16%',
-    width: '34%',
-    color: '#F4511E',
-    textColor: '#FFFFFF',
-    opacity: 0.8,
-    markerColor: 'secondary.light'
-  },
-  {
-    id: 'b977be92-b135-4e54-b2e0-d7059cd61dd6',
-    title: 'Temp Client & Allison Bond',
-    start: '2023-05-18T08:00:00',
-    end: '2023-05-18T13:15:00',
-    type: 'client_appointment',
-    overlapping: 2,
-    position: '16%',
-    width: '34%',
-    color: '#F4511E',
-    textColor: '#FFFFFF',
-    opacity: 0.8,
-    markerColor: 'secondary.light'
+    markerColor: '#B9E9E0'
   },
   {
     id: 'db55ba3e-e567-4068-bb59-4ec668f7a5dc',
@@ -461,7 +170,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: 'secondary.light'
+    markerColor: '#B9E9E0'
   },
   {
     id: '6484589e-c4f8-4461-93e4-d586fa64d594',
@@ -475,7 +184,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: 'secondary.light'
+    markerColor: '#B9E9E0'
   },
   {
     id: 'a2486130-f4a7-4929-b842-9c2d070b77a3',
@@ -489,7 +198,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: 'secondary.light'
+    markerColor: '#B9E9E0'
   },
   {
     id: '90b7c37c-ff28-460b-bed5-5b9e2dea0e08',
@@ -503,7 +212,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: 'secondary.light'
+    markerColor: '#B9E9E0'
   },
   {
     id: 'f5722681-7fea-4406-9385-9257015d5505',
@@ -517,7 +226,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: 'secondary.light'
+    markerColor: '#B9E9E0'
   },
   {
     id: '1cc3bbcd-aff8-475b-9f46-6ce91681c2dc',
@@ -531,7 +240,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: 'secondary.light'
+    markerColor: '#B9E9E0'
   },
   {
     id: '80b66527-8b45-4765-9ae1-88d21e3444ab',
@@ -545,7 +254,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: 'secondary.light'
+    markerColor: '#B9E9E0'
   },
   {
     id: 'f51ba7a4-da9a-44ce-ba07-a0ed1ebb51b7',
@@ -575,34 +284,7 @@ export const mockEvents: CalendarEventType[] = [
     opacity: 0.3,
     markerColor: ''
   },
-  {
-    id: 'a3945df2-3f3e-427a-8e9b-9e8464e04f8a',
-    title: 'Temp Client',
-    start: '2023-05-19T07:00:00',
-    end: '2023-05-19T22:00:00',
-    type: 'client_availability',
-    overlapping: 0,
-    position: '0%',
-    width: '50%',
-    color: '#F4511E',
-    textColor: '#FFFFFF',
-    opacity: 0.3,
-    markerColor: ''
-  },
-  {
-    id: 'c9b81326-9e54-4b2c-9a20-1bdf086d9451',
-    title: 'Temp Client & Stanley Mack',
-    start: '2023-05-19T07:00:00',
-    end: '2023-05-19T08:00:00',
-    type: 'client_appointment',
-    overlapping: 1,
-    position: '8%',
-    width: '42%',
-    color: '#F4511E',
-    textColor: '#FFFFFF',
-    opacity: 0.8,
-    markerColor: 'secondary.light'
-  },
+
   {
     id: '90aa59e8-5481-443c-ad8a-c9bcd5d343e4',
     title: 'Temp Client & Stephanie Thompson',
@@ -615,7 +297,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: 'secondary.light'
+    markerColor: '#B9E9E0'
   },
   {
     id: '9440385f-eedf-42af-8776-12fbcf9a2d1f',
@@ -629,7 +311,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: 'secondary.light'
+    markerColor: '#B9E9E0'
   },
   {
     id: '070d0f2f-9174-4f54-8c2a-3e20efb9a0a9',
@@ -643,50 +325,9 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: 'secondary.light'
+    markerColor: '#B9E9E0'
   },
-  {
-    id: 'cf26166a-6696-483c-972a-7290b5cdf962',
-    title: 'Dakota Roman',
-    start: '2023-05-19T16:30:00',
-    end: '2023-05-19T22:00:00',
-    type: 'member_availability',
-    overlapping: 0,
-    position: '50%',
-    width: '50%',
-    color: '#C0CA33',
-    textColor: '#1F1F1F',
-    opacity: 0.3,
-    markerColor: ''
-  },
-  {
-    id: 'c2f9dc04-69c3-4df5-bf37-f7021e58213f',
-    title: 'Dakota Roman',
-    start: '2023-05-19T07:00:00',
-    end: '2023-05-19T16:00:00',
-    type: 'member_availability',
-    overlapping: 0,
-    position: '50%',
-    width: '50%',
-    color: '#C0CA33',
-    textColor: '#1F1F1F',
-    opacity: 0.3,
-    markerColor: ''
-  },
-  {
-    id: '241f2746-f9e7-4960-9e2a-b07f3c97874c',
-    title: 'Temp Client',
-    start: '2023-05-20T07:00:00',
-    end: '2023-05-20T22:00:00',
-    type: 'client_availability',
-    overlapping: 0,
-    position: '0%',
-    width: '50%',
-    color: '#F4511E',
-    textColor: '#FFFFFF',
-    opacity: 0.3,
-    markerColor: ''
-  },
+
   {
     id: '2609da7f-35a5-4b16-bd0a-7c3b3f23f25f',
     title: 'Temp Client & Amy Smith',
@@ -699,22 +340,9 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: 'secondary.light'
+    markerColor: '#B9E9E0'
   },
-  {
-    id: '4c26e015-cc67-4d28-95ed-dc02109b5019',
-    title: 'Dakota Roman',
-    start: '2023-05-20T16:30:00',
-    end: '2023-05-20T22:00:00',
-    type: 'member_availability',
-    overlapping: 0,
-    position: '50%',
-    width: '50%',
-    color: '#C0CA33',
-    textColor: '#1F1F1F',
-    opacity: 0.3,
-    markerColor: ''
-  },
+
   {
     id: '08de6b94-de55-4618-a118-bcc0e5930c84',
     title: 'Dakota Roman',
@@ -757,20 +385,7 @@ export const mockEvents: CalendarEventType[] = [
     opacity: 0.3,
     markerColor: ''
   },
-  {
-    id: 'fc1ea4af-72b6-461e-b86e-f3a3668aad51',
-    title: 'Dakota Roman',
-    start: '2023-05-21T07:00:00',
-    end: '2023-05-21T16:00:00',
-    type: 'member_availability',
-    overlapping: 0,
-    position: '50%',
-    width: '50%',
-    color: '#C0CA33',
-    textColor: '#1F1F1F',
-    opacity: 0.3,
-    markerColor: ''
-  },
+
   {
     id: 'ad58fa12-9850-47b0-9a8a-da6d80c60b8f',
     title: 'Dakota Roman & $$$Do not touch this client',
@@ -783,20 +398,6 @@ export const mockEvents: CalendarEventType[] = [
     color: '#C0CA33',
     textColor: '#1F1F1F',
     opacity: 0.8,
-    markerColor: 'success.main'
-  },
-  {
-    id: 'bb27ab0f-aa8d-46d3-a503-a49afff2570a',
-    title: 'Dakota Roman & Ralph Peterson',
-    start: '2023-05-21T10:00:00',
-    end: '2023-05-21T22:00:00',
-    type: 'member_appointment',
-    overlapping: 2,
-    position: '66%',
-    width: '34%',
-    color: '#C0CA33',
-    textColor: '#1F1F1F',
-    opacity: 0.8,
-    markerColor: 'secondary.light'
+    markerColor: '#006C73'
   }
 ]

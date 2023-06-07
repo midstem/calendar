@@ -1,6 +1,5 @@
 import { FunctionComponent } from 'react'
 import { Duration } from 'date-fns'
-import { Theme } from '@mui/material'
 
 export enum Views {
   DAY = 'day',
@@ -77,13 +76,4 @@ export type EventComponentProps = {
   event: CalendarEventType
   isSelected: boolean
   onClick?: (data: string) => void
-}
-
-export interface MUITheme extends Theme {
-  sidebar: {
-    width: number | string
-  }
-  header: {
-    height: number | string
-  }
 }

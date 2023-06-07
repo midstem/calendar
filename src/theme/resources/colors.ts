@@ -15,6 +15,7 @@ const colors = {
   // GREY
   eerieBlack: '#1F1F1F',
   dimGrey: '#585858',
+  lightBlack: '#0000008a',
   grey: '#BCBCBC',
   whiteSmoke: '#F4F4F4',
 
