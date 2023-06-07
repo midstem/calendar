@@ -8,15 +8,16 @@ import {
   addWeeks
 } from 'date-fns'
 
-import { CalendarEventType, Views, WeekRowsType } from '../../types'
+import { CalendarEventType, WeekRowsType } from '../../types'
 import {
   DAY_IN_HOURS,
   DaysOfTheWeek,
   END_DAY,
   MERIDIEM,
   START_DAY,
-  dateFormat,
-  daysOfWeek
+  DateFormat,
+  daysOfWeek,
+  Views
 } from '../../constants'
 
 export const getStartOfWeek = (date: Date | number) =>
@@ -47,11 +48,11 @@ export const generateCalendarWeekRows = (
     const startEvent = new Date(start)
     const endEvent = new Date(end)
     const dayIndex = daysOfWeek.indexOf(
-      format(startEvent, dateFormat.DAY_LONG) as DaysOfTheWeek
+      format(startEvent, DateFormat.DAY_LONG) as DaysOfTheWeek
     )
 
     const duration = intervalToDuration({ start: startEvent, end: endEvent })
-    const startTime = format(startEvent, dateFormat.HOUR)
+    const startTime = format(startEvent, DateFormat.HOUR)
     const currentDateTime = startEvent.getTime()
 
     const isVlid = currentDateTime >= startWeek && currentDateTime <= endWeek

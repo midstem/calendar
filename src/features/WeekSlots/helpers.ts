@@ -1,10 +1,10 @@
 import { addDays } from 'date-fns'
 import { format } from 'date-fns'
 
-import { CELL_HEIGHT, HOUR_IN_MINUTES, dateFormat } from '../../constants'
+import { CELL_HEIGHT, HOUR_IN_MINUTES, DateFormat } from '../../constants'
 
 export const getStartPosition = (startDate: Date | string) => {
-  const minutes = format(addDays(new Date(startDate), 0), dateFormat.MINUTE)
+  const minutes = format(addDays(new Date(startDate), 0), DateFormat.MINUTE)
 
   return (CELL_HEIGHT / HOUR_IN_MINUTES) * +minutes
 }

@@ -14,12 +14,6 @@ export type IconsT = {
   size?: ValueOF<IconSizes>
 }
 
-export enum Views {
-  DAY = 'day',
-  WEEK = 'week',
-  MONTH = 'month'
-}
-
 export type WeekStartsOnType = 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined
 
 export type CalendarEventType = {

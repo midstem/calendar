@@ -1,7 +1,7 @@
 import { ChangeEvent, useCallback, useMemo, useState } from 'react'
 import { addDays, subDays, isBefore, isAfter } from 'date-fns'
 
-import { DAYS_IN_YEAR } from '../../constants'
+import { DAYS_IN_YEAR, Views } from '../../constants'
 import { UseCalendarProps } from './types'
 import {
   getEndOfWeek,
@@ -10,7 +10,6 @@ import {
   getPreviousDateRange,
   getNextDateRange
 } from './helpers'
-import { Views } from '../../types'
 
 export const useCalendar = ({
   currentDay,

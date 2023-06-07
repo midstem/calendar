@@ -5,13 +5,13 @@ export enum IconSizes {
 }
 
 export enum DaysOfTheWeek {
-  Mon = 'Monday',
-  Tue = 'Tuesday',
-  Wed = 'Wednesday',
-  Thu = 'Thursday',
-  Fri = 'Friday',
-  Sat = 'Saturday',
-  Sun = 'Sunday'
+  MON = 'Monday',
+  TUE = 'Tuesday',
+  WED = 'Wednesday',
+  THU = 'Thursday',
+  FRI = 'Friday',
+  SAT = 'Saturday',
+  SUN = 'Sunday'
 }
 
 export const CELL_HEIGHT = 60
@@ -20,7 +20,7 @@ export const EVENT_GAP = 2
 
 export const OVERLAP_STEP = 8
 
-export const dateFormat = {
+export const DateFormat = {
   MONTH_LONG: 'LLLL',
   MONTH_SHORT: 'LLL',
   DAY_LONG: 'EEEE',
@@ -58,3 +58,9 @@ export enum MERIDIEM {
 }
 
 export const HOUR_IN_MINUTES = 60
+
+export enum Views {
+  DAY = 'day',
+  WEEK = 'week',
+  MONTH = 'month'
+}

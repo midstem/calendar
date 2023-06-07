@@ -5,7 +5,7 @@ import { format } from 'date-fns'
 
 import IconButton from '../../components/IconButton'
 import WeekView from '../WeekView'
-import { dateFormat } from '../../constants'
+import { DateFormat, Views } from '../../constants'
 import { CalendarProps } from './types'
 import { useCalendar } from './useCalendar'
 import { mockEvents } from './mockData'
@@ -15,7 +15,6 @@ import RightArrow from '../../components/RightArrow'
 import LeftArrow from '../../components/LeftArrow'
 import Flex from '../../components/Flex'
 import colors from '../../theme/colors'
-import { Views } from '../../types'
 
 const Calendar = ({
   events = mockEvents,
@@ -73,9 +72,9 @@ const Calendar = ({
           </Flex>
 
           <Text sx={{ marginRight: 8 }}>
-            {format(startDate, dateFormat.MONTH_LONG)}
+            {format(startDate, DateFormat.MONTH_LONG)}
             {startDate.getMonth() !== endDate.getMonth() &&
-              `-${format(endDate, dateFormat.MONTH_LONG)}`}
+              `-${format(endDate, DateFormat.MONTH_LONG)}`}
           </Text>
 
           <Text>{currentYear}</Text>

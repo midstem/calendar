@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import { format, isSameDay } from 'date-fns'
 
-import { dateFormat } from '../../constants'
+import { DateFormat } from '../../constants'
 import IconButton from '../../components/IconButton'
 import colors from '../../theme/colors'
 
@@ -16,7 +16,7 @@ const WeekHeader = ({
   weekDays,
   selectedDay,
   onSelectDate,
-  formatOfDay = dateFormat.DAY_LONG
+  formatOfDay = DateFormat.DAY_LONG
 }: WeekHeaderProps) => {
   return (
     <>
@@ -39,7 +39,7 @@ const WeekHeader = ({
                 hoverBG={colors.powderBlue}
                 activeColor={colors.powderBlue}
               >
-                {format(day, dateFormat.DAY_NUMBER)}
+                {format(day, DateFormat.DAY_NUMBER)}
               </IconButton>
             </div>
           </div>

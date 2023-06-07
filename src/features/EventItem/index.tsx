@@ -1,6 +1,6 @@
 import { format } from 'date-fns'
 
-import { dateFormat } from '../../constants'
+import { DateFormat } from '../../constants'
 import { EventComponentProps } from '../../types'
 import { applyOpacity, isClientEvent } from './helpers'
 import Text from '../../components/Text'
@@ -43,8 +43,8 @@ const EventItem = ({
       </Flex>
       {isClientEvent(event.type) ? (
         <Text variant="caption" sx={{ fontWeight: 'bold', marginTop: 8 }}>
-          {format(new Date(event.start), dateFormat.MERIDIEM_TIME)} -{' '}
-          {format(new Date(event.end), dateFormat.MERIDIEM_TIME)}
+          {format(new Date(event.start), DateFormat.MERIDIEM_TIME)} -{' '}
+          {format(new Date(event.end), DateFormat.MERIDIEM_TIME)}
         </Text>
       ) : null}
     </Flex>
