@@ -1,5 +1,5 @@
 /* eslint-disable import/order */
-import { Box, Stack, Typography, Button, IconButton } from '@mui/material'
+import { Box, Stack } from '@mui/material'
 
 import '../../theme/resources/colors.css'
 import './styles.css'
@@ -7,12 +7,14 @@ import './styles.css'
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft'
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
 import { format } from 'date-fns'
-
+import IconButton from '../../components/IconButton'
 import WeekView from './WeekView'
-import { dateFormat } from './constants'
+import { colors, dateFormat } from './constants'
 import { Views, CalendarProps } from './types'
 import { useCalendar } from './useCalendar'
 import { mockEvents } from './mockData'
+import Button from '../Button'
+import Text from '../../components/Text'
 
 const Calendar = ({
   events = mockEvents,
@@ -47,36 +49,36 @@ const Calendar = ({
     <Stack m={2} spacing={2}>
       <Stack direction="row" justifyContent="space-between">
         <Stack direction="row" spacing={2} alignItems="center">
-          <Button variant="outlined" onClick={goToday}>
-            Today
-          </Button>
+          <Button onClick={goToday}>Today</Button>
           <Box sx={{ ml: 2 }}>
             <IconButton
-              size="small"
-              color="secondary"
+              isDisabled={isDisabledPrevious}
               onClick={previous}
-              disabled={isDisabledPrevious}
+              className="arrow-button"
+              outlined
+              hoverBG={colors.powderBlue}
             >
-              <KeyboardArrowLeftIcon />
+              <KeyboardArrowLeftIcon sx={{ color: colors.teal }} />
             </IconButton>
           </Box>
           <Box sx={{ ml: 2 }}>
             <IconButton
-              size="small"
-              color="secondary"
+              isDisabled={isDisabledNext}
               onClick={next}
-              disabled={isDisabledNext}
+              className="arrow-button"
+              outlined
+              hoverBG={colors.powderBlue}
             >
-              <KeyboardArrowRightIcon />
+              <KeyboardArrowRightIcon sx={{ color: colors.teal }} />
             </IconButton>
           </Box>
-
-          <Typography mr={1}>
+          <Text sx={{ marginRight: 8 }}>
             {format(startDate, dateFormat.MONTH_LONG)}
             {startDate.getMonth() !== endDate.getMonth() &&
               `-${format(endDate, dateFormat.MONTH_LONG)}`}
-          </Typography>
-          <Typography>{currentYear}</Typography>
+          </Text>
+
+          <Text>{currentYear}</Text>
         </Stack>
         <Stack direction="row">
           {/* <Select

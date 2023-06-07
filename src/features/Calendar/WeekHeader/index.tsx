@@ -1,9 +1,9 @@
 import { memo } from 'react'
-import { IconButton } from '@mui/material'
 import { format, isSameDay } from 'date-fns'
 
-import { dateFormat } from '../constants'
+import { colors, dateFormat } from '../constants'
 import { WeekHeaderProps } from '../types'
+import IconButton from '../../../components/IconButton'
 
 const WeekHeader = ({
   weekDays,
@@ -26,10 +26,10 @@ const WeekHeader = ({
                   height: '35px',
                   fontSize: '16px',
                   backgroundColor: isSameDay(day, selectedDay)
-                    ? 'secondary.light'
-                    : 'transparent',
-                  '&:hover': { backgroundColor: 'secondary.light' }
+                    ? colors.powderBlue
+                    : 'transparent'
                 }}
+                hoverBG="var(--powder-blue)"
               >
                 {format(day, dateFormat.DAY_NUMBER)}
               </IconButton>

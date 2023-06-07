@@ -1,0 +1,8 @@
+.icon-button {
+  border-radius: 50%;
+  color: var(--light-black);
+}
+
+.disabled-button svg {
+  fill: var(--grey);
+}
