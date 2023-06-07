@@ -1,11 +1,11 @@
-import '../../theme/resources/colors.css'
+import '../../theme/colors.css'
 import './styles.css'
 
 import { format } from 'date-fns'
 
 import IconButton from '../../components/IconButton'
-import WeekView from './WeekView'
-import { colors, dateFormat } from './constants'
+import WeekView from '../WeekView'
+import { dateFormat } from '../../constants'
 import { Views, CalendarProps } from './types'
 import { useCalendar } from './useCalendar'
 import { mockEvents } from './mockData'
@@ -14,6 +14,7 @@ import Text from '../../components/Text'
 import RightArrow from '../../components/RightArrow'
 import LeftArrow from '../../components/LeftArrow'
 import Flex from '../../components/Flex'
+import colors from '../../theme/colors'
 
 const Calendar = ({
   events = mockEvents,

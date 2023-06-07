@@ -1,4 +1,4 @@
-import { generateSlotsForDaysOfMonth } from '../helpers'
+import { generateSlotsForDaysOfMonth } from './helpers'
 
 const MonthSlots = ({ slotsData }: any) => {
   const currentDate = new Date()

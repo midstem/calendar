@@ -1,10 +1,10 @@
 import { format } from 'date-fns'
 
-import { dateFormat } from '../constants'
-import { EventComponentProps } from '../types'
-import { applyOpacity, isClientEvent } from '../helpers'
-import Text from '../../../components/Text'
-import Flex from '../../../components/Flex'
+import { dateFormat } from '../../constants'
+import { EventComponentProps } from '../../types'
+import { applyOpacity, isClientEvent } from './helpers'
+import Text from '../../components/Text'
+import Flex from '../../components/Flex'
 
 const EventItem = ({
   event,

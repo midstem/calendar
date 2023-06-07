@@ -1,9 +1,10 @@
 import { memo } from 'react'
 import { format, isSameDay } from 'date-fns'
 
-import { colors, dateFormat } from '../constants'
-import { WeekHeaderProps } from '../types'
-import IconButton from '../../../components/IconButton'
+import { dateFormat } from '../../constants'
+import { WeekHeaderProps } from '../../types'
+import IconButton from '../../components/IconButton'
+import colors from '../../theme/colors'
 
 const WeekHeader = ({
   weekDays,
