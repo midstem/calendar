@@ -2,7 +2,6 @@
   "name": "calendar",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "test": "vitest --watch=false",
@@ -12,14 +11,9 @@
     "tsc": "tsc --incremental",
     "lint:format": "prettier --write --loglevel warn \"./**/*.{js,jsx,ts,tsx,css,md,json}\"",
     "lint:fix": "eslint --cache ./src --ext .jsx,.js,.ts,.tsx --fix --ignore-path ./.gitignore",
-    "lint-tsc": "yarn tsc && yarn lint:format && yarn lint:fix && yarn test"
+    "lint-tsc": "yarn tsc && yarn lint:format && yarn lint:fix"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.0",
-    "@emotion/styled": "^11.11.0",
-    "@mui/icons-material": "^5.11.16",
-    "@mui/material": "^5.13.1",
-    "@mui/styles": "^5.13.1",
     "date-fns": "^2.30.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

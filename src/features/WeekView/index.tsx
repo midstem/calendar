@@ -3,9 +3,9 @@ import { format } from 'date-fns'
 
 import WeekHeader from '../WeekHeader'
 import WeekSlots from '../WeekSlots'
-import { dateFormat } from '../constants'
-import { getWeekDays } from '../helpers'
-import { WeekViewProps } from '../types'
+import { DateFormat } from '../../constants'
+import { getWeekDays } from './helpers'
+import { WeekViewProps } from './types'
 
 const WeekView = ({
   events,
@@ -24,8 +24,8 @@ const WeekView = ({
       weekDays.map((day) =>
         events.filter(
           (event) =>
-            format(new Date(event.start), dateFormat.YEAR_MONTH_DAY) ===
-            format(day, dateFormat.YEAR_MONTH_DAY)
+            format(new Date(event.start), DateFormat.YEAR_MONTH_DAY) ===
+            format(day, DateFormat.YEAR_MONTH_DAY)
         )
       ),
     [events, weekDays]

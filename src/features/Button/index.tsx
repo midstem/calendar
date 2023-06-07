@@ -2,7 +2,7 @@ import { CSSProperties, ReactNode } from 'react'
 
 import './styles.css'
 import { useButton } from './useButton'
-import colors from '../../theme/resources/colors'
+import colors from '../../theme/colors'
 
 type ButtonProps = {
   onClick?: () => void

@@ -1,10 +1,10 @@
-import { Stack, Box } from '@mui/material'
 import { format } from 'date-fns'
 
-import { dateFormat } from '../constants'
-import { EventComponentProps } from '../types'
-import { applyOpacity, isClientEvent } from '../helpers'
-import Text from '../../../components/Text'
+import { DateFormat } from '../../constants'
+import { EventComponentProps } from '../../types'
+import { applyOpacity, isClientEvent } from './helpers'
+import Text from '../../components/Text'
+import Flex from '../../components/Flex'
 
 const EventItem = ({
   event,
@@ -12,7 +12,8 @@ const EventItem = ({
   onClick = () => {}
 }: EventComponentProps): JSX.Element => {
   return (
-    <Stack
+    <Flex
+      direction="column"
       onClick={() => onClick(event.id)}
       className={`slot  ${isSelected && 'selected'}`}
       sx={{
@@ -24,29 +25,29 @@ const EventItem = ({
       }}
     >
       {event.markerColor && (
-        <Stack>
-          <Box
-            sx={{
+        <Flex direction="column">
+          <div
+            style={{
               width: '16px',
               height: '16px',
               borderRadius: '50%',
               backgroundColor: event.markerColor
             }}
           />
-        </Stack>
+        </Flex>
       )}
-      <Stack direction="row" flexWrap="wrap">
+      <Flex sx={{ flexWrap: 'wrap' }}>
         <Text variant="caption">
           {isClientEvent(event?.type) ? event.title : ''}
         </Text>
-      </Stack>
+      </Flex>
       {isClientEvent(event.type) ? (
         <Text variant="caption" sx={{ fontWeight: 'bold', marginTop: 8 }}>
-          {format(new Date(event.start), dateFormat.MERIDIEM_TIME)} -{' '}
-          {format(new Date(event.end), dateFormat.MERIDIEM_TIME)}
+          {format(new Date(event.start), DateFormat.MERIDIEM_TIME)} -{' '}
+          {format(new Date(event.end), DateFormat.MERIDIEM_TIME)}
         </Text>
       ) : null}
-    </Stack>
+    </Flex>
   )
 }
 

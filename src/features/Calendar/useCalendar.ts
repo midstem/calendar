@@ -1,8 +1,8 @@
 import { ChangeEvent, useCallback, useMemo, useState } from 'react'
 import { addDays, subDays, isBefore, isAfter } from 'date-fns'
 
-import { DAYS_IN_YEAR } from './constants'
-import { UseCalendarProps, Views } from './types'
+import { DAYS_IN_YEAR, Views } from '../../constants'
+import { UseCalendarProps } from './types'
 import {
   getEndOfWeek,
   getRenderRows,
@@ -50,9 +50,7 @@ export const useCalendar = ({
   )
 
   const handleClickEvent = useCallback(
-    (event?: string) => {
-      onClickEvent && onClickEvent(event)
-    },
+    (event?: string) => onClickEvent && onClickEvent(event),
     [onClickEvent]
   )
 
@@ -73,7 +71,7 @@ export const useCalendar = ({
 
     setSelectedDate(now)
     setCurrentDate(now)
-    onChangeDate && onChangeDate(getStartOfWeek(now), getEndOfWeek(now))
+    if (onChangeDate) onChangeDate(getStartOfWeek(now), getEndOfWeek(now))
   }, [onChangeDate])
 
   const selectDateHandler = useCallback((date: Date) => {

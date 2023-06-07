@@ -2,10 +2,15 @@ import { MouseEvent, useState } from 'react'
 
 type UseIconButtonT = {
   hoverBG: string
+  activeColor: string
   onClick: () => void
 }
 
-export const useIconButton = ({ hoverBG, onClick }: UseIconButtonT) => {
+export const useIconButton = ({
+  hoverBG,
+  onClick,
+  activeColor
+}: UseIconButtonT) => {
   const [previousBG, setPreviousBG] = useState<string>(hoverBG)
 
   const handleMouseOver = (event: MouseEvent<HTMLButtonElement>): void => {
@@ -18,8 +23,8 @@ export const useIconButton = ({ hoverBG, onClick }: UseIconButtonT) => {
     event.currentTarget.style.backgroundColor = previousBG
   }
 
-  const handleClick = (event: MouseEvent<HTMLButtonElement>): void => {
-    setPreviousBG(event.currentTarget.style.backgroundColor)
+  const handleClick = (): void => {
+    setPreviousBG(activeColor)
     onClick()
   }
 

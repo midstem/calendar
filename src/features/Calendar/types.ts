@@ -1,64 +1,6 @@
 import { FunctionComponent } from 'react'
-import { Duration } from 'date-fns'
-import { Theme } from '@mui/material'
 
-export enum Views {
-  DAY = 'day',
-  WEEK = 'week',
-  MONTH = 'month'
-}
-
-export type WeekStartsOnType = 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined
-
-export type CalendarEventType = {
-  id: string
-  title: string
-  start: string
-  end: string
-  overlapping?: number
-  type?: string
-  position?: string | number
-  width?: string
-  color?: string
-  textColor?: string
-  opacity?: number
-  markerColor?: string
-}
-
-export type WeekRowsType = {
-  time: string
-  cells: WeekCellType[][]
-}
-
-export type WeekCellType = CalendarEventType & {
-  duration?: Duration
-}
-
-export type WeekHeaderProps = {
-  weekDays: Date[]
-  selectedDay: Date
-  onSelectDate: (data: Date) => void
-  formatOfDay?: string
-}
-
-export type WeekSlotsProps = {
-  eventsByDay: WeekCellType[][]
-  renderRows: WeekRowsType[]
-  selectedEvent?: string
-  renderEventComponent?: FunctionComponent<EventComponentProps>
-  onClickEvent?: (data?: string) => void
-}
-
-export type WeekViewProps = {
-  events: WeekCellType[]
-  startDate: Date
-  selectedDate: Date
-  renderRows: WeekRowsType[]
-  selectDateHandler: (data: Date) => void
-  selectedEvent?: string
-  onClickEvent: (data?: string) => void
-  renderEventComponent?: FunctionComponent<EventComponentProps>
-}
+import { CalendarEventType, EventComponentProps } from '../../types'
 
 export type CalendarProps = {
   events?: CalendarEventType[]
@@ -71,19 +13,4 @@ export type CalendarProps = {
 
 export type UseCalendarProps = CalendarProps & {
   currentDay: Date
-}
-
-export type EventComponentProps = {
-  event: CalendarEventType
-  isSelected: boolean
-  onClick?: (data: string) => void
-}
-
-export interface MUITheme extends Theme {
-  sidebar: {
-    width: number | string
-  }
-  header: {
-    height: number | string
-  }
 }

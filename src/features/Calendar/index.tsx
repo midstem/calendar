@@ -1,20 +1,20 @@
-/* eslint-disable import/order */
-import { Box, Stack } from '@mui/material'
-
-import '../../theme/resources/colors.css'
+import '../../theme/colors.css'
 import './styles.css'
 
 import { format } from 'date-fns'
+
 import IconButton from '../../components/IconButton'
-import WeekView from './WeekView'
-import { colors, dateFormat } from './constants'
-import { Views, CalendarProps } from './types'
+import WeekView from '../WeekView'
+import { DateFormat, Views } from '../../constants'
+import { CalendarProps } from './types'
 import { useCalendar } from './useCalendar'
 import { mockEvents } from './mockData'
 import Button from '../Button'
 import Text from '../../components/Text'
 import RightArrow from '../../components/RightArrow'
 import LeftArrow from '../../components/LeftArrow'
+import Flex from '../../components/Flex'
+import colors from '../../theme/colors'
 
 const Calendar = ({
   events = mockEvents,
@@ -46,11 +46,11 @@ const Calendar = ({
   })
 
   return (
-    <Stack m={2} spacing={2}>
-      <Stack direction="row" justifyContent="space-between">
-        <Stack direction="row" spacing={2} alignItems="center">
+    <Flex direction="column" spacing={16} sx={{ margin: 16 }}>
+      <Flex justify="space-between">
+        <Flex align="center" spacing={16}>
           <Button onClick={goToday}>Today</Button>
-          <Box sx={{ ml: 2 }}>
+          <Flex spacing={16}>
             <IconButton
               isDisabled={isDisabledPrevious}
               onClick={previous}
@@ -60,8 +60,6 @@ const Calendar = ({
             >
               <LeftArrow color={colors.teal} />
             </IconButton>
-          </Box>
-          <Box sx={{ ml: 2 }}>
             <IconButton
               isDisabled={isDisabledNext}
               onClick={next}
@@ -71,16 +69,17 @@ const Calendar = ({
             >
               <RightArrow color={colors.teal} />
             </IconButton>
-          </Box>
+          </Flex>
+
           <Text sx={{ marginRight: 8 }}>
-            {format(startDate, dateFormat.MONTH_LONG)}
+            {format(startDate, DateFormat.MONTH_LONG)}
             {startDate.getMonth() !== endDate.getMonth() &&
-              `-${format(endDate, dateFormat.MONTH_LONG)}`}
+              `-${format(endDate, DateFormat.MONTH_LONG)}`}
           </Text>
 
           <Text>{currentYear}</Text>
-        </Stack>
-        <Stack direction="row">
+        </Flex>
+        <Flex>
           {/* <Select
             disableUnderline
             variant="standard"
@@ -92,8 +91,8 @@ const Calendar = ({
             <MenuItem value={Views.WEEK}>Week View</MenuItem>
             <MenuItem value={Views.MONTH}>Month View</MenuItem>
           </Select> */}
-        </Stack>
-      </Stack>
+        </Flex>
+      </Flex>
       <div className="calendar">
         {viewMode === Views.WEEK ? (
           <WeekView
@@ -108,7 +107,7 @@ const Calendar = ({
           />
         ) : null}
       </div>
-    </Stack>
+    </Flex>
   )
 }
 
