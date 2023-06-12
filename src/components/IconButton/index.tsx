@@ -2,6 +2,7 @@ import { CSSProperties, ReactNode } from 'react'
 
 import './styles.css'
 import Flex from '../Flex'
+
 import { useIconButton } from './useIconButton'
 
 type IconButtonProps = {
@@ -23,12 +24,12 @@ const IconButton = ({
   hoverBG = 'transparent',
   activeColor = 'transparent',
   outlined = false,
-  isDisabled = false
-}: IconButtonProps) => {
+  isDisabled = false,
+}: IconButtonProps): JSX.Element => {
   const { handleClick, handleMouseOut, handleMouseOver } = useIconButton({
     hoverBG,
     activeColor,
-    onClick
+    onClick,
   })
 
   return (

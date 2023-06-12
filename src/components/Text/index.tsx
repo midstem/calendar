@@ -2,6 +2,7 @@ import { CSSProperties, ReactNode } from 'react'
 
 import './styles.css'
 import { ValueOF } from '../../types'
+
 import { TextVariants } from './types'
 
 type TextProps = {

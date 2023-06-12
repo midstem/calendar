@@ -13,18 +13,16 @@
     "lint:fix": "eslint --cache ./src --ext .jsx,.js,.ts,.tsx --fix --ignore-path ./.gitignore",
     "lint-tsc": "yarn tsc && yarn lint:format && yarn lint:fix"
   },
-  "dependencies": {
+  "devDependencies": {
     "date-fns": "^2.30.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
+    "react-dom": "^18.2.0",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.57.1",
     "@vitejs/plugin-react": "^4.0.0",
-    "eslint": "^8.38.0",
+    "eslint": "^8.39.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-import-resolver-typescript": "^3.5.5",

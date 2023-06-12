@@ -1,6 +1,6 @@
 import { generateSlotsForDaysOfMonth } from './helpers'
 
-const MonthSlots = ({ slotsData }: any) => {
+const MonthSlots = ({ slotsData }: any): JSX.Element => {
   const currentDate = new Date()
   const currentMonth = currentDate.getMonth()
   const currentYear = currentDate.getFullYear()
@@ -11,7 +11,7 @@ const MonthSlots = ({ slotsData }: any) => {
     currentYear,
     daysInMonth,
     currentMonth,
-    slotsData
+    slotsData,
   )
 
   return (

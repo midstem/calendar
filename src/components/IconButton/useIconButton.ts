@@ -9,7 +9,7 @@ type UseIconButtonT = {
 export const useIconButton = ({
   hoverBG,
   onClick,
-  activeColor
+  activeColor,
 }: UseIconButtonT) => {
   const [previousBG, setPreviousBG] = useState<string>(hoverBG)
 

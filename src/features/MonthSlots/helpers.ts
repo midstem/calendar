@@ -2,14 +2,17 @@ export const generateSlotsForDaysOfMonth = (
   currentYear: any,
   daysInMonth: any,
   currentMonth: any,
-  slotsData: any
-) => {
+  slotsData: any,
+): {
+  slots: any
+  date: Date
+}[] => {
   const cells = Array.from({ length: daysInMonth }, (_, day) => ({
     date: new Date(currentYear, currentMonth, day + 1),
-    slots: []
+    slots: [],
   }))
 
-  const newCells = cells.map((cell) => {
+  const newCells = cells.map(cell => {
     const matchingSlotData = slotsData.find(({ date }: any) => {
       const slotDate = new Date(date)
 
@@ -23,7 +26,7 @@ export const generateSlotsForDaysOfMonth = (
     if (matchingSlotData) {
       return {
         ...cell,
-        slots: matchingSlotData.slots
+        slots: matchingSlotData.slots,
       }
     }
 

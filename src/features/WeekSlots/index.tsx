@@ -1,14 +1,15 @@
-import { EVENT_GAP } from '../../constants'
 import EventItem from '../EventItem'
-import { checkSelected, getBlockHeight, getStartPosition } from './helpers'
+import { EVENT_GAP } from '../../constants'
+
 import { WeekSlotsProps } from './types'
+import { checkSelected, getBlockHeight, getStartPosition } from './helpers'
 
 const WeekSlots = ({
   eventsByDay,
   renderRows,
   onClickEvent,
   selectedEvent,
-  renderEventComponent: Component = EventItem
+  renderEventComponent: Component = EventItem,
 }: WeekSlotsProps): JSX.Element => {
   return (
     <>
@@ -20,10 +21,10 @@ const WeekSlots = ({
 
             return (
               <div className="cell" key={`cell-${String(index)}`}>
-                {events.map((event) => {
+                {events.map(event => {
                   const isSelected = checkSelected(event.id, selectedEvent)
                   const eventIndex = dayEvents.findIndex(
-                    (day) => day.id === event.id
+                    day => day.id === event.id,
                   )
 
                   return (
@@ -39,7 +40,7 @@ const WeekSlots = ({
                           `calc(${100 / eventsByDay.length}% * ${eventIndex})`,
                         width:
                           event?.width ??
-                          `calc(${100 / eventsByDay.length}% - ${EVENT_GAP}px)`
+                          `calc(${100 / eventsByDay.length}% - ${EVENT_GAP}px)`,
                       }}
                     >
                       <Component

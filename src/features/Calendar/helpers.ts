@@ -5,7 +5,7 @@ import {
   intervalToDuration,
   startOfWeek,
   endOfWeek,
-  addWeeks
+  addWeeks,
 } from 'date-fns'
 
 import { CalendarEventType, WeekRowsType } from '../../types'
@@ -17,13 +17,13 @@ import {
   START_DAY,
   DateFormat,
   daysOfWeek,
-  Views
+  Views,
 } from '../../constants'
 
-export const getStartOfWeek = (date: Date | number) =>
+export const getStartOfWeek = (date: Date | number): Date =>
   addDays(startOfWeek(date, { weekStartsOn: 1 }), 0)
 
-export const getEndOfWeek = (date: Date | number) =>
+export const getEndOfWeek = (date: Date | number): Date =>
   addDays(endOfWeek(date, { weekStartsOn: 1 }), 0)
 
 export const generateEmptyWeekRows = (): WeekRowsType[] =>
@@ -33,14 +33,14 @@ export const generateEmptyWeekRows = (): WeekRowsType[] =>
 
     return {
       time: `${displayHour}:00 ${ampm}`,
-      cells: daysOfWeek.map(() => [])
+      cells: daysOfWeek.map(() => []),
     }
   })
 
 export const generateCalendarWeekRows = (
   events: CalendarEventType[],
   startWeek: number,
-  endWeek: number
+  endWeek: number,
 ): WeekRowsType[] => {
   const rows = generateEmptyWeekRows()
 
@@ -48,7 +48,7 @@ export const generateCalendarWeekRows = (
     const startEvent = new Date(start)
     const endEvent = new Date(end)
     const dayIndex = daysOfWeek.indexOf(
-      format(startEvent, DateFormat.DAY_LONG) as DaysOfTheWeek
+      format(startEvent, DateFormat.DAY_LONG) as DaysOfTheWeek,
     )
 
     const duration = intervalToDuration({ start: startEvent, end: endEvent })
@@ -62,7 +62,7 @@ export const generateCalendarWeekRows = (
         start,
         end,
         duration,
-        ...rest
+        ...rest,
       })
     }
   })
@@ -73,8 +73,8 @@ export const generateCalendarWeekRows = (
 export const updateCalendarRow = (
   rows: any[],
   index: number,
-  updatedRow: any
-) => {
+  updatedRow: any,
+): any[] => {
   const updatedCells = [...updatedRow.cells]
 
   return rows.map((row, i) => {
@@ -84,7 +84,7 @@ export const updateCalendarRow = (
 
     return {
       ...updatedRow,
-      cells: updatedCells
+      cells: updatedCells,
     }
   })
 }
@@ -93,8 +93,8 @@ export const getRenderRows = (
   start: Date,
   end: Date,
   viewMode: Views,
-  events: CalendarEventType[]
-) => {
+  events: CalendarEventType[],
+): WeekRowsType[] => {
   switch (viewMode) {
     case Views.WEEK: {
       return generateCalendarWeekRows(events, start.getTime(), end.getTime())
@@ -105,14 +105,20 @@ export const getRenderRows = (
   }
 }
 
-export const getPreviousDateRange = (currentDate: Date, viewMode: Views) => {
+export const getPreviousDateRange = (
+  currentDate: Date,
+  viewMode: Views,
+): {
+  startDate: Date
+  endDate: Date
+} => {
   switch (viewMode) {
     case Views.WEEK: {
       const previousDate = subWeeks(currentDate, 1)
 
       return {
         startDate: getStartOfWeek(previousDate),
-        endDate: getEndOfWeek(previousDate)
+        endDate: getEndOfWeek(previousDate),
       }
     }
     default: {
@@ -120,20 +126,26 @@ export const getPreviousDateRange = (currentDate: Date, viewMode: Views) => {
 
       return {
         startDate: now,
-        endDate: now
+        endDate: now,
       }
     }
   }
 }
 
-export const getNextDateRange = (currentDate: Date, viewMode: Views) => {
+export const getNextDateRange = (
+  currentDate: Date,
+  viewMode: Views,
+): {
+  startDate: Date
+  endDate: Date
+} => {
   switch (viewMode) {
     case Views.WEEK: {
       const nexDate = addWeeks(currentDate, 1)
 
       return {
         startDate: getStartOfWeek(nexDate),
-        endDate: getEndOfWeek(nexDate)
+        endDate: getEndOfWeek(nexDate),
       }
     }
     default: {
@@ -141,7 +153,7 @@ export const getNextDateRange = (currentDate: Date, viewMode: Views) => {
 
       return {
         startDate: now,
-        endDate: now
+        endDate: now,
       }
     }
   }

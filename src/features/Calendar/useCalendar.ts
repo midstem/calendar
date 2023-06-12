@@ -2,20 +2,21 @@ import { ChangeEvent, useCallback, useMemo, useState } from 'react'
 import { addDays, subDays, isBefore, isAfter } from 'date-fns'
 
 import { DAYS_IN_YEAR, Views } from '../../constants'
+
 import { UseCalendarProps } from './types'
 import {
   getEndOfWeek,
   getRenderRows,
   getStartOfWeek,
   getPreviousDateRange,
-  getNextDateRange
+  getNextDateRange,
 } from './helpers'
 
 export const useCalendar = ({
   currentDay,
   events = [],
   onClickEvent = () => {},
-  onChangeDate = () => {}
+  onChangeDate = () => {},
 }: UseCalendarProps) => {
   const [viewMode, setViewMode] = useState<Views>(Views.WEEK)
   const [currentDate, setCurrentDate] = useState<Date>(currentDay)
@@ -39,19 +40,19 @@ export const useCalendar = ({
 
   const renderRows = useMemo(
     () => getRenderRows(startDate, endDate, viewMode, events),
-    [endDate, events, startDate, viewMode]
+    [endDate, events, startDate, viewMode],
   )
 
   const handleChangeView = useCallback(
     ({ target: { value } }: ChangeEvent<{ value: Views }>) => {
       setViewMode(value)
     },
-    []
+    [],
   )
 
   const handleClickEvent = useCallback(
     (event?: string) => onClickEvent && onClickEvent(event),
-    [onClickEvent]
+    [onClickEvent],
   )
 
   const next = useCallback(() => {
@@ -71,6 +72,7 @@ export const useCalendar = ({
 
     setSelectedDate(now)
     setCurrentDate(now)
+
     if (onChangeDate) onChangeDate(getStartOfWeek(now), getEndOfWeek(now))
   }, [onChangeDate])
 
@@ -93,6 +95,6 @@ export const useCalendar = ({
     goToday,
     renderRows,
     isDisabledNext,
-    isDisabledPrevious
+    isDisabledPrevious,
   }
 }

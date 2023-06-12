@@ -8,5 +8,5 @@ export enum TextVariants {
   BODY1 = 'body1',
   BODY2 = 'body2',
   overline = 'overline',
-  CAPTION = 'caption'
+  CAPTION = 'caption',
 }
