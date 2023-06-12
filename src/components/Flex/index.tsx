@@ -19,7 +19,7 @@ const Flex = ({
   direction = 'row',
   align = 'normal',
   justify = 'normal',
-  spacing = 0
+  spacing = 0,
 }: FlexProps): JSX.Element => {
   return (
     <div
@@ -31,7 +31,7 @@ const Flex = ({
         alignItems: align,
         justifyContent: justify,
         gap: spacing,
-        ...sx
+        ...sx,
       }}
     >
       {children}

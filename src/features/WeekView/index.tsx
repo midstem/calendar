@@ -1,11 +1,12 @@
 import { memo, useMemo } from 'react'
 import { format } from 'date-fns'
 
-import WeekHeader from '../WeekHeader'
 import WeekSlots from '../WeekSlots'
+import WeekHeader from '../WeekHeader'
 import { DateFormat } from '../../constants'
-import { getWeekDays } from './helpers'
+
 import { WeekViewProps } from './types'
+import { getWeekDays } from './helpers'
 
 const WeekView = ({
   events,
@@ -15,20 +16,20 @@ const WeekView = ({
   selectedEvent,
   onClickEvent,
   renderRows,
-  renderEventComponent
+  renderEventComponent,
 }: WeekViewProps): JSX.Element => {
   const weekDays = useMemo(() => getWeekDays(startDate), [startDate])
 
   const eventsByDay = useMemo(
     () =>
-      weekDays.map((day) =>
+      weekDays.map(day =>
         events.filter(
-          (event) =>
+          event =>
             format(new Date(event.start), DateFormat.YEAR_MONTH_DAY) ===
-            format(day, DateFormat.YEAR_MONTH_DAY)
-        )
+            format(day, DateFormat.YEAR_MONTH_DAY),
+        ),
       ),
-    [events, weekDays]
+    [events, weekDays],
   )
 
   return (

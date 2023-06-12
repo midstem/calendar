@@ -22,7 +22,7 @@ export const useButton = () => {
     const newRipple = {
       x: offsetX - radius,
       y: offsetY - radius,
-      size: radius * 2
+      size: radius * 2,
     }
 
     setRipples([...ripples, newRipple])

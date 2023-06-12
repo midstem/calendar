@@ -13,7 +13,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: '#B9E9E0'
+    markerColor: '#B9E9E0',
   },
   {
     id: 'c0e982c0-c152-4930-8aae-b2a9b334052b',
@@ -27,7 +27,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: '#B9E9E0'
+    markerColor: '#B9E9E0',
   },
   {
     id: '14e19a7b-997b-4264-a88d-ddc706d1ac70',
@@ -41,7 +41,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: '#B9E9E0'
+    markerColor: '#B9E9E0',
   },
   {
     id: 'fe4ce757-8590-4310-864d-f418b7c9a554',
@@ -55,7 +55,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: '#B9E9E0'
+    markerColor: '#B9E9E0',
   },
   {
     id: '29af7782-5383-4a05-8d7a-ec402d6c9e47',
@@ -69,7 +69,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: '#B9E9E0'
+    markerColor: '#B9E9E0',
   },
   {
     id: '2c256c4a-1437-41c9-a133-44ee5419d208',
@@ -83,7 +83,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: '#B9E9E0'
+    markerColor: '#B9E9E0',
   },
 
   {
@@ -98,7 +98,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.3,
-    markerColor: ''
+    markerColor: '',
   },
 
   {
@@ -113,7 +113,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: '#B9E9E0'
+    markerColor: '#B9E9E0',
   },
   {
     id: '3db62b4c-ab38-43bd-a69e-e8884ae48bbc',
@@ -127,7 +127,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: '#B9E9E0'
+    markerColor: '#B9E9E0',
   },
   {
     id: '81cac69e-9da8-43b1-8765-9cec7aceafbc',
@@ -141,7 +141,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: '#B9E9E0'
+    markerColor: '#B9E9E0',
   },
 
   {
@@ -156,7 +156,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: '#B9E9E0'
+    markerColor: '#B9E9E0',
   },
   {
     id: 'db55ba3e-e567-4068-bb59-4ec668f7a5dc',
@@ -170,7 +170,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: '#B9E9E0'
+    markerColor: '#B9E9E0',
   },
   {
     id: '6484589e-c4f8-4461-93e4-d586fa64d594',
@@ -184,7 +184,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: '#B9E9E0'
+    markerColor: '#B9E9E0',
   },
   {
     id: 'a2486130-f4a7-4929-b842-9c2d070b77a3',
@@ -198,7 +198,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: '#B9E9E0'
+    markerColor: '#B9E9E0',
   },
   {
     id: '90b7c37c-ff28-460b-bed5-5b9e2dea0e08',
@@ -212,7 +212,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: '#B9E9E0'
+    markerColor: '#B9E9E0',
   },
   {
     id: 'f5722681-7fea-4406-9385-9257015d5505',
@@ -226,7 +226,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: '#B9E9E0'
+    markerColor: '#B9E9E0',
   },
   {
     id: '1cc3bbcd-aff8-475b-9f46-6ce91681c2dc',
@@ -240,7 +240,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: '#B9E9E0'
+    markerColor: '#B9E9E0',
   },
   {
     id: '80b66527-8b45-4765-9ae1-88d21e3444ab',
@@ -254,7 +254,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: '#B9E9E0'
+    markerColor: '#B9E9E0',
   },
   {
     id: 'f51ba7a4-da9a-44ce-ba07-a0ed1ebb51b7',
@@ -268,7 +268,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#C0CA33',
     textColor: '#1F1F1F',
     opacity: 0.3,
-    markerColor: ''
+    markerColor: '',
   },
   {
     id: '7649b7dc-e03d-443a-870c-8d34237eafa5',
@@ -282,7 +282,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#C0CA33',
     textColor: '#1F1F1F',
     opacity: 0.3,
-    markerColor: ''
+    markerColor: '',
   },
 
   {
@@ -297,7 +297,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: '#B9E9E0'
+    markerColor: '#B9E9E0',
   },
   {
     id: '9440385f-eedf-42af-8776-12fbcf9a2d1f',
@@ -311,7 +311,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: '#B9E9E0'
+    markerColor: '#B9E9E0',
   },
   {
     id: '070d0f2f-9174-4f54-8c2a-3e20efb9a0a9',
@@ -325,7 +325,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: '#B9E9E0'
+    markerColor: '#B9E9E0',
   },
 
   {
@@ -340,7 +340,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    markerColor: '#B9E9E0'
+    markerColor: '#B9E9E0',
   },
 
   {
@@ -355,7 +355,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#C0CA33',
     textColor: '#1F1F1F',
     opacity: 0.3,
-    markerColor: ''
+    markerColor: '',
   },
   {
     id: '98f6c30c-a95e-4794-b2ee-5c0143cbe0b5',
@@ -369,7 +369,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.3,
-    markerColor: ''
+    markerColor: '',
   },
   {
     id: '868ffe1d-42c1-42d9-afe0-37a97f315ca2',
@@ -383,7 +383,7 @@ export const mockEvents: CalendarEventType[] = [
     color: '#C0CA33',
     textColor: '#1F1F1F',
     opacity: 0.3,
-    markerColor: ''
+    markerColor: '',
   },
 
   {
@@ -398,6 +398,6 @@ export const mockEvents: CalendarEventType[] = [
     color: '#C0CA33',
     textColor: '#1F1F1F',
     opacity: 0.8,
-    markerColor: '#006C73'
-  }
+    markerColor: '#006C73',
+  },
 ]

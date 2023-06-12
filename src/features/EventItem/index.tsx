@@ -1,15 +1,16 @@
 import { format } from 'date-fns'
 
-import { DateFormat } from '../../constants'
 import { EventComponentProps } from '../../types'
-import { applyOpacity, isClientEvent } from './helpers'
+import { DateFormat } from '../../constants'
 import Text from '../../components/Text'
 import Flex from '../../components/Flex'
+
+import { applyOpacity, isClientEvent } from './helpers'
 
 const EventItem = ({
   event,
   isSelected,
-  onClick = () => {}
+  onClick = () => {},
 }: EventComponentProps): JSX.Element => {
   return (
     <Flex
@@ -19,9 +20,9 @@ const EventItem = ({
       sx={{
         backgroundColor: applyOpacity(
           event?.color ?? '',
-          isSelected ? 1 : event?.opacity ?? 1
+          isSelected ? 1 : event?.opacity ?? 1,
         ),
-        color: event.textColor
+        color: event.textColor,
       }}
     >
       {event.markerColor && (
@@ -31,7 +32,7 @@ const EventItem = ({
               width: '16px',
               height: '16px',
               borderRadius: '50%',
-              backgroundColor: event.markerColor
+              backgroundColor: event.markerColor,
             }}
           />
         </Flex>

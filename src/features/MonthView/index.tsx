@@ -1,5 +1,5 @@
-import MonthHeader from '../MonthHeader'
 import MonthSlots from '../MonthSlots'
+import MonthHeader from '../MonthHeader'
 
 const MonthView = ({ events }: any): JSX.Element => {
   return (

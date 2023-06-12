@@ -8,6 +8,7 @@
     },
     "project": "tsconfig.json"
   },
+  "ignorePatterns": ["*.mjs", "*.config.*", "use*/"],
   "plugins": ["@typescript-eslint", "prettier", "react", "import"],
   "extends": [
     "airbnb-typescript/base",
@@ -23,17 +24,69 @@
     "react/jsx-curly-brace-presence": ["error", "never"],
     "import/newline-after-import": "error",
     "newline-before-return": "error",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "prefer-destructuring": ["error", { "array": true, "object": true }],
     "padding-line-between-statements": [
       "error",
       { "blankLine": "always", "prev": "*", "next": "export" },
-      { "blankLine": "always", "prev": "export", "next": "*" }
+      { "blankLine": "always", "prev": "export", "next": "*" },
+      { "blankLine": "always", "prev": "*", "next": "if" },
+      { "blankLine": "always", "prev": "if", "next": "*" }
     ],
     "import/order": [
       "error",
-      { "newlines-between": "always", "groups": ["builtin", "external"] }
-    ],
-    "prefer-destructuring": ["error", { "array": true, "object": true }]
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index"
+        ],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "desc",
+          "caseInsensitive": true
+        },
+        "pathGroups": [
+          {
+            "pattern": "src/*",
+            "group": "internal"
+          },
+          {
+            "pattern": "src/*/*",
+            "group": "parent"
+          },
+          {
+            "pattern": "src/*/*/*",
+            "group": "sibling"
+          },
+          {
+            "pattern": "src/*/*/**",
+            "group": "index"
+          }
+        ]
+      }
+    ]
   },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "excludedFiles": ["use*.ts"],
+      "rules": {
+        "@typescript-eslint/explicit-function-return-type": [
+          "error",
+          {
+            "allowExpressions": true,
+            "allowTypedFunctionExpressions": true,
+            "allowHigherOrderFunctions": true
+          }
+        ]
+      }
+    }
+  ],
   "settings": {
     "import/resolver": {
       "typescript": {}

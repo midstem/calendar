@@ -1,7 +1,7 @@
 export enum IconSizes {
   small = '1rem',
   middle = '1.5rem',
-  large = '2rem'
+  large = '2rem',
 }
 
 export enum DaysOfTheWeek {
@@ -11,7 +11,7 @@ export enum DaysOfTheWeek {
   THU = 'Thursday',
   FRI = 'Friday',
   SAT = 'Saturday',
-  SUN = 'Sunday'
+  SUN = 'Sunday',
 }
 
 export const CELL_HEIGHT = 60
@@ -30,7 +30,7 @@ export const DateFormat = {
   MERIDIEM_TIME: 'hh:mm a',
   MINUTE: 'mm',
   YEAR_MONTH_DAY: 'yyyy-LLLL-dd',
-  DATE: 'yyyy-MM-dd'
+  DATE: 'yyyy-MM-dd',
 }
 
 export const DAYS_IN_YEAR = 365
@@ -49,12 +49,12 @@ export enum CalendarSlotType {
   MEMBER_AVAILABILITY = 'member_availability',
   CLIENT_AVAILABILITY = 'client_availability',
   MEMBER_APPOINTMENT = 'member_appointment',
-  CLIENT_APPOINTMENT = 'client_appointment'
+  CLIENT_APPOINTMENT = 'client_appointment',
 }
 
 export enum MERIDIEM {
   BEFORE_MIDDAY = 'AM',
-  AFTER_MIDDAY = 'PM'
+  AFTER_MIDDAY = 'PM',
 }
 
 export const HOUR_IN_MINUTES = 60
@@ -62,5 +62,5 @@ export const HOUR_IN_MINUTES = 60
 export enum Views {
   DAY = 'day',
   WEEK = 'week',
-  MONTH = 'month'
+  MONTH = 'month',
 }

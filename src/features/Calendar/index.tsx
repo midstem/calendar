@@ -3,18 +3,19 @@ import './styles.css'
 
 import { format } from 'date-fns'
 
-import IconButton from '../../components/IconButton'
 import WeekView from '../WeekView'
-import { DateFormat, Views } from '../../constants'
-import { CalendarProps } from './types'
-import { useCalendar } from './useCalendar'
-import { mockEvents } from './mockData'
 import Button from '../Button'
+import colors from '../../theme/colors'
+import { DateFormat, Views } from '../../constants'
 import Text from '../../components/Text'
 import RightArrow from '../../components/RightArrow'
 import LeftArrow from '../../components/LeftArrow'
+import IconButton from '../../components/IconButton'
 import Flex from '../../components/Flex'
-import colors from '../../theme/colors'
+
+import { useCalendar } from './useCalendar'
+import { CalendarProps } from './types'
+import { mockEvents } from './mockData'
 
 const Calendar = ({
   events = mockEvents,
@@ -22,7 +23,7 @@ const Calendar = ({
   currentDay = new Date(),
   selectedEvent,
   onChangeDate = () => {},
-  renderEventComponent
+  renderEventComponent,
 }: CalendarProps): JSX.Element => {
   const {
     viewMode,
@@ -37,12 +38,12 @@ const Calendar = ({
     selectDateHandler,
     goToday,
     isDisabledNext,
-    isDisabledPrevious
+    isDisabledPrevious,
   } = useCalendar({
     currentDay: new Date(currentDay),
     events,
     onClickEvent,
-    onChangeDate
+    onChangeDate,
   })
 
   return (

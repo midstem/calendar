@@ -1,8 +1,9 @@
 import { CSSProperties, ReactNode } from 'react'
 
 import './styles.css'
-import { useButton } from './useButton'
 import colors from '../../theme/colors'
+
+import { useButton } from './useButton'
 
 type ButtonProps = {
   onClick?: () => void
@@ -17,7 +18,7 @@ const Button = ({
   children,
   className = '',
   sx = {},
-  rippleColor = colors.transparentGreen
+  rippleColor = colors.transparentGreen,
 }: ButtonProps): JSX.Element => {
   const { handleClick, ripples } = useButton()
 
@@ -25,7 +26,7 @@ const Button = ({
     <button
       style={sx}
       className={`button ${className}`}
-      onClick={(event) => {
+      onClick={event => {
         onClick()
         handleClick(event)
       }}
@@ -40,7 +41,7 @@ const Button = ({
             left: ripple.x,
             width: ripple.size,
             height: ripple.size,
-            background: rippleColor
+            background: rippleColor,
           }}
         ></div>
       ))}
