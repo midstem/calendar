@@ -1,9 +1,6 @@
-import { CSSProperties, ReactNode } from 'react'
+import { ReactChildrenT } from 'src/types'
 
-export type IconButtonProps = {
-  children: ReactNode
-  sx?: CSSProperties
-  className?: string
+export type IconButtonProps = ReactChildrenT & {
   hoverBG?: string
   outlined?: boolean
   isDisabled?: boolean

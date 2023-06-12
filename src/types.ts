@@ -1,7 +1,13 @@
-import { CSSProperties } from 'react'
+import { CSSProperties, ReactNode } from 'react'
 import { Duration } from 'date-fns'
 
 import { IconSizes } from './constants'
+
+export type ReactChildrenT = {
+  children: ReactNode
+  sx?: CSSProperties
+  className?: string
+}
 
 export type ValueOF<T extends string> = `${T}`
 

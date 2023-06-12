@@ -1,9 +1,8 @@
-import { CSSProperties, ReactNode } from 'react'
+import { CSSProperties } from 'react'
 
-export type FlexProps = {
-  children: ReactNode
-  sx?: CSSProperties
-  className?: string
+import { ReactChildrenT } from 'src/types'
+
+export type FlexProps = ReactChildrenT & {
   direction?: CSSProperties['flexDirection']
   justify?: CSSProperties['justifyContent']
   align?: CSSProperties['alignItems']
