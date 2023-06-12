@@ -14,3 +14,8 @@ export type CalendarProps = {
 export type UseCalendarProps = CalendarProps & {
   currentDay: Date
 }
+
+export type DateRangeT = {
+  startDate: Date
+  endDate: Date
+}

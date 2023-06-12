@@ -20,6 +20,8 @@ import {
   Views,
 } from '../../constants'
 
+import { DateRangeT } from './types'
+
 export const getStartOfWeek = (date: Date | number): Date =>
   addDays(startOfWeek(date, { weekStartsOn: 1 }), 0)
 
@@ -70,24 +72,24 @@ export const generateCalendarWeekRows = (
   return rows.slice(START_DAY, END_DAY)
 }
 
-export const updateCalendarRow = (
-  rows: any[],
-  index: number,
-  updatedRow: any,
-): any[] => {
-  const updatedCells = [...updatedRow.cells]
+// export const updateCalendarRow = (
+//   rows: any[],
+//   index: number,
+//   updatedRow: any,
+// ): any[] => {
+//   const updatedCells = [...updatedRow.cells]
 
-  return rows.map((row, i) => {
-    if (i !== index) {
-      return row
-    }
+//   return rows.map((row, i) => {
+//     if (i !== index) {
+//       return row
+//     }
 
-    return {
-      ...updatedRow,
-      cells: updatedCells,
-    }
-  })
-}
+//     return {
+//       ...updatedRow,
+//       cells: updatedCells,
+//     }
+//   })
+// }
 
 export const getRenderRows = (
   start: Date,
@@ -108,10 +110,7 @@ export const getRenderRows = (
 export const getPreviousDateRange = (
   currentDate: Date,
   viewMode: Views,
-): {
-  startDate: Date
-  endDate: Date
-} => {
+): DateRangeT => {
   switch (viewMode) {
     case Views.WEEK: {
       const previousDate = subWeeks(currentDate, 1)
@@ -135,10 +134,7 @@ export const getPreviousDateRange = (
 export const getNextDateRange = (
   currentDate: Date,
   viewMode: Views,
-): {
-  startDate: Date
-  endDate: Date
-} => {
+): DateRangeT => {
   switch (viewMode) {
     case Views.WEEK: {
       const nexDate = addWeeks(currentDate, 1)

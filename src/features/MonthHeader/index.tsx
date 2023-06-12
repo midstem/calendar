@@ -1,4 +1,8 @@
-const MonthHeader = ({ slotsFirstDateInList }: any): JSX.Element => {
+import { MonthHeaderProps } from './types'
+
+const MonthHeader = ({
+  slotsFirstDateInList,
+}: MonthHeaderProps): JSX.Element => {
   const startDate = new Date(slotsFirstDateInList)
   const startMonth = startDate.toLocaleString('default', { month: 'long' })
   const endMonth = new Date(

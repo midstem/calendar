@@ -1,5 +1,4 @@
 import { CSSProperties } from 'react'
-import { FunctionComponent } from 'react'
 import { Duration } from 'date-fns'
 
 import { IconSizes } from './constants'
