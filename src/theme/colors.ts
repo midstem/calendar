@@ -20,7 +20,7 @@ const colors = {
   whiteSmoke: '#F4F4F4',
 
   outrageousOrange: '#F4511E',
-  fuego: '#C0CA33'
+  fuego: '#C0CA33',
 }
 
 export default colors

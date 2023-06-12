@@ -19,26 +19,26 @@ import { mockEvents } from './mockData'
 
 const Calendar = ({
   events = mockEvents,
-  onClickEvent = () => {},
   currentDay = new Date(),
   selectedEvent,
-  onChangeDate = () => {},
   renderEventComponent,
+  onClickEvent = () => {},
+  onChangeDate = () => {},
 }: CalendarProps): JSX.Element => {
   const {
     viewMode,
-    handleClickEvent,
     startDate,
     endDate,
     currentYear,
-    next,
-    previous,
     renderRows,
     selectedDate,
-    selectDateHandler,
-    goToday,
     isDisabledNext,
     isDisabledPrevious,
+    next,
+    previous,
+    handleClickEvent,
+    selectDateHandler,
+    goToday,
   } = useCalendar({
     currentDay: new Date(currentDay),
     events,

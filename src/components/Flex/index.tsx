@@ -1,15 +1,4 @@
-import { CSSProperties, ReactNode } from 'react'
-
-type FlexProps = {
-  children: ReactNode
-  sx?: CSSProperties
-  className?: string
-  onClick?: () => void
-  direction?: CSSProperties['flexDirection']
-  justify?: CSSProperties['justifyContent']
-  align?: CSSProperties['alignItems']
-  spacing?: CSSProperties['gap']
-}
+import { FlexProps } from './types'
 
 const Flex = ({
   children,

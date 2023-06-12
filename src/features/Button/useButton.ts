@@ -1,12 +1,7 @@
 import { MouseEvent, useRef, useState } from 'react'
 
+import { RippleT } from './types'
 import { ANIMATION_DURATION } from './constants'
-
-type RippleT = {
-  x: number
-  y: number
-  size: number
-}
 
 export const useButton = () => {
   const [ripples, setRipples] = useState<RippleT[]>([])
