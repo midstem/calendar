@@ -1,6 +1,6 @@
 import EventItem from '../EventItem'
-import { checkSelected, getBlockHeight, getStartPosition } from '../../helpers'
-import { EVENT_GAP } from '../../constants'
+import EventContainer from '../EventContainer'
+import { checkSelected } from '../../helpers'
 
 import { WeekSlotsProps } from './types'
 
@@ -28,27 +28,23 @@ const WeekSlots = ({
                   )
 
                   return (
-                    <div
-                      key={`${event.id}`}
-                      className={`slot-container ${isSelected && 'selected'} `}
-                      style={{
-                        zIndex: event?.overlapping ? event.overlapping + 1 : 1,
-                        top: `${getStartPosition(event.start)}px`,
-                        height: `${getBlockHeight(event?.duration)}px`,
-                        left:
-                          event?.position ??
-                          `calc(${100 / eventsByDay.length}% * ${eventIndex})`,
-                        width:
-                          event?.width ??
-                          `calc(${100 / eventsByDay.length}% - ${EVENT_GAP}px)`,
-                      }}
+                    <EventContainer
+                      key={event.id}
+                      index={eventIndex}
+                      overlapping={event?.overlapping}
+                      start={event.start}
+                      numberOfEvents={eventsByDay.length}
+                      width={event?.width}
+                      duration={event?.duration}
+                      isSelected={isSelected}
+                      position={event?.position}
                     >
                       <Component
                         event={event}
                         isSelected={isSelected}
                         onClick={onClickEvent}
                       />
-                    </div>
+                    </EventContainer>
                   )
                 })}
               </div>

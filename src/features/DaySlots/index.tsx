@@ -1,6 +1,7 @@
 import './styles.css'
 
 import EventItem from '../EventItem'
+import EventContainer from '../EventContainer'
 import { checkSelected, getBlockHeight, getStartPosition } from '../../helpers'
 import { EVENT_GAP } from '../../constants'
 
@@ -25,27 +26,23 @@ const DaySlots = ({
                   const isSelected = checkSelected(event.id, selectedEvent)
 
                   return (
-                    <div
-                      key={`${event.id}`}
-                      className={`slot-container ${isSelected && 'selected'} `}
-                      style={{
-                        zIndex: event?.overlapping ? event.overlapping + 1 : 1,
-                        top: `${getStartPosition(event.start)}px`,
-                        height: `${getBlockHeight(event?.duration)}px`,
-                        left:
-                          event?.position ??
-                          `calc(${100 / eventsByDay.length}% * ${index})`,
-                        width:
-                          event?.width ??
-                          `calc(${100 / eventsByDay.length}% - ${EVENT_GAP}px)`,
-                      }}
+                    <EventContainer
+                      key={event.id}
+                      index={index}
+                      overlapping={event?.overlapping}
+                      start={event.start}
+                      numberOfEvents={eventsByDay.length}
+                      width={event?.width}
+                      duration={event?.duration}
+                      isSelected={isSelected}
+                      position={event?.position}
                     >
                       <Component
                         event={event}
                         isSelected={isSelected}
                         onClick={onClickEvent}
                       />
-                    </div>
+                    </EventContainer>
                   )
                 })}
               </div>
