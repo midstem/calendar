@@ -67,3 +67,8 @@ export type HandleClicKOnCellT = {
   day: Date
   onClick: (time: string, day: Date) => void
 }
+
+export type UserEvents<EventT> = {
+  onClickEvent: (event: EventT) => void
+  onClickCell: (time: string, day: Date) => void
+}

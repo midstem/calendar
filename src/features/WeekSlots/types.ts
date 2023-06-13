@@ -1,13 +1,16 @@
 import { FunctionComponent } from 'react'
 
-import { EventComponentProps, WeekCellType, WeekRowsType } from '../../types'
+import {
+  EventComponentProps,
+  UserEvents,
+  WeekCellType,
+  WeekRowsType,
+} from '../../types'
 
-export type WeekSlotsProps = {
+export type WeekSlotsProps = UserEvents<WeekCellType> & {
   startDate: Date
   eventsByDay: WeekCellType[][]
   renderRows: WeekRowsType[]
   selectedEvent?: string
   renderEventComponent?: FunctionComponent<EventComponentProps>
-  onClickCell: (time: string, day: Date) => void
-  onClickEvent: (event: WeekCellType) => void
 }

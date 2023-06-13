@@ -1,13 +1,16 @@
 import { FunctionComponent } from 'react'
 
-import { DayCellType, DayRowsType, EventComponentProps } from '../../types'
+import {
+  DayCellType,
+  DayRowsType,
+  EventComponentProps,
+  UserEvents,
+} from '../../types'
 
-export type DayViewProps = {
+export type DayViewProps = UserEvents<DayCellType> & {
   events: DayCellType[]
   startDate: Date
   renderRows: DayRowsType[]
   selectedEvent?: string
-  onClickEvent: (event: DayCellType) => void
-  onClickCell: (time: string, day: Date) => void
   renderEventComponent?: FunctionComponent<EventComponentProps>
 }

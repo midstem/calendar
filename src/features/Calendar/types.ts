@@ -4,15 +4,14 @@ import {
   CalendarEventType,
   DayCellType,
   EventComponentProps,
+  UserEvents,
   WeekCellType,
 } from '../../types'
 
-export type CalendarProps = {
+export type CalendarProps = Partial<UserEvents<DayCellType | WeekCellType>> & {
   events?: CalendarEventType[]
   currentDay?: Date | string
   selectedEvent?: string
-  onClickEvent?: (event: DayCellType | WeekCellType) => void
-  onClickCell?: (time: string, day: Date) => void
   onChangeDate?: (start: Date, end: Date) => void
   renderEventComponent?: FunctionComponent<EventComponentProps>
 }
