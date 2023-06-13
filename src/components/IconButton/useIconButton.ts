@@ -1,10 +1,6 @@
 import { MouseEvent, useState } from 'react'
 
-type UseIconButtonT = {
-  hoverBG: string
-  activeColor: string
-  onClick: () => void
-}
+import { UseIconButtonT } from './types'
 
 export const useIconButton = ({
   hoverBG,

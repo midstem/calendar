@@ -5,12 +5,7 @@ import colors from '../../theme/colors'
 import { DateFormat } from '../../constants'
 import IconButton from '../../components/IconButton'
 
-type WeekHeaderProps = {
-  weekDays: Date[]
-  selectedDay: Date
-  onSelectDate: (data: Date) => void
-  formatOfDay?: string
-}
+import { WeekHeaderProps } from './types'
 
 const WeekHeader = ({
   weekDays,

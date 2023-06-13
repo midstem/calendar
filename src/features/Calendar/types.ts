@@ -26,3 +26,8 @@ export type RowsInfoT = {
   duration: Duration
   event: CalendarEventType
 }
+
+export type DateRangeT = {
+  startDate: Date
+  endDate: Date
+}

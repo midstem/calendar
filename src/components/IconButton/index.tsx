@@ -1,20 +1,8 @@
-import { CSSProperties, ReactNode } from 'react'
-
 import './styles.css'
 import Flex from '../Flex'
 
 import { useIconButton } from './useIconButton'
-
-type IconButtonProps = {
-  children: ReactNode
-  sx?: CSSProperties
-  className?: string
-  onClick?: () => void
-  hoverBG?: string
-  outlined?: boolean
-  isDisabled?: boolean
-  activeColor?: string
-}
+import { IconButtonProps } from './types'
 
 const IconButton = ({
   children,

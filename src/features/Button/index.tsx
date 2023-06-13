@@ -1,24 +1,15 @@
-import { CSSProperties, ReactNode } from 'react'
-
 import './styles.css'
 import colors from '../../theme/colors'
 
 import { useButton } from './useButton'
-
-type ButtonProps = {
-  onClick?: () => void
-  children: ReactNode
-  className?: string
-  sx?: CSSProperties
-  rippleColor?: string
-}
+import { ButtonProps } from './types'
 
 const Button = ({
-  onClick = () => {},
   children,
   className = '',
   sx = {},
   rippleColor = colors.transparentGreen,
+  onClick = () => {},
 }: ButtonProps): JSX.Element => {
   const { handleClick, ripples } = useButton()
 

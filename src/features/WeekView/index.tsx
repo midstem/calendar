@@ -12,11 +12,11 @@ const WeekView = ({
   events,
   startDate,
   selectedDate,
-  selectDateHandler,
   selectedEvent,
-  onClickEvent,
   renderRows,
   renderEventComponent,
+  onClickEvent,
+  selectDateHandler,
 }: WeekViewProps): JSX.Element => {
   const weekDays = useMemo(() => getWeekDays(startDate), [startDate])
 

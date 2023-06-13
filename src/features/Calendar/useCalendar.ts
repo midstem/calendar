@@ -20,7 +20,7 @@ export const useCalendar = ({
   onClickEvent = () => {},
   onChangeDate = () => {},
 }: UseCalendarProps) => {
-  const [viewMode, setViewMode] = useState<Views>(Views.WEEK)
+  const [viewMode, setViewMode] = useState<Views>(Views.DAY)
   const [currentDate, setCurrentDate] = useState<Date>(currentDay)
   const [selectedDate, setSelectedDate] = useState<Date>(new Date())
 

@@ -3,7 +3,7 @@ button {
   color: var(--teal);
   background-color: var(--white);
   padding: 8px 10px;
-  font-family: Byrd, Manrope;
+  font-family: Manrope, sans-serif;
   font-size: 14px;
   font-weight: bold;
   text-transform: uppercase;
