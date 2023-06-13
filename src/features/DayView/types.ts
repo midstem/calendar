@@ -7,6 +7,7 @@ export type DayViewProps = {
   startDate: Date
   renderRows: DayRowsType[]
   selectedEvent?: string
-  onClickEvent: (data?: string) => void
+  onClickEvent: (event: DayCellType) => void
+  onClickCell: (time: string, day: Date) => void
   renderEventComponent?: FunctionComponent<EventComponentProps>
 }

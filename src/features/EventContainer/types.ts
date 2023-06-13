@@ -9,4 +9,5 @@ export type EventContainerProps = ReactChildrenT & {
   width?: string
   index: number
   numberOfEvents: number
+  onClick: () => void
 }

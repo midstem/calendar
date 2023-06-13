@@ -2,14 +2,16 @@ import './styles.css'
 
 import EventItem from '../EventItem'
 import EventContainer from '../EventContainer'
-import { checkSelected } from '../../helpers'
+import { checkSelected, handleClicKOnCell } from '../../helpers'
 
 import { DaySlotsProps } from './types'
 
 const DaySlots = ({
+  day,
   eventsByDay,
   renderRows,
   onClickEvent,
+  onClickCell,
   selectedEvent,
   renderEventComponent: Component = EventItem,
 }: DaySlotsProps): JSX.Element => {
@@ -20,12 +22,19 @@ const DaySlots = ({
           <div className="cell time">{time}</div>
           {cells.map((events, index) => {
             return (
-              <div className="cell day-cell" key="cell">
+              <div
+                onClick={event =>
+                  handleClicKOnCell({ event, time, day, onClick: onClickCell })
+                }
+                className="cell day-cell"
+                key="cell"
+              >
                 {events.map(event => {
                   const isSelected = checkSelected(event.id, selectedEvent)
 
                   return (
                     <EventContainer
+                      onClick={() => onClickEvent(event)}
                       key={event.id}
                       index={index}
                       overlapping={event?.overlapping}
@@ -36,11 +45,7 @@ const DaySlots = ({
                       isSelected={isSelected}
                       position={event?.position}
                     >
-                      <Component
-                        event={event}
-                        isSelected={isSelected}
-                        onClick={onClickEvent}
-                      />
+                      <Component event={event} isSelected={isSelected} />
                     </EventContainer>
                   )
                 })}

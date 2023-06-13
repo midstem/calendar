@@ -9,6 +9,7 @@ export type WeekViewProps = {
   renderRows: WeekRowsType[]
   selectDateHandler: (data: Date) => void
   selectedEvent?: string
-  onClickEvent: (data?: string) => void
+  onClickEvent: (event: WeekCellType) => void
+  onClickCell: (time: string, day: Date) => void
   renderEventComponent?: FunctionComponent<EventComponentProps>
 }

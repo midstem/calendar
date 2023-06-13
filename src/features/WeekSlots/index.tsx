@@ -1,13 +1,19 @@
 import EventItem from '../EventItem'
 import EventContainer from '../EventContainer'
-import { checkSelected } from '../../helpers'
+import {
+  checkSelected,
+  getDateOfWeekday,
+  handleClicKOnCell,
+} from '../../helpers'
 
 import { WeekSlotsProps } from './types'
 
 const WeekSlots = ({
+  startDate,
   eventsByDay,
   renderRows,
   onClickEvent,
+  onClickCell,
   selectedEvent,
   renderEventComponent: Component = EventItem,
 }: WeekSlotsProps): JSX.Element => {
@@ -20,7 +26,18 @@ const WeekSlots = ({
             const dayEvents = eventsByDay[index]
 
             return (
-              <div className="cell" key={`cell-${String(index)}`}>
+              <div
+                className="cell"
+                onClick={event =>
+                  handleClicKOnCell({
+                    event,
+                    time,
+                    day: getDateOfWeekday(++index, startDate),
+                    onClick: onClickCell,
+                  })
+                }
+                key={`cell-${String(index)}`}
+              >
                 {events.map(event => {
                   const isSelected = checkSelected(event.id, selectedEvent)
                   const eventIndex = dayEvents.findIndex(
@@ -29,6 +46,7 @@ const WeekSlots = ({
 
                   return (
                     <EventContainer
+                      onClick={() => onClickEvent(event)}
                       key={event.id}
                       index={eventIndex}
                       overlapping={event?.overlapping}
@@ -39,11 +57,7 @@ const WeekSlots = ({
                       isSelected={isSelected}
                       position={event?.position}
                     >
-                      <Component
-                        event={event}
-                        isSelected={isSelected}
-                        onClick={onClickEvent}
-                      />
+                      <Component event={event} isSelected={isSelected} />
                     </EventContainer>
                   )
                 })}
