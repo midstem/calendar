@@ -37,9 +37,9 @@ export const DAYS_IN_YEAR = 365
 
 export const WEEK_DAYS = 7
 
-export const START_DAY = 7
+export const START_DAY = 0
 
-export const END_DAY = 22
+export const END_DAY = 24
 
 export const DAY_IN_HOURS = 24
 
