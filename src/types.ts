@@ -1,7 +1,16 @@
-import { CSSProperties } from 'react'
+import { CSSProperties, ReactNode } from 'react'
 import { Duration } from 'date-fns'
 
 import { IconSizes } from './constants'
+
+export type ReactChildrenT = {
+  children: ReactNode
+}
+
+export type CommonStylesT = {
+  sx?: CSSProperties
+  className?: string
+}
 
 export type ValueOF<T extends string> = `${T}`
 
@@ -27,7 +36,6 @@ export type CalendarEventType = {
   color?: string
   textColor?: string
   opacity?: number
-  markerColor?: string
 }
 
 export type WeekRowsType = {

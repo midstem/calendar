@@ -1,6 +1,4 @@
-import { CSSProperties, ReactNode } from 'react'
-
-import { ValueOF } from '../../types'
+import { CommonStylesT, ReactChildrenT, ValueOF } from '../../types'
 
 enum TextVariants {
   H1 = 'h1',
@@ -15,8 +13,7 @@ enum TextVariants {
   CAPTION = 'caption',
 }
 
-export type TextProps = {
-  children: ReactNode
-  sx?: CSSProperties
-  variant?: ValueOF<TextVariants> | ''
-}
+export type TextProps = ReactChildrenT &
+  CommonStylesT & {
+    variant?: ValueOF<TextVariants> | ''
+  }
