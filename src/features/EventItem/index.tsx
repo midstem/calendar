@@ -25,18 +25,6 @@ const EventItem = ({
         color: event.textColor,
       }}
     >
-      {event.markerColor && (
-        <Flex direction="column">
-          <div
-            style={{
-              width: '16px',
-              height: '16px',
-              borderRadius: '50%',
-              backgroundColor: event.markerColor,
-            }}
-          />
-        </Flex>
-      )}
       <Flex sx={{ flexWrap: 'wrap' }}>
         <Text variant="caption">
           {isClientEvent(event?.type) ? event.title : ''}

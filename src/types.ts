@@ -36,7 +36,6 @@ export type CalendarEventType = {
   color?: string
   textColor?: string
   opacity?: number
-  markerColor?: string
 }
 
 export type WeekRowsType = {
