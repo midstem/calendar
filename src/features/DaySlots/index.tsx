@@ -2,8 +2,7 @@ import './styles.css'
 
 import EventItem from '../EventItem'
 import EventContainer from '../EventContainer'
-import { checkSelected, getBlockHeight, getStartPosition } from '../../helpers'
-import { EVENT_GAP } from '../../constants'
+import { checkSelected } from '../../helpers'
 
 import { DaySlotsProps } from './types'
 

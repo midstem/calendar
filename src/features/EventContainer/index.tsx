@@ -1,5 +1,3 @@
-import './styles.css'
-
 import { getBlockHeight, getStartPosition } from '../../helpers'
 import { EVENT_GAP } from '../../constants'
 

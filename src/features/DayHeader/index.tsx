@@ -7,10 +7,7 @@ import Text from '../../components/Text'
 import IconButton from '../../components/IconButton'
 import Flex from '../../components/Flex'
 
-type DayHeaderProps = {
-  day: Date
-  formatOfDay?: string
-}
+import { DayHeaderProps } from './types'
 
 const DayHeader = ({
   day,
