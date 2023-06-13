@@ -1,31 +1,28 @@
+import './styles.css'
+
 import EventItem from '../EventItem'
 import { checkSelected, getBlockHeight, getStartPosition } from '../../helpers'
 import { EVENT_GAP } from '../../constants'
 
-import { WeekSlotsProps } from './types'
+import { DaySlotsProps } from './types'
 
-const WeekSlots = ({
+const DaySlots = ({
   eventsByDay,
   renderRows,
   onClickEvent,
   selectedEvent,
   renderEventComponent: Component = EventItem,
-}: WeekSlotsProps): JSX.Element => {
+}: DaySlotsProps): JSX.Element => {
   return (
     <>
       {renderRows.map(({ time, cells }) => (
         <div className="row" key={time}>
           <div className="cell time">{time}</div>
           {cells.map((events, index) => {
-            const dayEvents = eventsByDay[index]
-
             return (
-              <div className="cell" key={`cell-${String(index)}`}>
+              <div className="cell day-cell" key="cell">
                 {events.map(event => {
                   const isSelected = checkSelected(event.id, selectedEvent)
-                  const eventIndex = dayEvents.findIndex(
-                    day => day.id === event.id,
-                  )
 
                   return (
                     <div
@@ -37,7 +34,7 @@ const WeekSlots = ({
                         height: `${getBlockHeight(event?.duration)}px`,
                         left:
                           event?.position ??
-                          `calc(${100 / eventsByDay.length}% * ${eventIndex})`,
+                          `calc(${100 / eventsByDay.length}% * ${index})`,
                         width:
                           event?.width ??
                           `calc(${100 / eventsByDay.length}% - ${EVENT_GAP}px)`,
@@ -60,4 +57,4 @@ const WeekSlots = ({
   )
 }
 
-export default WeekSlots
+export default DaySlots

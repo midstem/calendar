@@ -4,6 +4,7 @@ import './styles.css'
 import { format } from 'date-fns'
 
 import WeekView from '../WeekView'
+import DayView from '../DayView'
 import Button from '../Button'
 import colors from '../../theme/colors'
 import { DateFormat, Views } from '../../constants'
@@ -106,7 +107,16 @@ const Calendar = ({
             onClickEvent={handleClickEvent}
             renderEventComponent={renderEventComponent}
           />
-        ) : null}
+        ) : (
+          <DayView
+            events={events}
+            renderRows={renderRows}
+            startDate={startDate}
+            selectedEvent={selectedEvent}
+            onClickEvent={handleClickEvent}
+            renderEventComponent={renderEventComponent}
+          />
+        )}
       </div>
     </Flex>
   )

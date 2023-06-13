@@ -1,5 +1,4 @@
 import { CSSProperties } from 'react'
-import { FunctionComponent } from 'react'
 import { Duration } from 'date-fns'
 
 import { IconSizes } from './constants'
@@ -36,9 +35,16 @@ export type WeekRowsType = {
   cells: WeekCellType[][]
 }
 
+export type DayRowsType = {
+  time: string
+  cells: DayCellType[][]
+}
+
 export type WeekCellType = CalendarEventType & {
   duration?: Duration
 }
+
+export type DayCellType = WeekCellType
 
 export type EventComponentProps = {
   event: CalendarEventType
