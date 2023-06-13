@@ -154,3 +154,13 @@ export const getNextDateRange = (
     }
   }
 }
+
+export const returnDayDate = (currentDate: Date, dayNumber: number): string => {
+  const currentWeekDay = currentDate.getDay()
+  const offset = dayNumber - currentWeekDay
+
+  const targetDate = new Date(currentDate)
+  targetDate.setDate(currentDate.getDate() + offset)
+
+  return targetDate.toISOString().substring(0, 10)
+}
