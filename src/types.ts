@@ -5,6 +5,9 @@ import { IconSizes } from './constants'
 
 export type ReactChildrenT = {
   children: ReactNode
+}
+
+export type CommonStylesT = {
   sx?: CSSProperties
   className?: string
 }

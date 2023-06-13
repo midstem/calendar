@@ -1,9 +1,10 @@
-import { ReactChildrenT } from 'src/types'
+import { CommonStylesT, ReactChildrenT } from 'src/types'
 
-export type ButtonProps = ReactChildrenT & {
-  rippleColor?: string
-  onClick?: () => void
-}
+export type ButtonProps = ReactChildrenT &
+  CommonStylesT & {
+    rippleColor?: string
+    onClick?: () => void
+  }
 
 export type RippleT = {
   x: number

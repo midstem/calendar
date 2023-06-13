@@ -1,4 +1,4 @@
-import { ReactChildrenT, ValueOF } from '../../types'
+import { CommonStylesT, ReactChildrenT, ValueOF } from '../../types'
 
 enum TextVariants {
   H1 = 'h1',
@@ -13,6 +13,7 @@ enum TextVariants {
   CAPTION = 'caption',
 }
 
-export type TextProps = ReactChildrenT & {
-  variant?: ValueOF<TextVariants> | ''
-}
+export type TextProps = ReactChildrenT &
+  CommonStylesT & {
+    variant?: ValueOF<TextVariants> | ''
+  }
