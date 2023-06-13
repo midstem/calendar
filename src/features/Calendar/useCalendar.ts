@@ -10,6 +10,8 @@ import {
   getStartOfWeek,
   getPreviousDateRange,
   getNextDateRange,
+  getStartDate,
+  getEndDate,
 } from './helpers'
 
 export const useCalendar = ({
@@ -18,13 +20,19 @@ export const useCalendar = ({
   onClickEvent = () => {},
   onChangeDate = () => {},
 }: UseCalendarProps) => {
-  const [viewMode, setViewMode] = useState<Views>(Views.WEEK)
+  const [viewMode, setViewMode] = useState<Views>(Views.DAY)
   const [currentDate, setCurrentDate] = useState<Date>(currentDay)
   const [selectedDate, setSelectedDate] = useState<Date>(new Date())
 
   const currentYear = useMemo(() => currentDate.getFullYear(), [currentDate])
-  const startDate = useMemo(() => getStartOfWeek(currentDate), [currentDate])
-  const endDate = useMemo(() => getEndOfWeek(currentDate), [currentDate])
+  const startDate = useMemo(
+    () => getStartDate(viewMode, currentDate),
+    [viewMode, currentDate],
+  )
+
+  const endDate = useMemo(() => {
+    return getEndDate(viewMode, currentDate)
+  }, [viewMode, currentDate])
 
   const isDisabledNext = useMemo(() => {
     const { endDate } = getNextDateRange(currentDate, viewMode)
@@ -57,6 +65,7 @@ export const useCalendar = ({
 
   const next = useCallback(() => {
     const { startDate, endDate } = getNextDateRange(currentDate, viewMode)
+
     setCurrentDate(startDate)
     onChangeDate(startDate, endDate)
   }, [currentDate, onChangeDate, viewMode])

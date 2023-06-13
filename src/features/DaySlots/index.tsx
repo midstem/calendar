@@ -1,36 +1,33 @@
+import './styles.css'
+
 import EventItem from '../EventItem'
 import EventContainer from '../EventContainer'
 import { checkSelected } from '../../helpers'
 
-import { WeekSlotsProps } from './types'
+import { DaySlotsProps } from './types'
 
-const WeekSlots = ({
+const DaySlots = ({
   eventsByDay,
   renderRows,
   onClickEvent,
   selectedEvent,
   renderEventComponent: Component = EventItem,
-}: WeekSlotsProps): JSX.Element => {
+}: DaySlotsProps): JSX.Element => {
   return (
     <>
       {renderRows.map(({ time, cells }) => (
         <div className="row" key={time}>
           <div className="cell time">{time}</div>
           {cells.map((events, index) => {
-            const dayEvents = eventsByDay[index]
-
             return (
-              <div className="cell" key={`cell-${String(index)}`}>
+              <div className="cell day-cell" key="cell">
                 {events.map(event => {
                   const isSelected = checkSelected(event.id, selectedEvent)
-                  const eventIndex = dayEvents.findIndex(
-                    day => day.id === event.id,
-                  )
 
                   return (
                     <EventContainer
                       key={event.id}
-                      index={eventIndex}
+                      index={index}
                       overlapping={event?.overlapping}
                       start={event.start}
                       numberOfEvents={eventsByDay.length}
@@ -56,4 +53,4 @@ const WeekSlots = ({
   )
 }
 
-export default WeekSlots
+export default DaySlots

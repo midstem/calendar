@@ -43,9 +43,18 @@ export type WeekRowsType = {
   cells: WeekCellType[][]
 }
 
-export type WeekCellType = CalendarEventType & {
+export type DayRowsType = {
+  time: string
+  cells: DayCellType[][]
+}
+
+type CellT = CalendarEventType & {
   duration?: Duration
 }
+
+export type WeekCellType = CellT
+
+export type DayCellType = CellT
 
 export type EventComponentProps = {
   event: CalendarEventType

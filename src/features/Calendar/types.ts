@@ -15,6 +15,18 @@ export type UseCalendarProps = CalendarProps & {
   currentDay: Date
 }
 
+export type HoursColumnT = {
+  time: string
+}
+
+export type RowsInfoT = {
+  startTime: string
+  startEvent: Date
+  currentDateTime: number
+  duration: Duration
+  event: CalendarEventType
+}
+
 export type DateRangeT = {
   startDate: Date
   endDate: Date

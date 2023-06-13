@@ -3,10 +3,9 @@ import './styles.css'
 
 import { format } from 'date-fns'
 
-import WeekView from '../WeekView'
 import Button from '../Button'
 import colors from '../../theme/colors'
-import { DateFormat, Views } from '../../constants'
+import { DateFormat } from '../../constants'
 import Text from '../../components/Text'
 import RightArrow from '../../components/RightArrow'
 import LeftArrow from '../../components/LeftArrow'
@@ -16,6 +15,7 @@ import Flex from '../../components/Flex'
 import { useCalendar } from './useCalendar'
 import { CalendarProps } from './types'
 import { mockEvents } from './mockData'
+import { VIEW_MODES } from './constants'
 
 const Calendar = ({
   events = mockEvents,
@@ -45,6 +45,8 @@ const Calendar = ({
     onClickEvent,
     onChangeDate,
   })
+
+  const View = VIEW_MODES[viewMode]
 
   return (
     <Flex direction="column" spacing={16} sx={{ margin: 16 }}>
@@ -95,18 +97,16 @@ const Calendar = ({
         </Flex>
       </Flex>
       <div className="calendar">
-        {viewMode === Views.WEEK ? (
-          <WeekView
-            events={events}
-            renderRows={renderRows}
-            startDate={startDate}
-            selectedDate={selectedDate}
-            selectedEvent={selectedEvent}
-            selectDateHandler={selectDateHandler}
-            onClickEvent={handleClickEvent}
-            renderEventComponent={renderEventComponent}
-          />
-        ) : null}
+        <View
+          events={events}
+          renderRows={renderRows}
+          startDate={startDate}
+          selectedDate={selectedDate}
+          selectedEvent={selectedEvent}
+          selectDateHandler={selectDateHandler}
+          onClickEvent={handleClickEvent}
+          renderEventComponent={renderEventComponent}
+        />
       </div>
     </Flex>
   )

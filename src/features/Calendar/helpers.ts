@@ -6,9 +6,12 @@ import {
   startOfWeek,
   endOfWeek,
   addWeeks,
+  subDays,
+  startOfDay,
+  endOfDay,
 } from 'date-fns'
 
-import { CalendarEventType, WeekRowsType } from '../../types'
+import { CalendarEventType, DayRowsType, WeekRowsType } from '../../types'
 import {
   DAY_IN_HOURS,
   DaysOfTheWeek,
@@ -20,7 +23,7 @@ import {
   Views,
 } from '../../constants'
 
-import { DateRangeT } from './types'
+import { HoursColumnT, RowsInfoT, DateRangeT } from './types'
 
 export const getStartOfWeek = (date: Date | number): Date =>
   addDays(startOfWeek(date, { weekStartsOn: 1 }), 0)
@@ -28,16 +31,67 @@ export const getStartOfWeek = (date: Date | number): Date =>
 export const getEndOfWeek = (date: Date | number): Date =>
   addDays(endOfWeek(date, { weekStartsOn: 1 }), 0)
 
-export const generateEmptyWeekRows = (): WeekRowsType[] =>
-  [...Array(DAY_IN_HOURS)].map((_, hour) => {
+export const getStartDate = (viewMode: Views, currentDate: Date): Date => {
+  switch (viewMode) {
+    case Views.WEEK:
+      return getStartOfWeek(currentDate)
+    case Views.DAY:
+      return startOfDay(currentDate)
+    default:
+      return currentDate
+  }
+}
+
+export const getEndDate = (viewMode: Views, currentDate: Date): Date => {
+  switch (viewMode) {
+    case Views.WEEK:
+      return getEndOfWeek(currentDate)
+    case Views.DAY:
+      return endOfDay(currentDate)
+    default:
+      return currentDate
+  }
+}
+
+const generateHoursColumn = (): HoursColumnT[] => {
+  return [...Array(DAY_IN_HOURS)].map((_, hour) => {
     const ampm = hour < 12 ? MERIDIEM.BEFORE_MIDDAY : MERIDIEM.AFTER_MIDDAY
     const displayHour = hour % 12 || 12
 
     return {
       time: `${displayHour}:00 ${ampm}`,
-      cells: daysOfWeek.map(() => []),
     }
   })
+}
+
+export const generateEmptyWeekRows = (): WeekRowsType[] => {
+  return generateHoursColumn().map(({ time }) => ({
+    time,
+    cells: daysOfWeek.map(() => []),
+  }))
+}
+
+export const generateEmptyDayRows = (): DayRowsType[] => {
+  return generateHoursColumn().map(({ time }) => ({
+    time,
+    cells: [[]],
+  }))
+}
+
+export const getCalendarRowsInfo = (
+  events: CalendarEventType[],
+): RowsInfoT[] => {
+  return events.map(event => {
+    const startEvent = new Date(event.start)
+    const endEvent = new Date(event.end)
+
+    const duration = intervalToDuration({ start: startEvent, end: endEvent })
+    const startTime = format(startEvent, DateFormat.HOUR)
+    const currentDateTime = startEvent.getTime()
+
+    return { event, duration, startTime, startEvent, currentDateTime }
+  })
+}
 
 export const generateCalendarWeekRows = (
   events: CalendarEventType[],
@@ -46,28 +100,45 @@ export const generateCalendarWeekRows = (
 ): WeekRowsType[] => {
   const rows = generateEmptyWeekRows()
 
-  events.forEach(({ start, end, ...rest }) => {
-    const startEvent = new Date(start)
-    const endEvent = new Date(end)
-    const dayIndex = daysOfWeek.indexOf(
-      format(startEvent, DateFormat.DAY_LONG) as DaysOfTheWeek,
-    )
+  getCalendarRowsInfo(events).forEach(
+    ({ currentDateTime, duration, startTime, event, startEvent }) => {
+      const dayIndex = daysOfWeek.indexOf(
+        format(startEvent, DateFormat.DAY_LONG) as DaysOfTheWeek,
+      )
 
-    const duration = intervalToDuration({ start: startEvent, end: endEvent })
-    const startTime = format(startEvent, DateFormat.HOUR)
-    const currentDateTime = startEvent.getTime()
+      const isValid = currentDateTime >= startWeek && currentDateTime <= endWeek
 
-    const isVlid = currentDateTime >= startWeek && currentDateTime <= endWeek
+      if (isValid) {
+        rows[+startTime].cells[dayIndex].push({
+          ...event,
+          duration,
+        })
+      }
+    },
+  )
 
-    if (isVlid) {
-      rows[+startTime].cells[dayIndex].push({
-        start,
-        end,
-        duration,
-        ...rest,
-      })
-    }
-  })
+  return rows.slice(START_DAY, END_DAY)
+}
+
+export const generateCalendarDayRows = (
+  events: CalendarEventType[],
+  startDay: number,
+  endDay: number,
+): DayRowsType[] => {
+  const rows = generateEmptyDayRows()
+
+  getCalendarRowsInfo(events).forEach(
+    ({ currentDateTime, duration, startTime, event }) => {
+      const isValid = currentDateTime >= startDay && currentDateTime <= endDay
+
+      if (isValid) {
+        rows[+startTime].cells[0].push({
+          ...event,
+          duration,
+        })
+      }
+    },
+  )
 
   return rows.slice(START_DAY, END_DAY)
 }
@@ -96,10 +167,16 @@ export const getRenderRows = (
   end: Date,
   viewMode: Views,
   events: CalendarEventType[],
-): WeekRowsType[] => {
+): WeekRowsType[] | DayRowsType[] => {
+  const startDate = start.getTime()
+  const endDate = end.getTime()
+
   switch (viewMode) {
     case Views.WEEK: {
-      return generateCalendarWeekRows(events, start.getTime(), end.getTime())
+      return generateCalendarWeekRows(events, startDate, endDate)
+    }
+    case Views.DAY: {
+      return generateCalendarDayRows(events, startDate, endDate)
     }
     default: {
       return []
@@ -118,6 +195,14 @@ export const getPreviousDateRange = (
       return {
         startDate: getStartOfWeek(previousDate),
         endDate: getEndOfWeek(previousDate),
+      }
+    }
+    case Views.DAY: {
+      const prev = subDays(currentDate, 1)
+
+      return {
+        startDate: prev,
+        endDate: prev,
       }
     }
     default: {
@@ -142,6 +227,14 @@ export const getNextDateRange = (
       return {
         startDate: getStartOfWeek(nexDate),
         endDate: getEndOfWeek(nexDate),
+      }
+    }
+    case Views.DAY: {
+      const nexDate = addDays(currentDate, 1)
+
+      return {
+        startDate: nexDate,
+        endDate: nexDate,
       }
     }
     default: {
