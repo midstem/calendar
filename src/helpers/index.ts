@@ -1,8 +1,7 @@
 import { addDays, startOfWeek } from 'date-fns'
 import { format } from 'date-fns'
 
-import { HandleClicKOnCellT } from 'src/types'
-
+import { HandleClicKOnCellT } from '../types'
 import { CELL_HEIGHT, HOUR_IN_MINUTES, DateFormat } from '../constants'
 
 export const getStartPosition = (startDate: Date | string): number => {
