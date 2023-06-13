@@ -1,5 +1,4 @@
 .typography {
-  font-family: Manrope, sans-serif;
   font-size: 1rem;
 }
 
@@ -7,35 +6,29 @@
   font-size: 3.5rem;
   font-weight: bold;
   letter-spacing: 0;
-  font-family: Byrd, Manrope, sans-serif;
 }
 .h2 {
   font-size: 2.5rem;
   font-weight: bold;
   letter-spacing: 0.016rem;
-  font-family: Byrd, Manrope, sans-serif;
 }
 .h3 {
   font-size: 2rem;
   font-weight: bold;
   letter-spacing: 0;
-  font-family: Byrd, Manrope, sans-serif;
 }
 .h4 {
   font-size: 1.75rem;
   letter-spacing: 0.011rem;
   font-weight: bold;
-  font-family: Byrd, Manrope, sans-serif;
 }
 .h5 {
   font-size: 1.25rem;
   letter-spacing: 0;
-  font-family: Byrd, Manrope, sans-serif;
 }
 .h6 {
   font-size: 1rem;
   letter-spacing: 0;
-  font-family: Byrd, Manrope, sans-serif;
 }
 .body1 {
   font-size: 1rem;

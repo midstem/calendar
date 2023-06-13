@@ -1,6 +1,7 @@
 import Calendar from './features/Calendar'
 
-import './index.css'
+import './styles/index.css'
+import './styles/font.css'
 
 const App = (): JSX.Element => {
   return (
