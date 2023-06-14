@@ -1,9 +1,9 @@
-import { ChangeEvent, useCallback, useMemo, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import { addDays, subDays, isBefore, isAfter } from 'date-fns'
 
 import { ViewsT } from '../../types'
 import { useScreenResize } from '../../hooks/useScreenResize'
-import { DAYS_IN_YEAR } from '../../constants'
+import { DAYS_IN_YEAR, Views } from '../../constants'
 
 import { UseCalendarProps } from './types'
 import {
@@ -55,13 +55,6 @@ export const useCalendar = ({
     [endDate, events, startDate, viewMode],
   )
 
-  const handleChangeView = useCallback(
-    ({ target: { value } }: ChangeEvent<{ value: ViewsT }>) => {
-      setViewMode(value)
-    },
-    [],
-  )
-
   const next = useCallback(() => {
     const { startDate, endDate } = getNextDateRange(currentDate, viewMode)
 
@@ -86,24 +79,25 @@ export const useCalendar = ({
 
   const selectDateHandler = useCallback((date: Date) => {
     setSelectedDate(date)
-    // setViewMode(Views.MONTH)
+    setViewMode(Views.DAY)
+    setCurrentDate(date)
   }, [])
 
   useScreenResize(() => setViewMode(getModeFromConfig(config, mode)))
 
   return {
     viewMode,
-    handleChangeView,
     startDate,
     endDate,
     currentYear,
-    next,
-    previous,
     selectedDate,
-    selectDateHandler,
-    goToday,
     renderRows,
     isDisabledNext,
     isDisabledPrevious,
+    setViewMode,
+    next,
+    previous,
+    goToday,
+    selectDateHandler,
   }
 }

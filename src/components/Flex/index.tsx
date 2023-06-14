@@ -4,14 +4,16 @@ const Flex = ({
   children,
   sx = {},
   className = '',
-  onClick = () => {},
   direction = 'row',
   align = 'normal',
   justify = 'normal',
   spacing = 0,
+  refObject,
+  onClick = () => {},
 }: FlexProps): JSX.Element => {
   return (
     <div
+      ref={refObject}
       onClick={onClick}
       className={className}
       style={{

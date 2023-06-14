@@ -11,6 +11,7 @@ import RightArrow from '../../components/RightArrow'
 import LeftArrow from '../../components/LeftArrow'
 import IconButton from '../../components/IconButton'
 import Flex from '../../components/Flex'
+import DropDown from '../../components/DropDown'
 
 import { useCalendar } from './useCalendar'
 import { CalendarProps } from './types'
@@ -37,6 +38,7 @@ const Calendar = ({
     selectedDate,
     isDisabledNext,
     isDisabledPrevious,
+    setViewMode,
     next,
     previous,
     selectDateHandler,
@@ -85,19 +87,7 @@ const Calendar = ({
 
           <Text>{currentYear}</Text>
         </Flex>
-        <Flex>
-          {/* <Select
-            disableUnderline
-            variant="standard"
-            IconComponent={ExpandMoreIcon}
-            value={viewMode === Views.MONTH ? Views.MONTH : Views.WEEK}
-            onChange={handleChangeView}
-          >
-            <MenuItem value={viewMode.DAY}>Day View</MenuItem>
-            <MenuItem value={Views.WEEK}>Week View</MenuItem>
-            <MenuItem value={Views.MONTH}>Month View</MenuItem>
-          </Select> */}
-        </Flex>
+        <DropDown viewMode={viewMode} setViewMode={setViewMode} />
       </Flex>
       <div className="calendar">
         <View
