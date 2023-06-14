@@ -1,16 +1,19 @@
 import { useRef, useState } from 'react'
 
 import useClickOutside from '../../hooks/useClickOutside'
+import { Views } from '../../constants'
 
-export const useDropDown = () => {
+export const useDropDown = (setViewMode: (a: Views) => void) => {
   const [isShowDropdown, setIsShowDropdown] = useState<boolean>(false)
-  const dropDownRef = useRef<HTMLUListElement>(null)
+  const dropDownRef = useRef<HTMLDivElement>(null)
 
-  const hideDropDown = () => {
-    setIsShowDropdown(false)
+  const handleIsShowDropdown = (): void => {
+    setIsShowDropdown(!isShowDropdown)
   }
 
-  useClickOutside(isShowDropdown, dropDownRef, hideDropDown)
+  const handleViewChange = (view: Views): void => setViewMode(view)
 
-  return { isShowDropdown, dropDownRef, setIsShowDropdown }
+  useClickOutside(isShowDropdown, dropDownRef, handleIsShowDropdown)
+
+  return { isShowDropdown, dropDownRef, handleIsShowDropdown, handleViewChange }
 }

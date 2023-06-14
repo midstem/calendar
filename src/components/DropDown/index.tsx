@@ -7,25 +7,33 @@ import { useDropDown } from './useDropDown'
 import { DropDownProps } from './types'
 
 const DropDown = ({ viewMode, setViewMode }: DropDownProps): JSX.Element => {
-  const { isShowDropdown, dropDownRef, setIsShowDropdown } = useDropDown()
+  const {
+    isShowDropdown,
+    dropDownRef,
+    handleIsShowDropdown,
+    handleViewChange,
+  } = useDropDown(setViewMode)
 
   return (
     <Flex
       sx={{ position: 'relative' }}
-      onClick={() => setIsShowDropdown(!isShowDropdown)}
+      refObject={dropDownRef}
+      onClick={handleIsShowDropdown}
     >
       <Button className="view-selection">
         {viewMode} <ChevronDown />
       </Button>
       {isShowDropdown && (
-        <ul className="dropdown" ref={dropDownRef}>
-          <li className="menu-item" onClick={() => setViewMode(Views.DAY)}>
-            Day
-          </li>
-          <li className="menu-item" onClick={() => setViewMode(Views.WEEK)}>
-            Week
-          </li>
-          <li className="menu-item">Month</li>
+        <ul className="dropdown">
+          {Object.values(Views).map(view => (
+            <li
+              key={view}
+              className="menu-item"
+              onClick={() => handleViewChange(view)}
+            >
+              {view}
+            </li>
+          ))}
         </ul>
       )}
     </Flex>
