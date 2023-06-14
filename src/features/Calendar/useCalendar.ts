@@ -17,10 +17,9 @@ import {
 export const useCalendar = ({
   currentDay,
   events = [],
-  onClickEvent = () => {},
   onChangeDate = () => {},
 }: UseCalendarProps) => {
-  const [viewMode, setViewMode] = useState<Views>(Views.DAY)
+  const [viewMode, setViewMode] = useState<Views>(Views.WEEK)
   const [currentDate, setCurrentDate] = useState<Date>(currentDay)
   const [selectedDate, setSelectedDate] = useState<Date>(new Date())
 
@@ -58,11 +57,6 @@ export const useCalendar = ({
     [],
   )
 
-  const handleClickEvent = useCallback(
-    (event?: string) => onClickEvent && onClickEvent(event),
-    [onClickEvent],
-  )
-
   const next = useCallback(() => {
     const { startDate, endDate } = getNextDateRange(currentDate, viewMode)
 
@@ -93,7 +87,6 @@ export const useCalendar = ({
   return {
     viewMode,
     handleChangeView,
-    handleClickEvent,
     startDate,
     endDate,
     currentYear,

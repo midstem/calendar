@@ -1,12 +1,17 @@
 import { FunctionComponent } from 'react'
 
-import { CalendarEventType, EventComponentProps } from '../../types'
+import {
+  CalendarEventType,
+  DayCellType,
+  EventComponentProps,
+  UserEvents,
+  WeekCellType,
+} from '../../types'
 
-export type CalendarProps = {
+export type CalendarProps = Partial<UserEvents<DayCellType | WeekCellType>> & {
   events?: CalendarEventType[]
   currentDay?: Date | string
   selectedEvent?: string
-  onClickEvent?: (data?: string) => void
   onChangeDate?: (start: Date, end: Date) => void
   renderEventComponent?: FunctionComponent<EventComponentProps>
 }

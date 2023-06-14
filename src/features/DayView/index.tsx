@@ -11,6 +11,7 @@ const DayView = ({
   startDate,
   selectedEvent,
   onClickEvent,
+  onClickCell,
   renderRows,
   renderEventComponent,
 }: DayViewProps): JSX.Element => {
@@ -21,9 +22,11 @@ const DayView = ({
       </div>
       <div className="body">
         <DaySlots
+          day={startDate}
           eventsByDay={getEventsByDay(events, startDate)}
           selectedEvent={selectedEvent}
           renderRows={renderRows}
+          onClickCell={onClickCell}
           onClickEvent={onClickEvent}
           renderEventComponent={renderEventComponent}
         />
