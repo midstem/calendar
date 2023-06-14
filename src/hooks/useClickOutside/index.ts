@@ -1,11 +1,11 @@
-import { RefObject, useEffect } from 'react'
+import { MouseEvent, RefObject, useEffect } from 'react'
 
 const useClickOutside = (
   condition: boolean,
   ref: RefObject<HTMLElement>,
   hide: () => void,
 ) => {
-  const handleClickOutside = (e: Event) => {
+  const handleClickOutside = (e: Event): void => {
     if (condition && !ref.current?.contains(e.target as HTMLElement)) {
       hide()
     }

@@ -5,13 +5,13 @@ import { format } from 'date-fns'
 
 import Button from '../Button'
 import colors from '../../theme/colors'
-import { DateFormat, Views } from '../../constants'
+import { DateFormat } from '../../constants'
 import Text from '../../components/Text'
 import RightArrow from '../../components/RightArrow'
 import LeftArrow from '../../components/LeftArrow'
 import IconButton from '../../components/IconButton'
 import Flex from '../../components/Flex'
-import ChevronDown from '../../components/ChevronDown'
+import DropDown from '../../components/DropDown'
 
 import { useCalendar } from './useCalendar'
 import { CalendarProps } from './types'
@@ -36,14 +36,11 @@ const Calendar = ({
     selectedDate,
     isDisabledNext,
     isDisabledPrevious,
-    isShowDropdown,
-    dropDownRef,
     setViewMode,
     next,
     previous,
     selectDateHandler,
     goToday,
-    setIsShowDropdown,
   } = useCalendar({
     currentDay: new Date(currentDay),
     events,
@@ -86,25 +83,7 @@ const Calendar = ({
 
           <Text>{currentYear}</Text>
         </Flex>
-        <Flex
-          sx={{ position: 'relative' }}
-          onClick={() => setIsShowDropdown(!isShowDropdown)}
-        >
-          <Button className="view-selection">
-            {viewMode} <ChevronDown />
-          </Button>
-          {isShowDropdown && (
-            <ul className="dropdown" ref={dropDownRef}>
-              <li className="menu-item" onClick={() => setViewMode(Views.DAY)}>
-                Day
-              </li>
-              <li className="menu-item" onClick={() => setViewMode(Views.WEEK)}>
-                Week
-              </li>
-              <li className="menu-item">Month</li>
-            </ul>
-          )}
-        </Flex>
+        <DropDown viewMode={viewMode} setViewMode={setViewMode} />
       </Flex>
       <div className="calendar">
         <View
