@@ -18,10 +18,9 @@ import {
 export const useCalendar = ({
   currentDay,
   events = [],
-  onClickEvent = () => {},
   onChangeDate = () => {},
 }: UseCalendarProps) => {
-  const [viewMode, setViewMode] = useState<Views>(Views.DAY)
+  const [viewMode, setViewMode] = useState<Views>(Views.WEEK)
   const [currentDate, setCurrentDate] = useState<Date>(currentDay)
   const [selectedDate, setSelectedDate] = useState<Date>(new Date())
   const [isShowDropdown, setIsShowDropdown] = useState<boolean>(false)
@@ -60,11 +59,6 @@ export const useCalendar = ({
       setViewMode(value)
     },
     [],
-  )
-
-  const handleClickEvent = useCallback(
-    (event?: string) => onClickEvent && onClickEvent(event),
-    [onClickEvent],
   )
 
   const next = useCallback(() => {
@@ -117,7 +111,6 @@ export const useCalendar = ({
     goToday,
     setIsShowDropdown,
     handleChangeView,
-    handleClickEvent,
     selectDateHandler,
   }
 }

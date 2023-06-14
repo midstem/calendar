@@ -16,6 +16,7 @@ const WeekView = ({
   renderRows,
   renderEventComponent,
   onClickEvent,
+  onClickCell,
   selectDateHandler,
 }: WeekViewProps): JSX.Element => {
   const weekDays = useMemo(() => getWeekDays(startDate), [startDate])
@@ -43,6 +44,8 @@ const WeekView = ({
       </div>
       <div className="body">
         <WeekSlots
+          startDate={startDate}
+          onClickCell={onClickCell}
           eventsByDay={eventsByDay}
           selectedEvent={selectedEvent}
           renderRows={renderRows}

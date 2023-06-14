@@ -24,6 +24,7 @@ const Calendar = ({
   selectedEvent,
   renderEventComponent,
   onClickEvent = () => {},
+  onClickCell = () => {},
   onChangeDate = () => {},
 }: CalendarProps): JSX.Element => {
   const {
@@ -40,14 +41,12 @@ const Calendar = ({
     setViewMode,
     next,
     previous,
-    handleClickEvent,
     selectDateHandler,
     goToday,
     setIsShowDropdown,
   } = useCalendar({
     currentDay: new Date(currentDay),
     events,
-    onClickEvent,
     onChangeDate,
   })
 
@@ -109,13 +108,14 @@ const Calendar = ({
       </Flex>
       <div className="calendar">
         <View
+          onClickCell={onClickCell}
           events={events}
           renderRows={renderRows}
           startDate={startDate}
           selectedDate={selectedDate}
           selectedEvent={selectedEvent}
           selectDateHandler={selectDateHandler}
-          onClickEvent={handleClickEvent}
+          onClickEvent={onClickEvent}
           renderEventComponent={renderEventComponent}
         />
       </div>
