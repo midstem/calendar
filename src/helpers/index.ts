@@ -42,3 +42,7 @@ export const getDateOfWeekday = (
 
   return targetDate
 }
+
+export const getScreenWidth = (): number => {
+  return window.innerWidth
+}
