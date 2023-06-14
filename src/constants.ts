@@ -1,7 +1,8 @@
 export enum IconSizes {
-  small = '1rem',
-  middle = '1.5rem',
-  large = '2rem',
+  xs = '0.5rem',
+  sm = '1rem',
+  md = '1.5rem',
+  lg = '2rem',
 }
 
 export enum DaysOfTheWeek {
@@ -60,7 +61,7 @@ export enum MERIDIEM {
 export const HOUR_IN_MINUTES = 60
 
 export enum Views {
-  DAY = 'day',
-  WEEK = 'week',
-  MONTH = 'month',
+  DAY = 'Day',
+  WEEK = 'Week',
+  MONTH = 'Month',
 }

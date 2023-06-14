@@ -21,7 +21,7 @@ button {
 .ripple {
   position: absolute;
   border-radius: 50%;
-  animation: button-circle 1s ease-in forwards;
+  animation: button-circle 300ms ease-in forwards;
   transform-origin: center;
   pointer-events: none;
 }

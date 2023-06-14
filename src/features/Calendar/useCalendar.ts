@@ -1,6 +1,7 @@
-import { ChangeEvent, useCallback, useMemo, useState } from 'react'
+import { ChangeEvent, useCallback, useMemo, useRef, useState } from 'react'
 import { addDays, subDays, isBefore, isAfter } from 'date-fns'
 
+import useClickOutside from '../../hooks/useClickOutside'
 import { DAYS_IN_YEAR, Views } from '../../constants'
 
 import { UseCalendarProps } from './types'
@@ -23,6 +24,9 @@ export const useCalendar = ({
   const [viewMode, setViewMode] = useState<Views>(Views.DAY)
   const [currentDate, setCurrentDate] = useState<Date>(currentDay)
   const [selectedDate, setSelectedDate] = useState<Date>(new Date())
+  const [isShowDropdown, setIsShowDropdown] = useState<boolean>(false)
+
+  const dropDownRef = useRef<HTMLUListElement>(null)
 
   const currentYear = useMemo(() => currentDate.getFullYear(), [currentDate])
   const startDate = useMemo(
@@ -90,20 +94,30 @@ export const useCalendar = ({
     // setViewMode(Views.MONTH)
   }, [])
 
+  const hideDropDown = () => {
+    setIsShowDropdown(false)
+  }
+
+  useClickOutside(isShowDropdown, dropDownRef, hideDropDown)
+
   return {
     viewMode,
-    handleChangeView,
-    handleClickEvent,
     startDate,
     endDate,
     currentYear,
-    next,
-    previous,
     selectedDate,
-    selectDateHandler,
-    goToday,
     renderRows,
     isDisabledNext,
     isDisabledPrevious,
+    isShowDropdown,
+    dropDownRef,
+    setViewMode,
+    next,
+    previous,
+    goToday,
+    setIsShowDropdown,
+    handleChangeView,
+    handleClickEvent,
+    selectDateHandler,
   }
 }

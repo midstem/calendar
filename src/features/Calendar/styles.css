@@ -95,3 +95,34 @@
   padding: 5px;
   border-color: var(--powder-blue);
 }
+
+.view-selection {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 15px;
+  text-transform: none;
+  font-weight: 600;
+}
+
+.dropdown {
+  z-index: 1;
+  position: absolute;
+  top: 45px;
+  width: 100%;
+  padding: 0;
+  background-color: white;
+  border-radius: 5px;
+  list-style-type: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.menu-item {
+  font-size: 0.875rem;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  background-color: var(--alise-blue);
+}
