@@ -1,7 +1,7 @@
 import { CSSProperties, MouseEvent, ReactNode } from 'react'
 import { Duration } from 'date-fns'
 
-import { IconSizes } from './constants'
+import { IconSizes, Views } from './constants'
 
 export type ReactChildrenT = {
   children: ReactNode
@@ -72,3 +72,10 @@ export type UserEvents<EventT> = {
   onClickEvent: (event: EventT) => void
   onClickCell: (time: string, day: Date) => void
 }
+
+export type ConfigT = {
+  maxWidth: number
+  mode: ViewsT
+}
+
+export type ViewsT = ValueOF<Views>

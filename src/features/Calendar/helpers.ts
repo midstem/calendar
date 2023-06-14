@@ -11,7 +11,14 @@ import {
   endOfDay,
 } from 'date-fns'
 
-import { CalendarEventType, DayRowsType, WeekRowsType } from '../../types'
+import {
+  CalendarEventType,
+  ConfigT,
+  DayRowsType,
+  ViewsT,
+  WeekRowsType,
+} from '../../types'
+import { getScreenWidth } from '../../helpers'
 import {
   DAY_IN_HOURS,
   DaysOfTheWeek,
@@ -31,7 +38,7 @@ export const getStartOfWeek = (date: Date | number): Date =>
 export const getEndOfWeek = (date: Date | number): Date =>
   addDays(endOfWeek(date, { weekStartsOn: 1 }), 0)
 
-export const getStartDate = (viewMode: Views, currentDate: Date): Date => {
+export const getStartDate = (viewMode: ViewsT, currentDate: Date): Date => {
   switch (viewMode) {
     case Views.WEEK:
       return getStartOfWeek(currentDate)
@@ -42,7 +49,7 @@ export const getStartDate = (viewMode: Views, currentDate: Date): Date => {
   }
 }
 
-export const getEndDate = (viewMode: Views, currentDate: Date): Date => {
+export const getEndDate = (viewMode: ViewsT, currentDate: Date): Date => {
   switch (viewMode) {
     case Views.WEEK:
       return getEndOfWeek(currentDate)
@@ -165,7 +172,7 @@ export const generateCalendarDayRows = (
 export const getRenderRows = (
   start: Date,
   end: Date,
-  viewMode: Views,
+  viewMode: ViewsT,
   events: CalendarEventType[],
 ): WeekRowsType[] | DayRowsType[] => {
   const startDate = start.getTime()
@@ -186,7 +193,7 @@ export const getRenderRows = (
 
 export const getPreviousDateRange = (
   currentDate: Date,
-  viewMode: Views,
+  viewMode: ViewsT,
 ): DateRangeT => {
   switch (viewMode) {
     case Views.WEEK: {
@@ -218,7 +225,7 @@ export const getPreviousDateRange = (
 
 export const getNextDateRange = (
   currentDate: Date,
-  viewMode: Views,
+  viewMode: ViewsT,
 ): DateRangeT => {
   switch (viewMode) {
     case Views.WEEK: {
@@ -256,4 +263,15 @@ export const returnDayDate = (currentDate: Date, dayNumber: number): string => {
   targetDate.setDate(currentDate.getDate() + offset)
 
   return targetDate.toISOString().substring(0, 10)
+}
+
+export const getModeFromConfig = (
+  config: ConfigT[],
+  defaultMode: ViewsT,
+): ViewsT => {
+  const suitableWidths = config.filter(
+    ({ maxWidth }) => getScreenWidth() > maxWidth,
+  )
+
+  return suitableWidths.at(-1)?.mode || defaultMode
 }

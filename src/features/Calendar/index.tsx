@@ -5,7 +5,7 @@ import { format } from 'date-fns'
 
 import Button from '../Button'
 import colors from '../../theme/colors'
-import { DateFormat } from '../../constants'
+import { DateFormat, Views } from '../../constants'
 import Text from '../../components/Text'
 import RightArrow from '../../components/RightArrow'
 import LeftArrow from '../../components/LeftArrow'
@@ -26,6 +26,8 @@ const Calendar = ({
   onClickEvent = () => {},
   onClickCell = () => {},
   onChangeDate = () => {},
+  config = [],
+  mode = Views.WEEK,
 }: CalendarProps): JSX.Element => {
   const {
     viewMode,
@@ -45,6 +47,8 @@ const Calendar = ({
     currentDay: new Date(currentDay),
     events,
     onChangeDate,
+    config,
+    mode,
   })
 
   const View = VIEW_MODES[viewMode]

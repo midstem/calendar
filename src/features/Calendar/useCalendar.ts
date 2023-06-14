@@ -1,7 +1,9 @@
 import { useCallback, useMemo, useState } from 'react'
 import { addDays, subDays, isBefore, isAfter } from 'date-fns'
 
-import { DAYS_IN_YEAR, Views } from '../../constants'
+import { ViewsT } from '../../types'
+import { useScreenResize } from '../../hooks/useScreenResize'
+import { DAYS_IN_YEAR } from '../../constants'
 
 import { UseCalendarProps } from './types'
 import {
@@ -12,14 +14,17 @@ import {
   getNextDateRange,
   getStartDate,
   getEndDate,
+  getModeFromConfig,
 } from './helpers'
 
 export const useCalendar = ({
   currentDay,
   events = [],
   onChangeDate = () => {},
+  config = [],
+  mode,
 }: UseCalendarProps) => {
-  const [viewMode, setViewMode] = useState<Views>(Views.WEEK)
+  const [viewMode, setViewMode] = useState<ViewsT>(mode)
   const [currentDate, setCurrentDate] = useState<Date>(currentDay)
   const [selectedDate, setSelectedDate] = useState<Date>(new Date())
 
@@ -76,6 +81,8 @@ export const useCalendar = ({
     setSelectedDate(date)
     // setViewMode(Views.MONTH)
   }, [])
+
+  useScreenResize(() => setViewMode(getModeFromConfig(config, mode)))
 
   return {
     viewMode,
