@@ -1,6 +1,5 @@
-import { Views } from '../../constants'
-
 export type DropDownProps = {
-  viewMode: string
-  setViewMode: (a: Views) => void
+  value: string
+  onChange: (a: string) => void
+  list: string[]
 }
