@@ -3,6 +3,8 @@ import './styles.css'
 
 import { format } from 'date-fns'
 
+import { ViewsT } from 'src/types'
+
 import Button from '../Button'
 import colors from '../../theme/colors'
 import { DateFormat, Views } from '../../constants'
@@ -87,7 +89,11 @@ const Calendar = ({
 
           <Text>{currentYear}</Text>
         </Flex>
-        <DropDown viewMode={viewMode} setViewMode={setViewMode} />
+        <DropDown
+          list={Object.values(Views)}
+          value={viewMode}
+          onChange={mode => setViewMode(mode as ViewsT)}
+        />
       </Flex>
       <div className="calendar">
         <View
