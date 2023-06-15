@@ -19,9 +19,9 @@ const DropDown = ({ onChange, value, list }: DropDownProps): JSX.Element => {
       </Button>
       {isShowDropdown && (
         <ul className="dropdown">
-          {list.map(view => (
-            <li key={view} className="menu-item" onClick={() => onChange(view)}>
-              {view}
+          {list.map(item => (
+            <li key={item} className="menu-item" onClick={() => onChange(item)}>
+              {item}
             </li>
           ))}
         </ul>

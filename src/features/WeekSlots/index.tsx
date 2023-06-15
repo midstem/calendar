@@ -32,7 +32,7 @@ const WeekSlots = ({
                   handleClicKOnCell({
                     event,
                     time,
-                    day: getDateOfWeekday(++index, startDate),
+                    day: getDateOfWeekday(index, startDate),
                     onClick: onClickCell,
                   })
                 }

@@ -1,4 +1,4 @@
-import { addDays, startOfWeek } from 'date-fns'
+import { addDays } from 'date-fns'
 import { format } from 'date-fns'
 
 import { HandleClicKOnCellT } from '../types'
@@ -37,8 +37,7 @@ export const getDateOfWeekday = (
   weekdayNumber: number,
   startDay: Date = new Date(),
 ): Date => {
-  const startOfWeekDate = startOfWeek(startDay)
-  const targetDate = addDays(startOfWeekDate, weekdayNumber)
+  const targetDate = addDays(startDay, weekdayNumber)
 
   return targetDate
 }
