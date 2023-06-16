@@ -6,6 +6,7 @@ export type IconButtonProps = ReactChildrenT &
     outlined?: boolean
     isDisabled?: boolean
     activeColor?: string
+    ariaLabel?: string
     onClick?: () => void
   }
 
