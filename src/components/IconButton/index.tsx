@@ -13,6 +13,7 @@ const IconButton = ({
   activeColor = 'transparent',
   outlined = false,
   isDisabled = false,
+  ariaLabel,
 }: IconButtonProps): JSX.Element => {
   const { handleClick, handleMouseOut, handleMouseOver } = useIconButton({
     hoverBG,
@@ -30,6 +31,7 @@ const IconButton = ({
       } ${className}`}
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
+      aria-label={ariaLabel}
     >
       <Flex align="center" justify="center">
         {children}
