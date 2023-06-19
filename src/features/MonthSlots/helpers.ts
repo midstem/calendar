@@ -1,13 +1,13 @@
-import { CreateCells, GenerateSlotsForDaysOfMonth } from './types'
+import { Cell, CreateCells, GenerateSlotsForDaysOfMonth } from './types'
 import { countCells } from './constants'
 
-export const createCells: CreateCells = ({
+export const createCells = ({
   currentYear,
   currentMonth,
   countCells,
   isCurrentMonth,
   daysInPrevMonth,
-}) =>
+}: CreateCells): Cell[] =>
   Array.from({ length: countCells }, (_, day) => {
     return {
       date: new Date(
@@ -20,13 +20,13 @@ export const createCells: CreateCells = ({
     }
   })
 
-export const generateSlotsForDaysOfMonth: GenerateSlotsForDaysOfMonth = (
+export const generateSlotsForDaysOfMonth = ({
   currentYear,
   daysInMonth,
   currentMonth,
   slotsData,
   firstDayOfMonth,
-) => {
+}: GenerateSlotsForDaysOfMonth): Cell[] => {
   const daysInPrevMonth = new Date(currentYear, currentMonth, 0).getDate()
 
   const cells = createCells({

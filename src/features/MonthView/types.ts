@@ -1,3 +1,3 @@
-import { CalendarEventType } from 'src/types'
+import { CalendarEventType } from '../../types'
 
 export type MonthViewProps = { events: CalendarEventType[] }
