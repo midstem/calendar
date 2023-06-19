@@ -31,6 +31,7 @@ const MonthSlots = ({ slotsData }: MonthSlotsProps): JSX.Element => {
             key={date.toLocaleString() + index}
           >
             <div className="month-cell-day">
+              <div>{index < 7 && format(date, DateFormat.DAY_OF_WEEK)}</div>
               {date.getDate()} {'\t'}
               {date.getDate() === 1 && format(date, DateFormat.MONTH_SHORT)}
             </div>
