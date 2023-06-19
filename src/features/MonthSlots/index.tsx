@@ -1,10 +1,15 @@
+import { format } from 'date-fns'
+import classNames from 'classnames'
+
+import { DateFormat } from '../../constants'
+
 import { generateSlotsForDaysOfMonth } from './helpers'
 
 const MonthSlots = ({ slotsData }: any): JSX.Element => {
   const currentDate = new Date()
   const currentMonth = currentDate.getMonth()
   const currentYear = currentDate.getFullYear()
-  const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay()
+  const firstDayOfMonth = new Date(currentYear, currentMonth, 0).getDay()
   const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate()
 
   const slotCells = generateSlotsForDaysOfMonth(
@@ -12,19 +17,26 @@ const MonthSlots = ({ slotsData }: any): JSX.Element => {
     daysInMonth,
     currentMonth,
     slotsData,
+    firstDayOfMonth,
   )
-  const numGhostCells = 7 - (slotCells.length % 7)
-  const arrGhostCells = new Array(numGhostCells).fill('')
 
   return (
     <>
-      {[...Array(firstDayOfMonth)].map((_, index) => (
+      {[...Array(firstDayOfMonth + 1)].map((_, index) => (
         <div className="cell month-cell" key={`empty-${String(index)}`}></div>
       ))}
       <div className="month-cell-wrapper">
-        {slotCells.map(({ date, slots }) => (
-          <div className="cell month-cell" key={date.toLocaleString()}>
-            <div className="month-cell-day">{date.getDate()}</div>
+        {slotCells.map(({ date, slots, isCurrentMonth }, index) => (
+          <div
+            className={classNames('cell month-cell', {
+              'month-cell--prev': !isCurrentMonth,
+            })}
+            key={date.toLocaleString() + index}
+          >
+            <div className="month-cell-day">
+              {date.getDate()} {'\t'}
+              {date.getDate() === 1 && format(date, DateFormat.MONTH_SHORT)}
+            </div>
             {slots.map(({ slot, type }: any) => (
               <div
                 key={slot.start}
@@ -34,12 +46,6 @@ const MonthSlots = ({ slotsData }: any): JSX.Element => {
               </div>
             ))}
           </div>
-        ))}
-        {arrGhostCells.map((_, index) => (
-          <div
-            className="cell month-cell ghost-cell"
-            key={`ghost-${String(index)}`}
-          />
         ))}
       </div>
     </>
