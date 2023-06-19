@@ -1,4 +1,4 @@
-import { CalendarEventType } from 'src/types'
+import { CalendarEventType } from '../../types'
 
 export type MonthSlotsProps = {
   slotsData: CalendarEventType[]
