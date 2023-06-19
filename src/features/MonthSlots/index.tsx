@@ -12,13 +12,13 @@ const MonthSlots = ({ slotsData }: MonthSlotsProps): JSX.Element => {
   const firstDayOfMonth = new Date(currentYear, currentMonth, 0).getDay()
   const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate()
 
-  const slotCells = generateSlotsForDaysOfMonth(
+  const slotCells = generateSlotsForDaysOfMonth({
     currentYear,
     daysInMonth,
     currentMonth,
     slotsData,
     firstDayOfMonth,
-  )
+  })
 
   return (
     <>

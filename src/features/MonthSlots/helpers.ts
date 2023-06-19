@@ -1,15 +1,13 @@
-import { CalendarEventType } from '../../types'
-
-import { Cell } from './types'
+import { Cell, CreateCells, GenerateSlotsForDaysOfMonth } from './types'
 import { countCells } from './constants'
 
-export const createCells = (
-  currentYear: number,
-  currentMonth: number,
-  countCells: number,
-  isCurrentMonth: boolean,
-  daysInPrevMonth?: number,
-): Cell[] =>
+export const createCells = ({
+  currentYear,
+  currentMonth,
+  countCells,
+  isCurrentMonth,
+  daysInPrevMonth,
+}: CreateCells): Cell[] =>
   Array.from({ length: countCells }, (_, day) => {
     return {
       date: new Date(
@@ -22,31 +20,36 @@ export const createCells = (
     }
   })
 
-export const generateSlotsForDaysOfMonth = (
-  currentYear: number,
-  daysInMonth: number,
-  currentMonth: number,
-  slotsData: CalendarEventType[],
-  firstDayOfMonth: number,
-): Cell[] => {
+export const generateSlotsForDaysOfMonth = ({
+  currentYear,
+  daysInMonth,
+  currentMonth,
+  slotsData,
+  firstDayOfMonth,
+}: GenerateSlotsForDaysOfMonth): Cell[] => {
   const daysInPrevMonth = new Date(currentYear, currentMonth, 0).getDate()
 
-  const cells = createCells(currentYear, currentMonth, daysInMonth, true)
-
-  const prevMonthCells = createCells(
+  const cells = createCells({
+    countCells: daysInMonth,
     currentYear,
-    currentMonth - 1,
-    firstDayOfMonth,
-    false,
+    currentMonth,
+    isCurrentMonth: true,
+  })
+
+  const prevMonthCells = createCells({
+    countCells: firstDayOfMonth,
+    currentYear,
+    currentMonth: currentMonth - 1,
+    isCurrentMonth: false,
     daysInPrevMonth,
-  ).reverse()
+  }).reverse()
 
-  const nextMonthCells = createCells(
+  const nextMonthCells = createCells({
+    countCells: countCells - daysInMonth - firstDayOfMonth,
     currentYear,
-    currentMonth + 1,
-    countCells - daysInMonth - firstDayOfMonth,
-    false,
-  )
+    currentMonth: currentMonth + 1,
+    isCurrentMonth: false,
+  })
 
   const allCells = [prevMonthCells, cells, nextMonthCells].flat()
 
