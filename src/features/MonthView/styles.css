@@ -1,0 +1,32 @@
+:root {
+  --month-cell-width: calc(14.28% - 10px);
+}
+
+.month-cell-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  height: 84vh;
+}
+
+.month-cell {
+  display: flex;
+  flex: 1 0 var(--month-cell-width);
+  justify-content: center;
+  height: auto;
+}
+.month-cell:nth-child(7n + 1) {
+  border-left: var(--border-styles);
+}
+
+.month-cell:nth-child(-n + 7) {
+  border-top: var(--border-styles);
+}
+.month-cell--prev {
+  opacity: 0.8;
+}
+
+.month-cell-day {
+  margin-top: 5px;
+  cursor: pointer;
+}

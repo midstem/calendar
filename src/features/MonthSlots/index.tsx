@@ -1,39 +1,52 @@
-// import { generateSlotsForDaysOfMonth } from './helpers'
+import { format } from 'date-fns'
 
-// const MonthSlots = ({ slotsData }: any): JSX.Element => {
-//   const currentDate = new Date()
-//   const currentMonth = currentDate.getMonth()
-//   const currentYear = currentDate.getFullYear()
-//   const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay()
-//   const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate()
+import { DateFormat } from '../../constants'
 
-//   const slotCells = generateSlotsForDaysOfMonth(
-//     currentYear,
-//     daysInMonth,
-//     currentMonth,
-//     slotsData,
-//   )
+import { MonthSlotsProps } from './types'
+import { generateSlotsForDaysOfMonth } from './helpers'
 
-//   return (
-//     <>
-//       {[...Array(firstDayOfMonth)].map((_, index) => (
-//         <div className="cell month-cell" key={`empty-${String(index)}`}></div>
-//       ))}
-//       {slotCells.map(({ date, slots }) => (
-//         <div className="cell month-cell" key={date.toLocaleString()}>
-//           <div>{date.getDate()}</div>
-//           {slots.map(({ slot, type }: any) => (
-//             <div
-//               key={slot.start}
-//               className={`slot ${type === 'member' ? 'slot-right' : ''}`}
-//             >
-//               {slot.start} - {slot.end} - {type}
-//             </div>
-//           ))}
-//         </div>
-//       ))}
-//     </>
-//   )
-// }
+const MonthSlots = ({ slotsData }: MonthSlotsProps): JSX.Element => {
+  const currentDate = new Date()
+  const currentMonth = currentDate.getMonth()
+  const currentYear = currentDate.getFullYear()
+  const firstDayOfMonth = new Date(currentYear, currentMonth, 0).getDay()
+  const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate()
 
-// export default MonthSlots
+  const slotCells = generateSlotsForDaysOfMonth({
+    currentYear,
+    daysInMonth,
+    currentMonth,
+    slotsData,
+    firstDayOfMonth,
+  })
+
+  return (
+    <>
+      <div className="month-cell-wrapper">
+        {slotCells.map(({ date, slots, isCurrentMonth }, index) => (
+          <div
+            className={`cell month-cell ${
+              !isCurrentMonth ? 'month-cell--prev' : ''
+            }`}
+            key={date.toLocaleString() + index}
+          >
+            <div className="month-cell-day">
+              {date.getDate()} {'\t'}
+              {date.getDate() === 1 && format(date, DateFormat.MONTH_SHORT)}
+            </div>
+            {/* {slots.map(({ slot, type }: any) => (
+              <div
+                key={slot?.start}
+                className={`slot ${type === 'member' ? 'slot-right' : ''}`}
+              >
+                {slot?.start} - {slot?.end} - {type}
+              </div>
+            ))} */}
+          </div>
+        ))}
+      </div>
+    </>
+  )
+}
+
+export default MonthSlots
