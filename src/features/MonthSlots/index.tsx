@@ -1,11 +1,15 @@
 import { format } from 'date-fns'
 
+import Button from '../Button'
 import { DateFormat } from '../../constants'
 
 import { MonthSlotsProps } from './types'
 import { generateSlotsForDaysOfMonth } from './helpers'
 
-const MonthSlots = ({ slotsData }: MonthSlotsProps): JSX.Element => {
+const MonthSlots = ({
+  slotsData,
+  onSelectDate,
+}: MonthSlotsProps): JSX.Element => {
   const currentDate = new Date()
   const currentMonth = currentDate.getMonth()
   const currentYear = currentDate.getFullYear()
@@ -30,10 +34,17 @@ const MonthSlots = ({ slotsData }: MonthSlotsProps): JSX.Element => {
             }`}
             key={date.toLocaleString() + index}
           >
-            <div className="month-cell-day">
-              <div>{index < 7 && format(date, DateFormat.DAY_OF_WEEK)}</div>
-              {date.getDate()} {'\t'}
-              {date.getDate() === 1 && format(date, DateFormat.MONTH_SHORT)}
+            <div className="month-cell-week">
+              {index < 7 && format(date, DateFormat.DAY_OF_WEEK)}
+            </div>
+            <div className="month-cell-day-wrapper">
+              <Button
+                className="month-cell-day"
+                onClick={() => onSelectDate(date)}
+              >
+                {date.getDate() === 1 && format(date, DateFormat.MONTH_SHORT)}{' '}
+                {date.getDate()}
+              </Button>
             </div>
             {/* {slots.map(({ slot, type }: any) => (
               <div

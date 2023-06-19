@@ -2,6 +2,7 @@ import { CalendarEventType } from '../../types'
 
 export type MonthSlotsProps = {
   slotsData: CalendarEventType[]
+  onSelectDate: (date: Date) => void
 }
 
 export type CreateCells = {

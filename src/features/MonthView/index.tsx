@@ -4,14 +4,17 @@ import MonthHeader from '../MonthHeader'
 import './styles.css'
 import { MonthViewProps } from './types'
 
-const MonthView = ({ events }: MonthViewProps): JSX.Element => {
+const MonthView = ({
+  events,
+  selectDateHandler,
+}: MonthViewProps): JSX.Element => {
   return (
     <>
       <div className="header">
         <MonthHeader slotsFirstDateInList={events[0].date} />
       </div>
       <div className="body">
-        <MonthSlots slotsData={events} />
+        <MonthSlots slotsData={events} onSelectDate={selectDateHandler} />
       </div>
     </>
   )
