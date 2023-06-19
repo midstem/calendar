@@ -3,9 +3,10 @@ import classNames from 'classnames'
 
 import { DateFormat } from '../../constants'
 
+import { MonthSlotsProps } from './types'
 import { generateSlotsForDaysOfMonth } from './helpers'
 
-const MonthSlots = ({ slotsData }: any): JSX.Element => {
+const MonthSlots = ({ slotsData }: MonthSlotsProps): JSX.Element => {
   const currentDate = new Date()
   const currentMonth = currentDate.getMonth()
   const currentYear = currentDate.getFullYear()
@@ -22,9 +23,6 @@ const MonthSlots = ({ slotsData }: any): JSX.Element => {
 
   return (
     <>
-      {[...Array(firstDayOfMonth + 1)].map((_, index) => (
-        <div className="cell month-cell" key={`empty-${String(index)}`}></div>
-      ))}
       <div className="month-cell-wrapper">
         {slotCells.map(({ date, slots, isCurrentMonth }, index) => (
           <div

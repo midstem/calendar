@@ -2,8 +2,9 @@ import MonthSlots from '../MonthSlots'
 import MonthHeader from '../MonthHeader'
 
 import './styles.css'
+import { MonthViewProps } from './types'
 
-const MonthView = ({ events }: any): JSX.Element => {
+const MonthView = ({ events }: MonthViewProps): JSX.Element => {
   return (
     <>
       <div className="header">

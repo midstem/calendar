@@ -27,6 +27,7 @@ export type WeekStartsOnType = 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined
 export type CalendarEventType = {
   id: string
   title: string
+  date: string
   start: string
   end: string
   overlapping?: number
