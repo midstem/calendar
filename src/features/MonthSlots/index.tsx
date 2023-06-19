@@ -1,5 +1,4 @@
 import { format } from 'date-fns'
-import classNames from 'classnames'
 
 import { DateFormat } from '../../constants'
 
@@ -26,9 +25,9 @@ const MonthSlots = ({ slotsData }: MonthSlotsProps): JSX.Element => {
       <div className="month-cell-wrapper">
         {slotCells.map(({ date, slots, isCurrentMonth }, index) => (
           <div
-            className={classNames('cell month-cell', {
-              'month-cell--prev': !isCurrentMonth,
-            })}
+            className={`cell month-cell ${
+              !isCurrentMonth ? 'month-cell--prev' : ''
+            }`}
             key={date.toLocaleString() + index}
           >
             <div className="month-cell-day">
