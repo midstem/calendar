@@ -1,0 +1,28 @@
+.month-cell {
+  display: flex;
+  flex: 1 0 calc(14.28% - 10px);
+  justify-content: center;
+  height: auto;
+}
+
+.month-cell:nth-child(7n + 1) {
+  border-left: var(--border-styles);
+}
+
+.month-cell-day {
+  cursor: pointer;
+}
+
+.month-cell-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  height: 84vh;
+}
+
+.month-cell--ghost {
+  flex: 1 0 calc(14.28% - 10px);
+  margin: 5px;
+  box-sizing: border-box;
+  visibility: hidden;
+}
