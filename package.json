@@ -1,7 +1,33 @@
 {
-  "name": "calendar",
-  "private": true,
-  "version": "0.0.0",
+  "name": "chronous",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "Maksym Tkachuk, Oleksandr Didyshen",
+  "description": "Event Calendar written in TypeScript",
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "peerDependencies": {
+    "react": ">=17"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/midstem/chronous.git"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "keywords": [
+    "react",
+    "typescript",
+    "calendar",
+    "event calendar"
+  ],
+  "bugs": {
+    "url": "https://github.com/midstem/chronous/issues"
+  },
+  "homepage": "https://github.com/midstem/chronous#readme",
   "scripts": {
     "start": "vite --open",
     "test": "vitest --watch=false",
