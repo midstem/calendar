@@ -1,33 +1,9 @@
-import { CalendarEventType } from 'src/types'
+import { CalendarEventType } from '../../types'
 
 export type MonthSlotsProps = { slotsData: CalendarEventType[] }
 
-export type CreateCells = ({
-  currentYear,
-  currentMonth,
-  countCells,
-  isCurrentMonth,
-  daysInPrevMonth,
-}: {
-  currentYear: number
-  currentMonth: number
-  countCells: number
-  isCurrentMonth: boolean
-  daysInPrevMonth?: number | undefined
-}) => {
+export type Cell = {
   date: Date
   isCurrentMonth: boolean
   slots: CalendarEventType[]
-}[]
-
-export type GenerateSlotsForDaysOfMonth = (
-  currentYear: number,
-  daysInMonth: number,
-  currentMonth: number,
-  slotsData: CalendarEventType[],
-  firstDayOfMonth: number,
-) => {
-  slots: CalendarEventType[]
-  date: Date
-  isCurrentMonth: boolean
-}[]
+}

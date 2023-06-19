@@ -34,14 +34,14 @@ const MonthSlots = ({ slotsData }: MonthSlotsProps): JSX.Element => {
               {date.getDate()} {'\t'}
               {date.getDate() === 1 && format(date, DateFormat.MONTH_SHORT)}
             </div>
-            {slots.map(({ slot, type }: any) => (
+            {/* {slots.map(({ slot, type }: any) => (
               <div
-                key={slot.start}
+                key={slot?.start}
                 className={`slot ${type === 'member' ? 'slot-right' : ''}`}
               >
-                {slot.start} - {slot.end} - {type}
+                {slot?.start} - {slot?.end} - {type}
               </div>
-            ))}
+            ))} */}
           </div>
         ))}
       </div>

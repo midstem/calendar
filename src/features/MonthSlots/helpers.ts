@@ -1,13 +1,15 @@
-import { CreateCells, GenerateSlotsForDaysOfMonth } from './types'
+import { CalendarEventType } from '../../types'
+
+import { Cell } from './types'
 import { countCells } from './constants'
 
-export const createCells: CreateCells = ({
-  currentYear,
-  currentMonth,
-  countCells,
-  isCurrentMonth,
-  daysInPrevMonth,
-}) =>
+export const createCells = (
+  currentYear: number,
+  currentMonth: number,
+  countCells: number,
+  isCurrentMonth: boolean,
+  daysInPrevMonth?: number,
+): Cell[] =>
   Array.from({ length: countCells }, (_, day) => {
     return {
       date: new Date(
@@ -20,36 +22,31 @@ export const createCells: CreateCells = ({
     }
   })
 
-export const generateSlotsForDaysOfMonth: GenerateSlotsForDaysOfMonth = (
-  currentYear,
-  daysInMonth,
-  currentMonth,
-  slotsData,
-  firstDayOfMonth,
-) => {
+export const generateSlotsForDaysOfMonth = (
+  currentYear: number,
+  daysInMonth: number,
+  currentMonth: number,
+  slotsData: CalendarEventType[],
+  firstDayOfMonth: number,
+): Cell[] => {
   const daysInPrevMonth = new Date(currentYear, currentMonth, 0).getDate()
 
-  const cells = createCells({
-    countCells: daysInMonth,
-    currentYear,
-    currentMonth,
-    isCurrentMonth: true,
-  })
+  const cells = createCells(currentYear, currentMonth, daysInMonth, true)
 
-  const prevMonthCells = createCells({
-    countCells: firstDayOfMonth,
+  const prevMonthCells = createCells(
     currentYear,
-    currentMonth: currentMonth - 1,
-    isCurrentMonth: false,
+    currentMonth - 1,
+    firstDayOfMonth,
+    false,
     daysInPrevMonth,
-  }).reverse()
+  ).reverse()
 
-  const nextMonthCells = createCells({
-    countCells: countCells - daysInMonth - firstDayOfMonth,
+  const nextMonthCells = createCells(
     currentYear,
-    currentMonth: currentMonth + 1,
-    isCurrentMonth: false,
-  })
+    currentMonth + 1,
+    countCells - daysInMonth - firstDayOfMonth,
+    false,
+  )
 
   const allCells = [prevMonthCells, cells, nextMonthCells].flat()
 
