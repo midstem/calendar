@@ -32,6 +32,7 @@ export const DateFormat = {
   MINUTE: 'mm',
   YEAR_MONTH_DAY: 'yyyy-LLLL-dd',
   DATE: 'yyyy-MM-dd',
+  DAY_OF_WEEK: 'EE',
 }
 
 export const DAYS_IN_YEAR = 365
