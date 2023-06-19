@@ -1,5 +1,4 @@
 import { format } from 'date-fns'
-import classNames from 'classnames'
 
 import Button from '../Button'
 import { DateFormat } from '../../constants'
@@ -17,22 +16,22 @@ const MonthSlots = ({
   const firstDayOfMonth = new Date(currentYear, currentMonth, 0).getDay()
   const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate()
 
-  const slotCells = generateSlotsForDaysOfMonth(
+  const slotCells = generateSlotsForDaysOfMonth({
     currentYear,
     daysInMonth,
     currentMonth,
     slotsData,
     firstDayOfMonth,
-  )
+  })
 
   return (
     <>
       <div className="month-cell-wrapper">
         {slotCells.map(({ date, slots, isCurrentMonth }, index) => (
           <div
-            className={classNames('cell month-cell', {
-              'month-cell--prev': !isCurrentMonth,
-            })}
+            className={`cell month-cell ${
+              !isCurrentMonth ? 'month-cell--prev' : ''
+            }`}
             key={date.toLocaleString() + index}
           >
             <div className="month-cell-week">
@@ -47,14 +46,14 @@ const MonthSlots = ({
                 {date.getDate()}
               </Button>
             </div>
-            {slots.map(({ slot, type }: any) => (
+            {/* {slots.map(({ slot, type }: any) => (
               <div
-                key={slot.start}
+                key={slot?.start}
                 className={`slot ${type === 'member' ? 'slot-right' : ''}`}
               >
-                {slot.start} - {slot.end} - {type}
+                {slot?.start} - {slot?.end} - {type}
               </div>
-            ))}
+            ))} */}
           </div>
         ))}
       </div>
