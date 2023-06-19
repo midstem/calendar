@@ -7,8 +7,9 @@
 
 .month-cell {
   display: flex;
+  flex-direction: column;
   flex: 1 0 calc(14.28% - 10px);
-  justify-content: center;
+  align-items: center;
   height: auto;
 }
 .month-cell:nth-child(7n + 1) {
@@ -22,8 +23,20 @@
   opacity: 0.8;
 }
 
-.month-cell-day {
+.month-cell-day-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  font-size: 16px;
   margin-top: 5px;
   cursor: pointer;
   text-align: center;
+  position: relative;
+}
+
+.month-cell-day {
+  border-radius: 50%;
+  text-transform: none;
+  border: 0px;
+  color: var(--light-black);
 }

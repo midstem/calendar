@@ -1,6 +1,9 @@
 import { CalendarEventType } from 'src/types'
 
-export type MonthSlotsProps = { slotsData: CalendarEventType[] }
+export type MonthSlotsProps = {
+  slotsData: CalendarEventType[]
+  onSelectDate: (date: Date) => void
+}
 
 export type CreateCells = ({
   currentYear,
