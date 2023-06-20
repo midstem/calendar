@@ -1,4 +1,4 @@
-import { CommonStylesT, ReactChildrenT } from 'src/types'
+import { CommonStylesT, ReactChildrenT } from '../../types'
 
 export type ButtonProps = ReactChildrenT &
   CommonStylesT & {

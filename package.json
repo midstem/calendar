@@ -1,8 +1,8 @@
 {
   "name": "chronous",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
-  "author": "Maksym Tkachuk, Oleksandr Didyshen",
+  "author": "Maksym Tkachuk, Oleksandr Didyshen, Igor Kozlovskyi",
   "description": "Event Calendar written in TypeScript",
   "main": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -41,7 +41,6 @@
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.57.1",
     "@vitejs/plugin-react": "^4.0.0",
@@ -58,9 +57,9 @@
     "pre-commit": "^1.2.2",
     "prettier": "^2.8.8",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "typescript": "^5.0.2",
     "vite": "^4.3.2",
+    "vite-plugin-dts": "^2.3.0",
     "vitest": "^0.30.1"
   },
   "pre-commit": "lint-tsc"
