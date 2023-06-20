@@ -1,6 +1,5 @@
 import ReactDOM from 'react-dom/client'
 import './styles/index.css'
-import './styles/font.css'
 
 import Calendar from './features/Calendar'
 
