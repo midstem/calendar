@@ -11,15 +11,6 @@
   border-radius: 5px;
 }
 
-.cross-icon {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  width: 24px;
-  fill: var(--dim-grey);
-  cursor: pointer;
-}
-
 .modal-event-info {
   display: flex;
   flex-direction: column;

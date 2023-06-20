@@ -1,9 +1,10 @@
 import { format } from 'date-fns'
 
 import { Cell } from '../MonthSlots/types'
+import colors from '../../theme/colors'
 import { DateFormat } from '../../constants'
-import { ReactComponent as Cross } from '../../assets/cross.svg'
 import './style.css'
+import Cross from '../../components/Cross'
 
 const MonthEventModal = ({
   cell,
@@ -24,7 +25,14 @@ const MonthEventModal = ({
           {format(date, DateFormat.DAY_NUMBER)}
         </span>
         <Cross
-          className="cross-icon"
+          sx={{
+            position: 'absolute',
+            top: '15px',
+            right: '15px',
+            width: '24px',
+            cursor: 'pointer',
+          }}
+          color={colors.dimGrey}
           onClick={() => closeModalHandler(false)}
         />
       </div>
