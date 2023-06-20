@@ -17,8 +17,8 @@ import {
   DayRowsType,
   ViewsT,
   WeekRowsType,
-} from '../../types'
-import { getScreenWidth } from '../../helpers'
+} from '../types'
+import { getScreenWidth } from '../helpers'
 import {
   DAY_IN_HOURS,
   DaysOfTheWeek,
@@ -28,7 +28,7 @@ import {
   DateFormat,
   daysOfWeek,
   Views,
-} from '../../constants'
+} from '../constants'
 
 import { HoursColumnT, RowsInfoT, DateRangeT } from './types'
 

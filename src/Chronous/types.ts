@@ -8,7 +8,7 @@ import {
   UserEvents,
   ViewsT,
   WeekCellType,
-} from '../../types'
+} from '../types'
 
 export type CalendarProps = Partial<UserEvents<DayCellType | WeekCellType>> & {
   events?: CalendarEventType[]
