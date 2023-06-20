@@ -1,5 +1,6 @@
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
+import dts from 'vite-plugin-dts'
 import { resolve } from 'path'
 export default defineConfig(() => ({
   server: {
@@ -8,7 +9,9 @@ export default defineConfig(() => ({
   preview: {
     port: 8080,
   },
-  plugins: [react()],
+  plugins: [react(), dts({
+    include: ['src/Chronous']
+  })],
   build: {
     lib: {
       entry: resolve('src', 'index.tsx'),

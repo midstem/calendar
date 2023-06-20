@@ -1,6 +1,6 @@
 import { CSSProperties, RefObject } from 'react'
 
-import { CommonStylesT, ReactChildrenT } from 'src/types'
+import { CommonStylesT, ReactChildrenT } from '../../types'
 
 export type FlexProps = ReactChildrenT &
   CommonStylesT & {
