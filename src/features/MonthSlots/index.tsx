@@ -56,7 +56,7 @@ const MonthSlots = ({
                 })
 
               return (
-                <div key={slot.start + index} className="slot slot-line">
+                <div key={slot.id} className="slot slot-line">
                   {!isCollapsedSlot && (
                     <div
                       className="slot-line-circle"

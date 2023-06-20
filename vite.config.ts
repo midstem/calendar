@@ -9,9 +9,12 @@ export default defineConfig(() => ({
   preview: {
     port: 8080,
   },
-  plugins: [react(), dts({
-    include: ['src/Chronous']
-  })],
+  plugins: [
+    react(),
+    dts({
+      include: ['src/Chronous'],
+    }),
+  ],
   build: {
     lib: {
       entry: resolve('src', 'index.tsx'),
