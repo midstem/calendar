@@ -33,6 +33,7 @@ export const DateFormat = {
   YEAR_MONTH_DAY: 'yyyy-LLLL-dd',
   DATE: 'yyyy-MM-dd',
   DAY_OF_WEEK: 'EE',
+  HOUR_MERIDIEM: 'haaa',
 }
 
 export const DAYS_IN_YEAR = 365

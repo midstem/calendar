@@ -1,5 +1,15 @@
-import { Cell, CreateCells, GenerateSlotsForDaysOfMonth } from './types'
-import { countCells } from './constants'
+import { format } from 'date-fns'
+
+import { DateFormat } from '../../constants'
+
+import {
+  Cell,
+  CreateCells,
+  GenerateSlotsForDaysOfMonth,
+  GetSlotAttributes,
+  SlotAttributes,
+} from './types'
+import { COUNT_CELLS, MAX_DISPLAYED_SLOTS } from './constants'
 
 export const createCells = ({
   currentYear,
@@ -45,7 +55,7 @@ export const generateSlotsForDaysOfMonth = ({
   }).reverse()
 
   const nextMonthCells = createCells({
-    countCells: countCells - daysInMonth - firstDayOfMonth,
+    countCells: COUNT_CELLS - daysInMonth - firstDayOfMonth,
     currentYear,
     currentMonth: currentMonth + 1,
     isCurrentMonth: false,
@@ -75,4 +85,23 @@ export const generateSlotsForDaysOfMonth = ({
   })
 
   return newCells
+}
+
+export const getSlotAttributes = ({
+  slot,
+  index,
+  length,
+}: GetSlotAttributes): SlotAttributes => {
+  const isCollapsedSlot =
+    index >= MAX_DISPLAYED_SLOTS && length > MAX_DISPLAYED_SLOTS
+
+  const slotTitle = isCollapsedSlot
+    ? `${length - MAX_DISPLAYED_SLOTS} more`
+    : slot.title
+
+  const slotTime = isCollapsedSlot
+    ? ''
+    : format(new Date(slot.start), DateFormat.HOUR_MERIDIEM)
+
+  return { isCollapsedSlot, slotTitle, slotTime }
 }
