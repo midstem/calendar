@@ -138,6 +138,20 @@ export const mockEvents: CalendarEventType[] = [
     opacity: 0.3,
     date: returnDayDate(currentDate, 4),
   },
+  {
+    id: 'f51ba7a4-da9a-44ce-ba07-ahdfghb51b7',
+    title: 'Event22',
+    start: returnDayDate(currentDate, 4) + 'T12:30:00',
+    end: returnDayDate(currentDate, 4) + 'T22:00:00',
+    type: 'member_availability',
+    overlapping: 0,
+    position: '50%',
+    width: '50%',
+    color: '#C0CA33',
+    textColor: '#1F1F1F',
+    opacity: 0.3,
+    date: returnDayDate(currentDate, 4),
+  },
 
   // FRIDAY
   {

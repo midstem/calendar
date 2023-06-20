@@ -4,7 +4,8 @@ import Button from '../Button'
 import { DateFormat } from '../../constants'
 
 import { MonthSlotsProps } from './types'
-import { generateSlotsForDaysOfMonth } from './helpers'
+import { generateSlotsForDaysOfMonth, getSlotAttributes } from './helpers'
+import { MAX_DISPLAYED_SLOTS } from './constants'
 
 const MonthSlots = ({
   slotsData,
@@ -46,14 +47,29 @@ const MonthSlots = ({
                 {date.getDate()}
               </Button>
             </div>
-            {/* {slots.map(({ slot, type }: any) => (
-              <div
-                key={slot?.start}
-                className={`slot ${type === 'member' ? 'slot-right' : ''}`}
-              >
-                {slot?.start} - {slot?.end} - {type}
-              </div>
-            ))} */}
+            {slots.slice(0, MAX_DISPLAYED_SLOTS + 1).map((slot, index) => {
+              const { slotTime, slotTitle, isCollapsedSlot } =
+                getSlotAttributes({
+                  slot,
+                  index,
+                  length: slots.length,
+                })
+
+              return (
+                <div key={slot.start + index} className="slot slot-line">
+                  {!isCollapsedSlot && (
+                    <div
+                      className="slot-line-circle"
+                      style={{
+                        backgroundColor: slot.color ?? 'brown',
+                      }}
+                    />
+                  )}
+                  <span>{slotTime}</span>
+                  <span className="slot-title">{slotTitle}</span>
+                </div>
+              )
+            })}
           </div>
         ))}
       </div>

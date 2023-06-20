@@ -26,3 +26,15 @@ export type Cell = {
   isCurrentMonth: boolean
   slots: CalendarEventType[]
 }
+
+export type GetSlotAttributes = {
+  slot: CalendarEventType
+  index: number
+  length: number
+}
+
+export type SlotAttributes = {
+  isCollapsedSlot: boolean
+  slotTitle: string
+  slotTime: string
+}
