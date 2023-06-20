@@ -1,11 +1,7 @@
-import { format } from 'date-fns'
-
-import Button from '../Button'
-import { DateFormat } from '../../constants'
+import { MonthSlot } from '../MonthSlot'
 
 import { MonthSlotsProps } from './types'
-import { generateSlotsForDaysOfMonth, getSlotAttributes } from './helpers'
-import { MAX_DISPLAYED_SLOTS } from './constants'
+import { generateSlotsForDaysOfMonth } from './helpers'
 
 const MonthSlots = ({
   slotsData,
@@ -23,54 +19,13 @@ const MonthSlots = ({
     currentMonth,
     slotsData,
     firstDayOfMonth,
-  })
+  }).map(cell => ({ ...cell, modalOpen: false }))
 
   return (
     <>
       <div className="month-cell-wrapper">
-        {slotCells.map(({ date, slots, isCurrentMonth }, index) => (
-          <div
-            className={`cell month-cell ${
-              !isCurrentMonth ? 'month-cell--prev' : ''
-            }`}
-            key={date.toLocaleString() + index}
-          >
-            <div className="month-cell-week">
-              {index < 7 && format(date, DateFormat.DAY_OF_WEEK)}
-            </div>
-            <div className="month-cell-day-wrapper">
-              <Button
-                className="month-cell-day"
-                onClick={() => onSelectDate(date)}
-              >
-                {date.getDate() === 1 && format(date, DateFormat.MONTH_SHORT)}{' '}
-                {date.getDate()}
-              </Button>
-            </div>
-            {slots.slice(0, MAX_DISPLAYED_SLOTS + 1).map((slot, index) => {
-              const { slotTime, slotTitle, isCollapsedSlot } =
-                getSlotAttributes({
-                  slot,
-                  index,
-                  length: slots.length,
-                })
-
-              return (
-                <div key={slot.id} className="slot slot-line">
-                  {!isCollapsedSlot && (
-                    <div
-                      className="slot-line-circle"
-                      style={{
-                        backgroundColor: slot.color ?? 'brown',
-                      }}
-                    />
-                  )}
-                  <span>{slotTime}</span>
-                  <span className="slot-title">{slotTitle}</span>
-                </div>
-              )
-            })}
-          </div>
+        {slotCells.map((cell, index) => (
+          <MonthSlot cell={cell} index={index} onSelectDate={onSelectDate} />
         ))}
       </div>
     </>
