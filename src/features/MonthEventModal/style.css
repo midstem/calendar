@@ -1,0 +1,37 @@
+.modal-event {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 10px;
+  background-color: var(--white);
+  box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3),
+    0 4px 8px 3px rgba(60, 64, 67, 0.15);
+  border-radius: 5px;
+}
+
+.cross-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 24px;
+  fill: var(--dim-grey);
+  cursor: pointer;
+}
+
+.modal-event-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.modal-event-info-day {
+  font-size: 24px;
+}
+
+.modal-event-info-weekday {
+  color: var(--little-darker-grey);
+}
