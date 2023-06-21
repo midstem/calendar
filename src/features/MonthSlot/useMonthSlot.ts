@@ -3,11 +3,14 @@ import { useState } from 'react'
 export const useMonthSlot = () => {
   const [modalOpen, setModalOpen] = useState<boolean>(false)
 
-  const openModalHandler = (isCollapsedSlot: boolean): void => {
-    if (isCollapsedSlot) {
-      setModalOpen(true)
-    }
+  const onEventClickHandler = (
+    isCollapsedSlot: boolean,
+    callback: () => void,
+  ): void => {
+    if (isCollapsedSlot) setModalOpen(true)
+
+    if (!isCollapsedSlot) callback()
   }
 
-  return { modalOpen, closeModalHandler: setModalOpen, openModalHandler }
+  return { modalOpen, closeModalHandler: setModalOpen, onEventClickHandler }
 }

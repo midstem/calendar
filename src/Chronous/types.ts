@@ -5,12 +5,15 @@ import {
   ConfigT,
   DayCellType,
   EventComponentProps,
+  MonthCellType,
   UserEvents,
   ViewsT,
   WeekCellType,
 } from '../types'
 
-export type CalendarProps = Partial<UserEvents<DayCellType | WeekCellType>> & {
+export type CalendarProps = Partial<
+  UserEvents<DayCellType | WeekCellType | MonthCellType>
+> & {
   events?: CalendarEventType[]
   currentDay?: Date | string
   selectedEvent?: string

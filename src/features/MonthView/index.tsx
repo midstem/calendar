@@ -7,6 +7,8 @@ import { MonthViewProps } from './types'
 const MonthView = ({
   events,
   selectDateHandler,
+  onClickEvent,
+  onClickCell,
 }: MonthViewProps): JSX.Element => {
   return (
     <>
@@ -14,7 +16,12 @@ const MonthView = ({
         <MonthHeader slotsFirstDateInList={events[0].date} />
       </div>
       <div className="body">
-        <MonthSlots slotsData={events} onSelectDate={selectDateHandler} />
+        <MonthSlots
+          slotsData={events}
+          onSelectDate={selectDateHandler}
+          onClickEvent={onClickEvent}
+          onClickCell={onClickCell}
+        />
       </div>
     </>
   )
