@@ -3,6 +3,7 @@ import { format } from 'date-fns'
 import { getSlotAttributes } from '../MonthSlots/helpers'
 import { MAX_DISPLAYED_SLOTS } from '../MonthSlots/constants'
 import MonthEventModal from '../MonthEventModal'
+import { MonthEvent } from '../MonthEvent'
 import Button from '../Button'
 import { DateFormat } from '../../constants'
 
@@ -13,13 +14,20 @@ export const MonthSlot = ({
   cell,
   index,
   onSelectDate,
+  onClickEvent,
+  onClickCell,
 }: MonthSlotProps): JSX.Element => {
   const { date, isCurrentMonth, slots } = cell
 
-  const { modalOpen, openModalHandler, closeModalHandler } = useMonthSlot()
+  const { modalOpen, onEventClickHandler, closeModalHandler } = useMonthSlot()
 
   return (
     <div
+      onClick={() => {
+        if (!slots.length) {
+          onClickCell(`${Date.now()}`, date)
+        }
+      }}
       className={`cell month-cell ${!isCurrentMonth ? 'month-cell--prev' : ''}`}
       key={date.toLocaleDateString() + index}
     >
@@ -27,7 +35,12 @@ export const MonthSlot = ({
         {index < 7 && format(date, DateFormat.DAY_OF_WEEK)}
       </div>
       <div className="month-cell-day-wrapper">
-        <Button className="month-cell-day" onClick={() => onSelectDate(date)}>
+        <Button
+          className="month-cell-day"
+          onClick={() => {
+            onSelectDate(date)
+          }}
+        >
           {date.getDate() === 1 && format(date, DateFormat.MONTH_SHORT)}{' '}
           {date.getDate()}
         </Button>
@@ -38,28 +51,25 @@ export const MonthSlot = ({
           index,
           length: slots.length,
         })
+        const event = { ...slot, date: slotTime, title: slotTitle }
 
         return (
-          <div
+          <MonthEvent
             key={slot.id}
-            className="slot slot-line"
-            onClick={() => openModalHandler(isCollapsedSlot)}
-          >
-            {!isCollapsedSlot && (
-              <div
-                className="slot-line-circle"
-                style={{
-                  backgroundColor: slot.color ?? 'brown',
-                }}
-              />
-            )}
-            <span>{slotTime}</span>
-            <span className="slot-title">{slotTitle}</span>
-          </div>
+            event={event}
+            isCollapsedEvent={isCollapsedSlot}
+            onClickEvent={() =>
+              onEventClickHandler(isCollapsedSlot, () => onClickEvent(slot))
+            }
+          />
         )
       })}
       {modalOpen && (
-        <MonthEventModal cell={cell} closeModalHandler={closeModalHandler} />
+        <MonthEventModal
+          cell={cell}
+          closeModalHandler={closeModalHandler}
+          onClickEvent={onClickEvent}
+        />
       )}
     </div>
   )

@@ -58,6 +58,8 @@ export type WeekCellType = CellT
 
 export type DayCellType = CellT
 
+export type MonthCellType = CellT
+
 export type EventComponentProps = {
   event: CalendarEventType
   isSelected: boolean
@@ -70,8 +72,11 @@ export type HandleClicKOnCellT = {
   onClick: (time: string, day: Date) => void
 }
 
-export type UserEvents<EventT> = {
+export type UserClickEvent<EventT> = {
   onClickEvent: (event: EventT) => void
+}
+
+export type UserEvents<EventT> = UserClickEvent<EventT> & {
   onClickCell: (time: string, day: Date) => void
 }
 

@@ -1,6 +1,6 @@
-import { CalendarEventType } from '../../types'
+import { CalendarEventType, MonthCellType, UserEvents } from '../../types'
 
-export type MonthSlotsProps = {
+export type MonthSlotsProps = UserEvents<MonthCellType> & {
   slotsData: CalendarEventType[]
   onSelectDate: (date: Date) => void
 }

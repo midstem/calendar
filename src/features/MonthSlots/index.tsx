@@ -6,6 +6,8 @@ import { generateSlotsForDaysOfMonth } from './helpers'
 const MonthSlots = ({
   slotsData,
   onSelectDate,
+  onClickEvent,
+  onClickCell,
 }: MonthSlotsProps): JSX.Element => {
   const currentDate = new Date()
   const currentMonth = currentDate.getMonth()
@@ -25,7 +27,14 @@ const MonthSlots = ({
     <>
       <div className="month-cell-wrapper">
         {slotCells.map((cell, index) => (
-          <MonthSlot cell={cell} index={index} onSelectDate={onSelectDate} />
+          <MonthSlot
+            key={cell.date.toDateString()}
+            cell={cell}
+            index={index}
+            onSelectDate={onSelectDate}
+            onClickEvent={onClickEvent}
+            onClickCell={onClickCell}
+          />
         ))}
       </div>
     </>

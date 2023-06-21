@@ -18,7 +18,7 @@ const Button = ({
       style={sx}
       className={`button ${className}`}
       onClick={event => {
-        onClick()
+        onClick(event)
         handleClick(event)
       }}
     >
