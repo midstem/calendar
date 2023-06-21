@@ -3,7 +3,7 @@ import { CommonStylesT, ReactChildrenT } from '../../types'
 export type ButtonProps = ReactChildrenT &
   CommonStylesT & {
     rippleColor?: string
-    onClick?: () => void
+    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
   }
 
 export type RippleT = {

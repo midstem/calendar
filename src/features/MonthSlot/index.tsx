@@ -15,6 +15,7 @@ export const MonthSlot = ({
   index,
   onSelectDate,
   onClickEvent,
+  onClickCell,
 }: MonthSlotProps): JSX.Element => {
   const { date, isCurrentMonth, slots } = cell
 
@@ -22,6 +23,11 @@ export const MonthSlot = ({
 
   return (
     <div
+      onClick={() => {
+        if (!slots.length) {
+          onClickCell(`${Date.now()}`, date)
+        }
+      }}
       className={`cell month-cell ${!isCurrentMonth ? 'month-cell--prev' : ''}`}
       key={date.toLocaleDateString() + index}
     >
@@ -29,7 +35,12 @@ export const MonthSlot = ({
         {index < 7 && format(date, DateFormat.DAY_OF_WEEK)}
       </div>
       <div className="month-cell-day-wrapper">
-        <Button className="month-cell-day" onClick={() => onSelectDate(date)}>
+        <Button
+          className="month-cell-day"
+          onClick={() => {
+            onSelectDate(date)
+          }}
+        >
           {date.getDate() === 1 && format(date, DateFormat.MONTH_SHORT)}{' '}
           {date.getDate()}
         </Button>
