@@ -12,7 +12,12 @@ export default defineConfig(() => ({
   plugins: [
     react(),
     dts({
-      include: ['src/Chronous'],
+      include: [
+        'src/index.tsx',
+        'src/types.ts',
+        'src/Chronous/index.tsx',
+        'src/Chronous/types.ts',
+      ],
     }),
   ],
   build: {
