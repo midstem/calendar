@@ -16,14 +16,14 @@
   align-items: center;
   min-height: 150px;
   height: auto;
+}
 
-  &:nth-child(7n + 1) {
-    border-left: var(--border-styles);
-  }
+.month-cell:nth-child(7n + 1) {
+  border-left: var(--border-styles);
+}
 
-  &:nth-child(-n + 7) {
-    border-top: var(--border-styles);
-  }
+.month-cell:nth-child(-n + 7) {
+  border-top: var(--border-styles);
 }
 
 .month-cell--prev {
@@ -55,11 +55,12 @@
   font-size: 14px;
   border-radius: 5px;
   transition: 0.1s;
-
-  &:hover {
-    background-color: var(--alise-blue);
-  }
 }
+
+.slot-line:hover {
+  background-color: var(--alise-blue);
+}
+
 .slot-line-circle {
   margin-top: 4px;
   width: 8px;
