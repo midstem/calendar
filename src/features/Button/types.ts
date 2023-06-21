@@ -6,6 +6,7 @@ export type ButtonProps = ReactChildrenT &
   CommonStylesT & {
     rippleColor?: string
     onClick?: (event: MouseEvent<HTMLButtonElement>) => void
+    ariaLabel: string
   }
 
 export type RippleT = {

@@ -1,3 +1,5 @@
+import { MouseEvent } from 'react'
+
 import { ReactChildrenT } from '../../types'
 
 export type EventContainerProps = ReactChildrenT & {
@@ -9,5 +11,5 @@ export type EventContainerProps = ReactChildrenT & {
   width?: string
   index: number
   numberOfEvents: number
-  onClick: () => void
+  onClick: (e: MouseEvent) => void
 }

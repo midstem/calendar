@@ -17,7 +17,7 @@ const EventContainer = ({
 }: EventContainerProps): JSX.Element => {
   return (
     <div
-      onClick={onClick}
+      onClick={e => onClick(e)}
       className={`slot-container ${isSelected && 'selected'} `}
       style={{
         zIndex: overlapping ? overlapping + 1 : 1,

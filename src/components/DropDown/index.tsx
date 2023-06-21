@@ -14,7 +14,7 @@ const DropDown = ({ onChange, value, list }: DropDownProps): JSX.Element => {
       refObject={dropDownRef}
       onClick={handleIsShowDropdown}
     >
-      <Button className="view-selection">
+      <Button ariaLabel="Chevron Down" className="view-selection">
         {value} <ChevronDown />
       </Button>
       {isShowDropdown && (

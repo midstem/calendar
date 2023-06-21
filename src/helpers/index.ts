@@ -1,7 +1,6 @@
 import { addDays } from 'date-fns'
 import { format } from 'date-fns'
 
-import { HandleClicKOnCellT } from '../types'
 import { CELL_HEIGHT, HOUR_IN_MINUTES, DateFormat } from '../constants'
 
 export const getStartPosition = (startDate: Date | string): number => {
@@ -21,17 +20,6 @@ export const checkSelected = (
   eventId: string,
   selectedEventId?: string,
 ): boolean => eventId === selectedEventId
-
-export const handleClicKOnCell = ({
-  event,
-  day,
-  time,
-  onClick,
-}: HandleClicKOnCellT): void => {
-  const isChildren = event.currentTarget.hasChildNodes()
-
-  if (!isChildren) onClick(time, day)
-}
 
 export const getDateOfWeekday = (
   weekdayNumber: number,

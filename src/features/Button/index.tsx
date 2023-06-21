@@ -10,12 +10,14 @@ const Button = ({
   sx = {},
   rippleColor = colors.transparentGreen,
   onClick = () => {},
+  ariaLabel,
 }: ButtonProps): JSX.Element => {
   const { handleClick, ripples } = useButton()
 
   return (
     <button
       style={sx}
+      aria-label={ariaLabel}
       className={`button ${className}`}
       onClick={event => {
         onClick(event)
