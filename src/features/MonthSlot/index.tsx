@@ -36,6 +36,7 @@ export const MonthSlot = ({
       </div>
       <div className="month-cell-day-wrapper">
         <Button
+          ariaLabel="day"
           className="month-cell-day"
           onClick={() => {
             onSelectDate(date)

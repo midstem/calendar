@@ -1,10 +1,6 @@
 import EventItem from '../EventItem'
 import EventContainer from '../EventContainer'
-import {
-  checkSelected,
-  getDateOfWeekday,
-  handleClicKOnCell,
-} from '../../helpers'
+import { checkSelected, getDateOfWeekday } from '../../helpers'
 
 import { WeekSlotsProps } from './types'
 
@@ -28,13 +24,8 @@ const WeekSlots = ({
             return (
               <div
                 className="cell"
-                onClick={event =>
-                  handleClicKOnCell({
-                    event,
-                    time,
-                    day: getDateOfWeekday(index, startDate),
-                    onClick: onClickCell,
-                  })
+                onClick={() =>
+                  onClickCell(time, getDateOfWeekday(index, startDate))
                 }
                 key={`cell-${String(index)}`}
               >
@@ -46,7 +37,10 @@ const WeekSlots = ({
 
                   return (
                     <EventContainer
-                      onClick={() => onClickEvent(event)}
+                      onClick={e => {
+                        e.stopPropagation()
+                        onClickEvent(event)
+                      }}
                       key={event.id}
                       index={eventIndex}
                       overlapping={event?.overlapping}

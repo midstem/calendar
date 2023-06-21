@@ -2,7 +2,7 @@ import './styles.css'
 
 import EventItem from '../EventItem'
 import EventContainer from '../EventContainer'
-import { checkSelected, handleClicKOnCell } from '../../helpers'
+import { checkSelected } from '../../helpers'
 
 import { DaySlotsProps } from './types'
 
@@ -23,9 +23,7 @@ const DaySlots = ({
           {cells.map((events, index) => {
             return (
               <div
-                onClick={event =>
-                  handleClicKOnCell({ event, time, day, onClick: onClickCell })
-                }
+                onClick={() => onClickCell(time, day)}
                 className="cell day-cell"
                 key="cell"
               >
@@ -34,7 +32,10 @@ const DaySlots = ({
 
                   return (
                     <EventContainer
-                      onClick={() => onClickEvent(event)}
+                      onClick={e => {
+                        e.stopPropagation()
+                        onClickEvent(event)
+                      }}
                       key={event.id}
                       index={index}
                       overlapping={event?.overlapping}

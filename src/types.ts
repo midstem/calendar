@@ -1,4 +1,4 @@
-import { CSSProperties, MouseEvent, ReactNode } from 'react'
+import { CSSProperties, ReactNode } from 'react'
 import { Duration } from 'date-fns'
 
 import { IconSizes, Views } from './constants'
@@ -65,8 +65,8 @@ export type EventComponentProps = {
   isSelected: boolean
 }
 
-export type HandleClicKOnCellT = {
-  event: MouseEvent<HTMLDivElement>
+export type HandleClickOnCellT = {
+  events: CalendarEventType[]
   time: string
   day: Date
   onClick: (time: string, day: Date) => void

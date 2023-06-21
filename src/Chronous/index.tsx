@@ -58,7 +58,9 @@ const Calendar = ({
     <Flex direction="column" spacing={16} sx={{ margin: 16 }}>
       <Flex justify="space-between">
         <Flex align="center" spacing={16}>
-          <Button onClick={goToday}>Today</Button>
+          <Button ariaLabel="Today" onClick={goToday}>
+            Today
+          </Button>
           <Flex spacing={16}>
             <IconButton
               isDisabled={isDisabledPrevious}
@@ -66,6 +68,7 @@ const Calendar = ({
               className="arrow-button"
               outlined
               hoverBG={colors.powderBlue}
+              ariaLabel="Left Arrow"
             >
               <LeftArrow color={colors.teal} />
             </IconButton>
@@ -75,6 +78,7 @@ const Calendar = ({
               className="arrow-button"
               outlined
               hoverBG={colors.powderBlue}
+              ariaLabel="Right Arrow"
             >
               <RightArrow color={colors.teal} />
             </IconButton>
