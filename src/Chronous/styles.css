@@ -120,6 +120,7 @@
   font-size: 0.875rem;
   padding: 5px 10px;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 .menu-item:hover {
