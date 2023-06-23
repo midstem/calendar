@@ -14,6 +14,7 @@
   flex: 1 0 var(--month-cell-width);
   flex-direction: column;
   align-items: center;
+  padding-top: 5px;
   min-height: 150px;
   height: auto;
 }
@@ -26,7 +27,7 @@
   border-top: var(--border-styles);
 }
 
-.month-cell--prev {
+.month-cell-day--notcurr {
   opacity: 0.8;
 }
 

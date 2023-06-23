@@ -1,6 +1,7 @@
 import '../theme/colors.css'
 import './styles.css'
 
+import { ComponentType } from 'react'
 import { format } from 'date-fns'
 
 import { ViewsT } from '../types'
@@ -52,7 +53,7 @@ const Calendar = ({
     mode,
   })
 
-  const View = VIEW_MODES[viewMode]
+  const View = VIEW_MODES[viewMode] as ComponentType<any>
 
   return (
     <Flex direction="column" spacing={16} sx={{ margin: 16 }}>
@@ -84,7 +85,7 @@ const Calendar = ({
             </IconButton>
           </Flex>
 
-          <Text sx={{ marginRight: 8 }}>
+          <Text>
             {format(startDate, DateFormat.MONTH_LONG)}
             {startDate.getMonth() !== endDate.getMonth() &&
               `-${format(endDate, DateFormat.MONTH_LONG)}`}

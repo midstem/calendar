@@ -1,7 +1,7 @@
 import { CalendarEventType, MonthCellType, UserEvents } from '../../types'
 
 export type MonthSlotsProps = UserEvents<MonthCellType> & {
-  slotsData: CalendarEventType[]
+  renderRows: Cell[]
   onSelectDate: (date: Date) => void
 }
 
@@ -14,11 +14,8 @@ export type CreateCells = {
 }
 
 export type GenerateSlotsForDaysOfMonth = {
-  currentYear: number
-  daysInMonth: number
-  currentMonth: number
+  date: number
   slotsData: CalendarEventType[]
-  firstDayOfMonth: number
 }
 
 export type Cell = {

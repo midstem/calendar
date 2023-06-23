@@ -7,8 +7,12 @@ import {
   endOfWeek,
   addWeeks,
   subDays,
+  startOfMonth,
+  endOfMonth,
+  addMonths,
   startOfDay,
   endOfDay,
+  subMonths,
 } from 'date-fns'
 
 import {
@@ -19,6 +23,12 @@ import {
   WeekRowsType,
 } from '../types'
 import { getScreenWidth } from '../helpers'
+import {
+  Cell,
+  CreateCells,
+  GenerateSlotsForDaysOfMonth,
+} from '../features/MonthSlots/types'
+import { COUNT_CELLS } from '../features/MonthSlots/constants'
 import {
   DAY_IN_HOURS,
   DaysOfTheWeek,
@@ -38,12 +48,20 @@ export const getStartOfWeek = (date: Date | number): Date =>
 export const getEndOfWeek = (date: Date | number): Date =>
   addDays(endOfWeek(date, { weekStartsOn: 1 }), 0)
 
+export const getStartOfMonth = (date: Date | number): Date =>
+  addDays(startOfMonth(date), 0)
+
+export const getEndOfMonth = (date: Date | number): Date =>
+  addDays(endOfMonth(date), 0)
+
 export const getStartDate = (viewMode: ViewsT, currentDate: Date): Date => {
   switch (viewMode) {
     case Views.WEEK:
       return getStartOfWeek(currentDate)
     case Views.DAY:
       return startOfDay(currentDate)
+    case Views.MONTH:
+      return getStartOfMonth(currentDate)
     default:
       return currentDate
   }
@@ -55,6 +73,8 @@ export const getEndDate = (viewMode: ViewsT, currentDate: Date): Date => {
       return getEndOfWeek(currentDate)
     case Views.DAY:
       return endOfDay(currentDate)
+    case Views.MONTH:
+      return getEndOfMonth(currentDate)
     default:
       return currentDate
   }
@@ -150,6 +170,85 @@ export const generateCalendarDayRows = (
   return rows.slice(START_DAY, END_DAY)
 }
 
+export const createCells = ({
+  currentYear,
+  currentMonth,
+  countCells,
+  isCurrentMonth,
+  daysInPrevMonth,
+}: CreateCells): Cell[] =>
+  Array.from({ length: countCells }, (_, day) => {
+    return {
+      date: new Date(
+        currentYear,
+        currentMonth,
+        daysInPrevMonth ? daysInPrevMonth - day : day + 1,
+      ),
+      isCurrentMonth,
+      slots: [],
+    }
+  })
+
+export const generateSlotsForDaysOfMonth = ({
+  date,
+  slotsData,
+}: GenerateSlotsForDaysOfMonth): Cell[] => {
+  const currentDate = new Date(date)
+
+  const currentMonth = currentDate.getMonth()
+  const currentYear = currentDate.getFullYear()
+
+  const firstDayOfMonth = new Date(currentYear, currentMonth, 0).getDay()
+  const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate()
+  const daysInPrevMonth = new Date(currentYear, currentMonth, 0).getDate()
+
+  const cells = createCells({
+    countCells: daysInMonth,
+    currentYear,
+    currentMonth,
+    isCurrentMonth: true,
+  })
+
+  const prevMonthCells = createCells({
+    countCells: firstDayOfMonth,
+    currentYear,
+    currentMonth: currentMonth - 1,
+    isCurrentMonth: false,
+    daysInPrevMonth,
+  }).reverse()
+
+  const nextMonthCells = createCells({
+    countCells: COUNT_CELLS - daysInMonth - firstDayOfMonth,
+    currentYear,
+    currentMonth: currentMonth + 1,
+    isCurrentMonth: false,
+  })
+
+  const allCells = [prevMonthCells, cells, nextMonthCells].flat()
+
+  const newCells = allCells.map(cell => {
+    const matchingSlotData = slotsData.filter(({ date }) => {
+      const slotDate = new Date(date)
+
+      return (
+        slotDate.getMonth() === currentMonth &&
+        slotDate.getFullYear() === currentYear &&
+        slotDate.getDate() === cell.date.getDate()
+      )
+    })
+
+    if (matchingSlotData) {
+      return {
+        ...cell,
+        slots: matchingSlotData,
+      }
+    }
+
+    return cell
+  })
+
+  return newCells
+}
 // export const updateCalendarRow = (
 //   rows: any[],
 //   index: number,
@@ -174,7 +273,7 @@ export const getRenderRows = (
   end: Date,
   viewMode: ViewsT,
   events: CalendarEventType[],
-): WeekRowsType[] | DayRowsType[] => {
+): WeekRowsType[] | DayRowsType[] | Cell[] => {
   const startDate = start.getTime()
   const endDate = end.getTime()
 
@@ -184,6 +283,9 @@ export const getRenderRows = (
     }
     case Views.DAY: {
       return generateCalendarDayRows(events, startDate, endDate)
+    }
+    case Views.MONTH: {
+      return generateSlotsForDaysOfMonth({ date: startDate, slotsData: events })
     }
     default: {
       return []
@@ -212,6 +314,14 @@ export const getPreviousDateRange = (
         endDate: prev,
       }
     }
+    case Views.MONTH: {
+      const previousDate = subMonths(currentDate, 1)
+
+      return {
+        startDate: getStartOfMonth(previousDate),
+        endDate: getEndOfMonth(previousDate),
+      }
+    }
     default: {
       const now = new Date()
 
@@ -229,19 +339,27 @@ export const getNextDateRange = (
 ): DateRangeT => {
   switch (viewMode) {
     case Views.WEEK: {
-      const nexDate = addWeeks(currentDate, 1)
+      const nextDate = addWeeks(currentDate, 1)
 
       return {
-        startDate: getStartOfWeek(nexDate),
-        endDate: getEndOfWeek(nexDate),
+        startDate: getStartOfWeek(nextDate),
+        endDate: getEndOfWeek(nextDate),
       }
     }
     case Views.DAY: {
-      const nexDate = addDays(currentDate, 1)
+      const nextDate = addDays(currentDate, 1)
 
       return {
-        startDate: nexDate,
-        endDate: nexDate,
+        startDate: nextDate,
+        endDate: nextDate,
+      }
+    }
+    case Views.MONTH: {
+      const nextDate = addMonths(currentDate, 1)
+
+      return {
+        startDate: getStartOfMonth(nextDate),
+        endDate: getEndOfMonth(nextDate),
       }
     }
     default: {
