@@ -21,5 +21,5 @@ The project is still in the development
 
 .time - styles the cell that contains time
 
-.event - styles the event
+.event - styles the container that wraps event
 ```
