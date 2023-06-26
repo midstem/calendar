@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react'
+import { FunctionComponent, ReactNode } from 'react'
 
 import {
   CalendarEventType,
@@ -21,6 +21,8 @@ export type CalendarProps = Partial<
   renderEventComponent?: FunctionComponent<EventComponentProps>
   config?: ConfigT[]
   mode?: ViewsT
+  nextButton?: ReactNode
+  prevButton?: ReactNode
 }
 
 export type UseCalendarProps = {
