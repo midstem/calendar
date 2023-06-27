@@ -12,7 +12,7 @@ button {
   border-radius: 4px;
   cursor: pointer;
   overflow: hidden;
-  transition: 0.1s;
+  transition: var(--transition);
 }
 
 .button:hover {
