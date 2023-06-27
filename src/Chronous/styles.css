@@ -124,6 +124,7 @@
   font-size: 0.875rem;
   padding: 5px 10px;
   cursor: pointer;
+  transition: var(--transition);
 }
 
 .dropdown-item:hover {
