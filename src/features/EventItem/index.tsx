@@ -11,7 +11,7 @@ const EventItem = ({ event, isSelected }: EventComponentProps): JSX.Element => {
   return (
     <Flex
       direction="column"
-      className={`slot  ${isSelected && 'selected'}`}
+      className={`event  ${isSelected && 'selected'}`}
       sx={{
         backgroundColor: applyOpacity(
           event?.color ?? '',

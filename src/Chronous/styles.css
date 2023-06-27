@@ -63,13 +63,13 @@
   align-items: center;
 }
 
-.slot-container {
+.event-container {
   position: absolute;
   overflow: hidden;
   background-color: var(--white);
 }
 
-.slot {
+.event {
   height: inherit;
   border-radius: 4px;
   padding: 5px;
@@ -80,11 +80,11 @@
   cursor: pointer;
 }
 
-.slot-left {
+.event-left {
   left: 0;
 }
 
-.slot-right {
+.event-right {
   right: 0;
 }
 
