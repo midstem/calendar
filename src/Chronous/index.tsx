@@ -67,7 +67,12 @@ const Calendar = ({
           <Button ariaLabel="Today" onClick={goToday} className="today-button">
             Today
           </Button>
-          <Flex spacing={16}>
+          <Flex
+            spacing={16}
+            sx={{
+              backgroundColor: 'black',
+            }}
+          >
             <IconButton
               isDisabled={isDisabledPrevious}
               onClick={previous}

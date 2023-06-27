@@ -7,20 +7,22 @@ export const useIconButton = ({
   onClick,
   activeColor,
 }: UseIconButtonT) => {
-  const [previousBG, setPreviousBG] = useState<string>(hoverBG)
+  const [previousBG, setPreviousBG] = useState<string | undefined>(undefined)
 
   const handleMouseOver = (event: MouseEvent<HTMLButtonElement>): void => {
-    setPreviousBG(event.currentTarget.style.backgroundColor)
+    if (!previousBG) setPreviousBG(event.currentTarget.style.backgroundColor)
 
     if (hoverBG) event.currentTarget.style.backgroundColor = hoverBG
   }
 
   const handleMouseOut = (event: MouseEvent<HTMLButtonElement>): void => {
-    event.currentTarget.style.backgroundColor = previousBG
+    if (previousBG !== undefined)
+      event.currentTarget.style.backgroundColor = previousBG
   }
 
-  const handleClick = (): void => {
-    setPreviousBG(activeColor)
+  const handleClick = (event: MouseEvent<HTMLButtonElement>): void => {
+    if (activeColor) event.currentTarget.style.backgroundColor = activeColor
+
     onClick()
   }
 
