@@ -95,7 +95,7 @@
   border-color: var(--powder-blue);
 }
 
-.view-selection {
+.dropdown-button {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -116,13 +116,12 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   overflow: hidden;
 }
-
-.menu-item {
+.dropdown-item {
   font-size: 0.875rem;
   padding: 5px 10px;
   cursor: pointer;
 }
 
-.menu-item:hover {
+.dropdown-item:hover {
   background-color: var(--alise-blue);
 }
