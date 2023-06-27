@@ -66,7 +66,7 @@ const Calendar = ({
         justify="space-between"
         sx={{
           flexWrap: 'wrap',
-          gap: '8px',
+          gap: '10px',
         }}
       >
         <Flex align="center" spacing={16}>
