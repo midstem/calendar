@@ -15,6 +15,8 @@ The project is still in the development
 
 .dropdown-item - styles the dropdown items
 
+.chevron-down - styles the dropdown arrow
+
 .row - styles the container that wraps cells
 
 .cell - styles the container that wraps events
