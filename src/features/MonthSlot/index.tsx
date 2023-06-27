@@ -38,7 +38,7 @@ export const MonthSlot = ({
         <Button
           ariaLabel="day"
           className={`month-cell-day ${
-            !isCurrentMonth ? 'month-cell-day--notcurr' : ''
+            !isCurrentMonth ? 'month-cell-day--othermonth' : ''
           }`}
           onClick={() => {
             onSelectDate(date)

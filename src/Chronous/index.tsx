@@ -1,7 +1,6 @@
 import '../theme/colors.css'
 import './styles.css'
 
-import { ComponentType } from 'react'
 import { format } from 'date-fns'
 
 import { ViewsT } from '../types'
@@ -16,7 +15,7 @@ import Flex from '../components/Flex'
 import DropDown from '../components/DropDown'
 
 import { useCalendar } from './useCalendar'
-import { CalendarProps } from './types'
+import { CalendarProps, CombinedViewRowsType } from './types'
 import { mockEvents } from './mockData'
 import { VIEW_MODES } from './constants'
 
@@ -53,7 +52,7 @@ const Calendar = ({
     mode,
   })
 
-  const View = VIEW_MODES[viewMode] as ComponentType<any>
+  const View = VIEW_MODES[viewMode]
 
   return (
     <Flex direction="column" spacing={16} sx={{ margin: 16 }}>
@@ -103,7 +102,7 @@ const Calendar = ({
         <View
           onClickCell={onClickCell}
           events={events}
-          renderRows={renderRows}
+          renderRows={renderRows as CombinedViewRowsType}
           startDate={startDate}
           selectedDate={selectedDate}
           selectedEvent={selectedEvent}

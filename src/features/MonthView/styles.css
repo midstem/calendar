@@ -27,7 +27,7 @@
   border-top: var(--border-styles);
 }
 
-.month-cell-day--notcurr {
+.month-cell-day--othermonth {
   opacity: 0.8;
 }
 
