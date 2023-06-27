@@ -13,6 +13,7 @@ import LeftArrow from '../components/LeftArrow'
 import IconButton from '../components/IconButton'
 import Flex from '../components/Flex'
 import DropDown from '../components/DropDown'
+import ChevronDown from '../components/ChevronDown'
 
 import { useCalendar } from './useCalendar'
 import { CalendarProps, CombinedViewRowsType } from './types'
@@ -33,6 +34,7 @@ const Calendar = ({
   endHour = 24,
   nextButton = <RightArrow color={colors.teal} />,
   prevButton = <LeftArrow color={colors.teal} />,
+  customDropdownArrow = <ChevronDown />,
 }: CalendarProps): JSX.Element => {
   const {
     viewMode,
@@ -102,6 +104,7 @@ const Calendar = ({
           list={Object.values(Views)}
           value={viewMode}
           onChange={mode => setViewMode(mode as ViewsT)}
+          dropdownArrow={customDropdownArrow}
         />
       </Flex>
       <div className="calendar">

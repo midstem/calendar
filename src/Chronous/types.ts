@@ -30,6 +30,7 @@ export type CalendarProps = Partial<
   endHour?: number
   nextButton?: ReactNode
   prevButton?: ReactNode
+  customDropdownArrow?: ReactNode
 }
 
 export type UseCalendarProps = {

@@ -15,6 +15,7 @@ const ChevronDown = ({
       focusable="false"
       aria-hidden="true"
       viewBox="0 0 11 6"
+      className="chevron-down"
     >
       <path
         fill={color}

@@ -1,11 +1,15 @@
 import Flex from '../Flex'
 import Button from '../../features/Button'
-import ChevronDown from '../../components/ChevronDown'
 
 import { useDropDown } from './useDropDown'
 import { DropDownProps } from './types'
 
-const DropDown = ({ onChange, value, list }: DropDownProps): JSX.Element => {
+const DropDown = ({
+  onChange,
+  value,
+  list,
+  dropdownArrow,
+}: DropDownProps): JSX.Element => {
   const { isShowDropdown, dropDownRef, handleIsShowDropdown } = useDropDown()
 
   return (
@@ -16,7 +20,7 @@ const DropDown = ({ onChange, value, list }: DropDownProps): JSX.Element => {
       className="dropdown-wrapper"
     >
       <Button ariaLabel="Chevron Down" className="dropdown-button">
-        {value} <ChevronDown />
+        {value} {dropdownArrow}
       </Button>
       {isShowDropdown && (
         <ul className="dropdown">
