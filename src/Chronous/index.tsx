@@ -58,7 +58,7 @@ const Calendar = ({
     <Flex direction="column" spacing={16} sx={{ margin: 16 }}>
       <Flex justify="space-between">
         <Flex align="center" spacing={16}>
-          <Button ariaLabel="Today" onClick={goToday} className="button-today">
+          <Button ariaLabel="Today" onClick={goToday} className="today-button">
             Today
           </Button>
           <Flex spacing={16}>
