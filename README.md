@@ -5,7 +5,7 @@ The project is still in the development
 ## 💅 **Styling**
 
 ```css
-.button-today - styles the today button that returns the user to the current date
+.today-button - styles the today button that gets a user to the current date
 
 .dropdown-wrapper - styles the container that wraps dropdown
 
@@ -13,7 +13,7 @@ The project is still in the development
 
 .dropdown - styles the container that wraps dropdown items
 
-.dropdown-item - styles the items of dropdown
+.dropdown-item - styles the dropdown items
 
 .row - styles the container that wraps cells
 
