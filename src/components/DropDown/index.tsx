@@ -13,14 +13,19 @@ const DropDown = ({ onChange, value, list }: DropDownProps): JSX.Element => {
       sx={{ position: 'relative' }}
       refObject={dropDownRef}
       onClick={handleIsShowDropdown}
+      className="dropdown-wrapper"
     >
-      <Button ariaLabel="Chevron Down" className="view-selection">
+      <Button ariaLabel="Chevron Down" className="dropdown-button">
         {value} <ChevronDown />
       </Button>
       {isShowDropdown && (
         <ul className="dropdown">
           {list.map(item => (
-            <li key={item} className="menu-item" onClick={() => onChange(item)}>
+            <li
+              key={item}
+              className="dropdown-item"
+              onClick={() => onChange(item)}
+            >
               {item}
             </li>
           ))}

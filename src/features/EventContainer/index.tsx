@@ -18,7 +18,7 @@ const EventContainer = ({
   return (
     <div
       onClick={e => onClick(e)}
-      className={`slot-container ${isSelected && 'selected'} `}
+      className={`event-container ${isSelected && 'selected'} `}
       style={{
         zIndex: overlapping ? overlapping + 1 : 1,
         top: `${getStartPosition(start)}px`,

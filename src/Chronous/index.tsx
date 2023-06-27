@@ -31,6 +31,8 @@ const Calendar = ({
   mode = Views.WEEK,
   startHour = 1,
   endHour = 24,
+  nextButton = <RightArrow color={colors.teal} />,
+  prevButton = <LeftArrow color={colors.teal} />,
 }: CalendarProps): JSX.Element => {
   const {
     viewMode,
@@ -62,7 +64,7 @@ const Calendar = ({
     <Flex direction="column" spacing={16} sx={{ margin: 16 }}>
       <Flex justify="space-between">
         <Flex align="center" spacing={16}>
-          <Button ariaLabel="Today" onClick={goToday}>
+          <Button ariaLabel="Today" onClick={goToday} className="today-button">
             Today
           </Button>
           <Flex spacing={16}>
@@ -74,7 +76,7 @@ const Calendar = ({
               hoverBG={colors.powderBlue}
               ariaLabel="Left Arrow"
             >
-              <LeftArrow color={colors.teal} />
+              {prevButton}
             </IconButton>
             <IconButton
               isDisabled={isDisabledNext}
@@ -84,7 +86,7 @@ const Calendar = ({
               hoverBG={colors.powderBlue}
               ariaLabel="Right Arrow"
             >
-              <RightArrow color={colors.teal} />
+              {nextButton}
             </IconButton>
           </Flex>
 
