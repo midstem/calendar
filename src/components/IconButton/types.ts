@@ -11,7 +11,7 @@ export type IconButtonProps = ReactChildrenT &
   }
 
 export type UseIconButtonT = {
-  hoverBG: string
-  activeColor: string
+  hoverBG?: string
+  activeColor?: string
   onClick: () => void
 }
