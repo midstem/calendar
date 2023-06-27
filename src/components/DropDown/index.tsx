@@ -14,7 +14,7 @@ const DropDown = ({
 
   return (
     <Flex
-      sx={{ position: 'relative' }}
+      sx={{ position: 'relative', minHeight: '36px' }}
       refObject={dropDownRef}
       onClick={handleIsShowDropdown}
       className="dropdown-wrapper"
