@@ -6,17 +6,17 @@ export const MonthEvent = ({
   isCollapsedEvent = false,
 }: MonthEventProps): JSX.Element => {
   return (
-    <div className="slot slot-line" onClick={() => onClickEvent(event)}>
+    <div className="event event-line" onClick={() => onClickEvent(event)}>
       {!isCollapsedEvent && (
         <div
-          className="slot-line-circle"
+          className="event-line-circle"
           style={{
             backgroundColor: event.color ?? 'brown',
           }}
         />
       )}
       <span>{event.date}</span>
-      <span className="slot-title">{event.title}</span>
+      <span className="event-title">{event.title}</span>
     </div>
   )
 }

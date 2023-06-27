@@ -49,7 +49,7 @@
   text-transform: none;
 }
 
-.slot-line {
+.event-line {
   display: flex;
   gap: 6px;
   width: 100%;
@@ -58,11 +58,11 @@
   transition: 0.1s;
 }
 
-.slot-line:hover {
+.event-line:hover {
   background-color: var(--alise-blue);
 }
 
-.slot-line-circle {
+.event-line-circle {
   margin-top: 4px;
   width: 8px;
   height: 8px;
@@ -70,6 +70,6 @@
   border-radius: 50%;
 }
 
-.slot-title {
+.event-title {
   font-weight: 600;
 }
