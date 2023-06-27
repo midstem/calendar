@@ -33,6 +33,7 @@ const WeekHeader = ({
                 }}
                 hoverBG={colors.powderBlue}
                 activeColor={colors.powderBlue}
+                className="selected-day-button"
               >
                 {format(day, DateFormat.DAY_NUMBER)}
               </IconButton>
