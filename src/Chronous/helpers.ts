@@ -32,9 +32,7 @@ import { COUNT_CELLS } from '../features/MonthSlots/constants'
 import {
   DAY_IN_HOURS,
   DaysOfTheWeek,
-  END_DAY,
   MERIDIEM,
-  START_DAY,
   DateFormat,
   daysOfWeek,
   Views,
@@ -124,6 +122,8 @@ export const generateCalendarWeekRows = (
   events: CalendarEventType[],
   startWeek: number,
   endWeek: number,
+  startHour: number,
+  endHour: number,
 ): WeekRowsType[] => {
   const rows = generateEmptyWeekRows()
 
@@ -144,13 +144,15 @@ export const generateCalendarWeekRows = (
     },
   )
 
-  return rows.slice(START_DAY, END_DAY)
+  return rows.slice(startHour, endHour)
 }
 
 export const generateCalendarDayRows = (
   events: CalendarEventType[],
   startDay: number,
   endDay: number,
+  startHour: number,
+  endHour: number,
 ): DayRowsType[] => {
   const rows = generateEmptyDayRows()
 
@@ -167,7 +169,7 @@ export const generateCalendarDayRows = (
     },
   )
 
-  return rows.slice(START_DAY, END_DAY)
+  return rows.slice(startHour, endHour)
 }
 
 export const createCells = ({
@@ -273,16 +275,30 @@ export const getRenderRows = (
   end: Date,
   viewMode: ViewsT,
   events: CalendarEventType[],
+  startHour: number,
+  endHour: number,
 ): WeekRowsType[] | DayRowsType[] | Cell[] => {
   const startDate = start.getTime()
   const endDate = end.getTime()
 
   switch (viewMode) {
     case Views.WEEK: {
-      return generateCalendarWeekRows(events, startDate, endDate)
+      return generateCalendarWeekRows(
+        events,
+        startDate,
+        endDate,
+        startHour,
+        endHour,
+      )
     }
     case Views.DAY: {
-      return generateCalendarDayRows(events, startDate, endDate)
+      return generateCalendarDayRows(
+        events,
+        startDate,
+        endDate,
+        startHour,
+        endHour,
+      )
     }
     case Views.MONTH: {
       return generateSlotsForDaysOfMonth({ date: startDate, slotsData: events })

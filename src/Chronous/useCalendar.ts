@@ -23,6 +23,8 @@ export const useCalendar = ({
   onChangeDate = () => {},
   config = [],
   mode,
+  startHour,
+  endHour,
 }: UseCalendarProps) => {
   const [viewMode, setViewMode] = useState<ViewsT>(mode)
   const [currentDate, setCurrentDate] = useState<Date>(currentDay)
@@ -52,8 +54,9 @@ export const useCalendar = ({
   }, [currentDate, viewMode])
 
   const renderRows = useMemo(
-    () => getRenderRows(startDate, endDate, viewMode, events),
-    [endDate, events, startDate, viewMode],
+    () =>
+      getRenderRows(startDate, endDate, viewMode, events, startHour, endHour),
+    [endDate, endHour, events, startDate, startHour, viewMode],
   )
 
   const next = useCallback(() => {
