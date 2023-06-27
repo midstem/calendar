@@ -29,6 +29,8 @@ const Calendar = ({
   onChangeDate = () => {},
   config = [],
   mode = Views.WEEK,
+  startHour = 1,
+  endHour = 24,
   nextButton = <RightArrow color={colors.teal} />,
   prevButton = <LeftArrow color={colors.teal} />,
 }: CalendarProps): JSX.Element => {
@@ -52,6 +54,8 @@ const Calendar = ({
     onChangeDate,
     config,
     mode,
+    startHour,
+    endHour,
   })
 
   const View = VIEW_MODES[viewMode]

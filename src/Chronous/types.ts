@@ -21,6 +21,8 @@ export type CalendarProps = Partial<
   renderEventComponent?: FunctionComponent<EventComponentProps>
   config?: ConfigT[]
   mode?: ViewsT
+  startHour?: number
+  endHour?: number
   nextButton?: ReactNode
   prevButton?: ReactNode
 }
@@ -31,6 +33,8 @@ export type UseCalendarProps = {
   onChangeDate: (start: Date, end: Date) => void
   config: ConfigT[]
   mode: ViewsT
+  startHour: number
+  endHour: number
 }
 
 export type HoursColumnT = {
