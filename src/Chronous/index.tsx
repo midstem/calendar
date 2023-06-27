@@ -29,8 +29,8 @@ const Calendar = ({
   onChangeDate = () => {},
   config = [],
   mode = Views.WEEK,
-  nextButton,
-  prevButton,
+  nextButton = <RightArrow color={colors.teal} />,
+  prevButton = <LeftArrow color={colors.teal} />,
 }: CalendarProps): JSX.Element => {
   const {
     viewMode,
@@ -72,7 +72,7 @@ const Calendar = ({
               hoverBG={colors.powderBlue}
               ariaLabel="Left Arrow"
             >
-              {prevButton ?? <LeftArrow color={colors.teal} />}
+              {prevButton}
             </IconButton>
             <IconButton
               isDisabled={isDisabledNext}
@@ -82,7 +82,7 @@ const Calendar = ({
               hoverBG={colors.powderBlue}
               ariaLabel="Right Arrow"
             >
-              {nextButton ?? <RightArrow color={colors.teal} />}
+              {nextButton}
             </IconButton>
           </Flex>
 
