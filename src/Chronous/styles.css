@@ -54,6 +54,7 @@
 .row:not(:first-child) .cell {
   border-top: none;
 }
+
 .time {
   display: flex;
   border-left: var(--border-styles);
