@@ -23,8 +23,8 @@ export const useCalendar = ({
   onChangeDate = () => {},
   config = [],
   mode,
-  startHour = 1,
-  endHour = 24,
+  startHour,
+  endHour,
 }: UseCalendarProps) => {
   const [viewMode, setViewMode] = useState<ViewsT>(mode)
   const [currentDate, setCurrentDate] = useState<Date>(currentDay)

@@ -176,8 +176,8 @@ export const getRenderRows = (
   end: Date,
   viewMode: ViewsT,
   events: CalendarEventType[],
-  startHour = 1,
-  endHour = 24,
+  startHour: number,
+  endHour: number,
 ): WeekRowsType[] | DayRowsType[] => {
   const startDate = start.getTime()
   const endDate = end.getTime()
