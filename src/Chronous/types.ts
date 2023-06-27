@@ -4,12 +4,17 @@ import {
   CalendarEventType,
   ConfigT,
   DayCellType,
+  DayRowsType,
   EventComponentProps,
   MonthCellType,
   UserEvents,
   ViewsT,
   WeekCellType,
+  WeekRowsType,
 } from '../types'
+import { Cell } from '../features/MonthSlots/types'
+
+export type CombinedViewRowsType = WeekRowsType[] & DayRowsType[] & Cell[]
 
 export type CalendarProps = Partial<
   UserEvents<DayCellType | WeekCellType | MonthCellType>

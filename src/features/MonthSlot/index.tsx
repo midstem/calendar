@@ -28,7 +28,7 @@ export const MonthSlot = ({
           onClickCell(`${Date.now()}`, date)
         }
       }}
-      className={`cell month-cell ${!isCurrentMonth ? 'month-cell--prev' : ''}`}
+      className="cell month-cell"
       key={date.toLocaleDateString() + index}
     >
       <div className="month-cell-week">
@@ -37,7 +37,9 @@ export const MonthSlot = ({
       <div className="month-cell-day-wrapper">
         <Button
           ariaLabel="day"
-          className="month-cell-day"
+          className={`month-cell-day ${
+            !isCurrentMonth ? 'month-cell-day--othermonth' : ''
+          }`}
           onClick={() => {
             onSelectDate(date)
           }}

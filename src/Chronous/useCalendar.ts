@@ -31,6 +31,7 @@ export const useCalendar = ({
   const [selectedDate, setSelectedDate] = useState<Date>(new Date())
 
   const currentYear = useMemo(() => currentDate.getFullYear(), [currentDate])
+
   const startDate = useMemo(
     () => getStartDate(viewMode, currentDate),
     [viewMode, currentDate],
@@ -67,6 +68,7 @@ export const useCalendar = ({
 
   const previous = useCallback(() => {
     const { startDate, endDate } = getPreviousDateRange(currentDate, viewMode)
+
     setCurrentDate(startDate)
     onChangeDate(startDate, endDate)
   }, [currentDate, onChangeDate, viewMode])

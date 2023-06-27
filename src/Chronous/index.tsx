@@ -15,7 +15,7 @@ import Flex from '../components/Flex'
 import DropDown from '../components/DropDown'
 
 import { useCalendar } from './useCalendar'
-import { CalendarProps } from './types'
+import { CalendarProps, CombinedViewRowsType } from './types'
 import { mockEvents } from './mockData'
 import { VIEW_MODES } from './constants'
 
@@ -90,7 +90,7 @@ const Calendar = ({
             </IconButton>
           </Flex>
 
-          <Text sx={{ marginRight: 8 }}>
+          <Text>
             {format(startDate, DateFormat.MONTH_LONG)}
             {startDate.getMonth() !== endDate.getMonth() &&
               `-${format(endDate, DateFormat.MONTH_LONG)}`}
@@ -108,7 +108,7 @@ const Calendar = ({
         <View
           onClickCell={onClickCell}
           events={events}
-          renderRows={renderRows}
+          renderRows={renderRows as CombinedViewRowsType}
           startDate={startDate}
           selectedDate={selectedDate}
           selectedEvent={selectedEvent}
