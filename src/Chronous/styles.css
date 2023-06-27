@@ -38,15 +38,12 @@
   flex-direction: row;
 }
 
-.row:nth-child(1) {
-  border-top: var(--border-styles);
-}
-
 .cell {
   flex-grow: 0;
   flex-basis: 20%;
   border-right: var(--border-styles);
   border-bottom: var(--border-styles);
+  border-top: var(--border-styles);
   min-width: 80px;
   height: var(--cell-height);
   position: relative;
@@ -54,6 +51,9 @@
   flex-direction: row;
 }
 
+.row:not(:first-child) .cell {
+  border-top: none;
+}
 .time {
   display: flex;
   border-left: var(--border-styles);
