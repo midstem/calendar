@@ -25,9 +25,6 @@ const Calendar = ({
   currentDay = new Date(),
   selectedEvent,
   renderEventComponent,
-  onClickEvent = () => {},
-  onClickCell = () => {},
-  onChangeDate = () => {},
   config = [],
   mode = Views.WEEK,
   startHour = 1,
@@ -35,6 +32,10 @@ const Calendar = ({
   nextButton = <RightArrow color={colors.teal} />,
   prevButton = <LeftArrow color={colors.teal} />,
   customDropdownArrow = <ChevronDown />,
+  className,
+  onClickEvent = () => {},
+  onClickCell = () => {},
+  onChangeDate = () => {},
 }: CalendarProps): JSX.Element => {
   const {
     viewMode,
@@ -63,7 +64,12 @@ const Calendar = ({
   const View = VIEW_MODES[viewMode]
 
   return (
-    <Flex direction="column" spacing={16} sx={{ margin: 16 }}>
+    <Flex
+      direction="column"
+      className={className}
+      spacing={16}
+      sx={{ margin: 16 }}
+    >
       <Flex
         justify="space-between"
         sx={{

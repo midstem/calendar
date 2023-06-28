@@ -19,28 +19,29 @@ export type CombinedViewRowsType = WeekRowsType[] & DayRowsType[] & Cell[]
 export type CalendarProps = Partial<
   UserEvents<DayCellType | WeekCellType | MonthCellType>
 > & {
-  events?: CalendarEventType[]
-  currentDay?: Date | string
-  selectedEvent?: string
-  onChangeDate?: (start: Date, end: Date) => void
-  renderEventComponent?: FunctionComponent<EventComponentProps>
-  config?: ConfigT[]
   mode?: ViewsT
-  startHour?: number
   endHour?: number
+  config?: ConfigT[]
+  className?: string
+  startHour?: number
+  selectedEvent?: string
   nextButton?: ReactNode
   prevButton?: ReactNode
+  currentDay?: Date | string
+  events?: CalendarEventType[]
   customDropdownArrow?: ReactNode
+  renderEventComponent?: FunctionComponent<EventComponentProps>
+  onChangeDate?: (start: Date, end: Date) => void
 }
 
 export type UseCalendarProps = {
   currentDay: Date
   events: CalendarEventType[]
-  onChangeDate: (start: Date, end: Date) => void
   config: ConfigT[]
   mode: ViewsT
   startHour: number
   endHour: number
+  onChangeDate: (start: Date, end: Date) => void
 }
 
 export type HoursColumnT = {
