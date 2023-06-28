@@ -42,12 +42,15 @@
   flex-basis: 20%;
   border-right: var(--border-styles);
   border-bottom: var(--border-styles);
-  border-top: var(--border-styles);
   min-width: 80px;
   height: var(--cell-height);
   position: relative;
   display: flex;
   flex-direction: row;
+}
+
+.row > .cell {
+  border-top: var(--border-styles);
 }
 
 .row:not(:first-child) .cell {

@@ -15,6 +15,7 @@ const Cross = ({
       focusable="false"
       aria-hidden="true"
       viewBox="0 0 24 24"
+      className="modal-cross"
       onClick={onClick}
     >
       <path

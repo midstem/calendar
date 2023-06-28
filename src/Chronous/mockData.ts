@@ -152,7 +152,20 @@ export const mockEvents: CalendarEventType[] = [
     opacity: 0.3,
     date: returnDayDate(currentDate, 4),
   },
-
+  {
+    id: '070d0f2f-917aa4-4f54-8c2a-3e20efb9a0a9',
+    title: 'Event12',
+    start: returnDayDate(currentDate, 4) + 'T11:00:00',
+    end: returnDayDate(currentDate, 4) + 'T15:45:00',
+    type: 'client_appointment',
+    overlapping: 2,
+    position: '16%',
+    width: '34%',
+    color: '#F4511E',
+    textColor: '#FFFFFF',
+    opacity: 0.8,
+    date: returnDayDate(currentDate, 4),
+  },
   // FRIDAY
   {
     id: '9440385f-eedf-42af-8776-12fbcf9a2d1f',

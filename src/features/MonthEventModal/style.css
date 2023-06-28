@@ -1,11 +1,13 @@
 .modal-event {
   position: absolute;
+  transform: translate(0, -50%);
+  top: 50%;
   z-index: 2;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 300px;
   padding: 10px;
-  background-color: transparent;
+  background-color: white;
   box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3),
     0 4px 8px 3px rgba(60, 64, 67, 0.15);
   border-radius: 5px;
@@ -21,8 +23,4 @@
 
 .modal-event-info-day {
   font-size: 24px;
-}
-
-.modal-event-info-weekday {
-  color: var(--little-darker-grey);
 }

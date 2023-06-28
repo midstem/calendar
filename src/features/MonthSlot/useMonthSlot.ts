@@ -1,7 +1,25 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export const useMonthSlot = () => {
   const [modalOpen, setModalOpen] = useState<boolean>(false)
+  const modalRef = useRef<HTMLDivElement | null>(null)
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        modalRef.current &&
+        !modalRef.current.contains(event.target as Node)
+      ) {
+        setModalOpen(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [modalRef])
 
   const onEventClickHandler = (
     isCollapsedSlot: boolean,
@@ -12,5 +30,10 @@ export const useMonthSlot = () => {
     if (!isCollapsedSlot) callback()
   }
 
-  return { modalOpen, closeModalHandler: setModalOpen, onEventClickHandler }
+  return {
+    modalOpen,
+    closeModalHandler: setModalOpen,
+    onEventClickHandler,
+    modalRef,
+  }
 }
