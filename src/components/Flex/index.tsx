@@ -10,6 +10,7 @@ const Flex = ({
   spacing = 0,
   refObject,
   onClick = () => {},
+  ...props
 }: FlexProps): JSX.Element => {
   return (
     <div
@@ -24,6 +25,7 @@ const Flex = ({
         gap: spacing,
         ...sx,
       }}
+      {...props}
     >
       {children}
     </div>
