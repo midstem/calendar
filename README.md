@@ -34,7 +34,7 @@ The project is still in the development
 
 | Props | Description | Default | Type |
 | ------ | ----------- | ------- | ---- |
-| events | List of events to be displayed on the calendar | `mockEvents` | CalendarEventType[] |
+| events | List of events to be displayed on the calendar | `[]` | {id: string; title: string; date: string; start: string; end: string; overlapping?: number; type?: string; position?: string; number; width?: string; color?: string; textColor?: string; opacity?: number}[] |
 | currentDay | Currently selected date | `new Date()` (Today's date) | string \| Date |
 | selectedEvent | Selected event | `undefined` | string \| undefined |
 | renderEventComponent | FunctionComponent to render as custom event component | `undefined` | FunctionComponent<EventComponentProps> \| undefined |
