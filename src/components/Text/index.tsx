@@ -2,9 +2,14 @@ import './styles.css'
 
 import { TextProps } from './types'
 
-const Text = ({ children, sx = {}, variant = '' }: TextProps): JSX.Element => {
+const Text = ({
+  children,
+  sx = {},
+  variant = '',
+  className,
+}: TextProps): JSX.Element => {
   return (
-    <p style={sx} className={`typography ${variant}`}>
+    <p style={sx} className={`typography ${variant} ${className}`}>
       {children}
     </p>
   )

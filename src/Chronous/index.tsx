@@ -77,11 +77,15 @@ const Calendar = ({
           gap: '10px',
         }}
       >
-        <Flex align="center" spacing={16}>
-          <Button ariaLabel="Today" onClick={goToday} className="today-button">
+        <div className="header-grid">
+          <Button
+            ariaLabel="Today"
+            onClick={goToday}
+            className="today-button header-grid-today"
+          >
             Today
           </Button>
-          <Flex spacing={16}>
+          <Flex spacing={16} className="header-grid-arrows">
             <IconButton
               isDisabled={isDisabledPrevious}
               onClick={previous}
@@ -104,14 +108,14 @@ const Calendar = ({
             </IconButton>
           </Flex>
 
-          <Text>
+          <Text className="header-grid-month">
             {format(startDate, DateFormat.MONTH_LONG)}
             {startDate.getMonth() !== endDate.getMonth() &&
               `-${format(endDate, DateFormat.MONTH_LONG)}`}
           </Text>
 
-          <Text>{currentYear}</Text>
-        </Flex>
+          <Text className="header-grid-year">{currentYear}</Text>
+        </div>
         <DropDown
           list={Object.values(Views)}
           value={viewMode}

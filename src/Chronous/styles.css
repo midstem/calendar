@@ -130,3 +130,23 @@
 .dropdown-item:hover {
   background-color: var(--alise-blue);
 }
+
+.header-grid {
+  display: grid;
+  grid-column-gap: 15px;
+  grid-template-areas: 'today arrows month year';
+  align-items: center;
+}
+
+.header-grid-today {
+  grid-area: today;
+}
+.header-grid-arrows {
+  grid-area: arrows;
+}
+.header-grid-month {
+  grid-area: month;
+}
+.header-grid-year {
+  grid-area: year;
+}
