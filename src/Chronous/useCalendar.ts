@@ -88,7 +88,7 @@ export const useCalendar = ({
     setCurrentDate(date)
   }, [])
 
-  useScreenResize(() => setViewMode(getModeFromConfig(config, mode)))
+  // useScreenResize(() => setViewMode(getModeFromConfig(config, mode)))
 
   return {
     viewMode,
