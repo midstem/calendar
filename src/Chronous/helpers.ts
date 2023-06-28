@@ -233,8 +233,8 @@ export const generateSlotsForDaysOfMonth = ({
       const slotDate = new Date(date)
 
       return (
-        slotDate.getMonth() === currentMonth &&
-        slotDate.getFullYear() === currentYear &&
+        slotDate.getMonth() === cell.date.getMonth() &&
+        slotDate.getFullYear() === cell.date.getFullYear() &&
         slotDate.getDate() === cell.date.getDate()
       )
     })
