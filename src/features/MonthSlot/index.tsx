@@ -19,7 +19,8 @@ export const MonthSlot = ({
 }: MonthSlotProps): JSX.Element => {
   const { date, isCurrentMonth, slots } = cell
 
-  const { modalOpen, onEventClickHandler, closeModalHandler } = useMonthSlot()
+  const { modalOpen, onEventClickHandler, closeModalHandler, modalRef } =
+    useMonthSlot()
 
   return (
     <div
@@ -70,6 +71,7 @@ export const MonthSlot = ({
       {modalOpen && (
         <MonthEventModal
           cell={cell}
+          ref={modalRef}
           closeModalHandler={closeModalHandler}
           onClickEvent={onClickEvent}
         />

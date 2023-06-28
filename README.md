@@ -29,4 +29,5 @@ The project is still in the development
 
 .header-grid - styles the grid container that wraps header items. To change the order of the elements, edit this style: grid-template-areas: 'today arrows month year'
 
+.modal-cross - styles the cross button in the modal with other events
 ```
