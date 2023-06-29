@@ -36,6 +36,7 @@
 .day:first-child {
   border-left: none;
 }
+
 .body {
   display: flex;
   flex-direction: column;
