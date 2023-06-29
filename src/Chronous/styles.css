@@ -29,8 +29,8 @@
   flex-grow: 0;
   flex-basis: 20%;
   text-align: center;
-  padding: 10px;
-  min-width: 80px;
+  padding: 10px 0;
+  min-width: 85px;
 }
 
 .day:first-child {
@@ -39,7 +39,6 @@
 .body {
   display: flex;
   flex-direction: column;
-  min-width: 1000px;
 }
 
 .row {
@@ -52,7 +51,7 @@
   flex-basis: 20%;
   border-right: var(--border-styles);
   border-bottom: var(--border-styles);
-  min-width: 80px;
+  min-width: 84px;
   height: var(--cell-height);
   position: relative;
   display: flex;

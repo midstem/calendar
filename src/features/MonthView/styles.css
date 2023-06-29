@@ -6,6 +6,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
+  min-width: 1000px;
 }
 
 .month-cell {
