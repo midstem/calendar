@@ -17,7 +17,7 @@ const DropDown = ({
       sx={{ position: 'relative', minHeight: '36px' }}
       refObject={dropDownRef}
       onClick={handleIsShowDropdown}
-      className="dropdown-wrapper"
+      className="dropdown-wrapper header-grid-dropdown"
     >
       <Button ariaLabel="Chevron Down" className="dropdown-button">
         {value} {dropdownArrow}
