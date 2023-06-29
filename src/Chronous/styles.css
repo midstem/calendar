@@ -30,7 +30,6 @@
   flex-basis: 20%;
   text-align: center;
   padding: 10px;
-  min-width: 80px;
 }
 
 .day:first-child {
@@ -39,7 +38,6 @@
 .body {
   display: flex;
   flex-direction: column;
-  min-width: 1000px;
   height: 100%;
 }
 
@@ -75,6 +73,7 @@
   align-items: center;
   padding: 0;
   border-left: var(--border-styles);
+  min-width: 82px;
 }
 
 .event-container {
