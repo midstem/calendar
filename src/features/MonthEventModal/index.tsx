@@ -2,7 +2,6 @@ import { forwardRef } from 'react'
 import { format } from 'date-fns'
 
 import { MonthEvent } from '../MonthEvent'
-import colors from '../../theme/colors'
 import { DateFormat } from '../../constants'
 import './style.css'
 import Cross from '../../components/Cross'
@@ -31,7 +30,6 @@ const MonthEventModal = forwardRef<HTMLDivElement | null, MonthEventModalProps>(
               width: '24px',
               cursor: 'pointer',
             }}
-            color={colors.dimGrey}
             onClick={() => closeModalHandler(false)}
           />
         </div>
