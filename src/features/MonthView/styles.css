@@ -6,7 +6,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
-  height: 84vh;
+  min-width: 1000px;
 }
 
 .month-cell {
@@ -48,13 +48,12 @@
   border: 0px;
   border-radius: 50%;
   text-transform: none;
-  background-color: transparent;
 }
 
 .event-line {
   display: flex;
   gap: 6px;
-  width: 95%;
+  width: 100%;
   font-size: 14px;
   border-radius: 5px;
   transition: var(--transition);

@@ -27,13 +27,12 @@ const WeekHeader = ({
                   width: '35px',
                   height: '35px',
                   fontSize: '16px',
-                  backgroundColor: isSameDay(day, selectedDay)
-                    ? colors.powderBlue
-                    : 'transparent',
                 }}
                 hoverBG={colors.powderBlue}
                 activeColor={colors.powderBlue}
-                className="button selected-day-button"
+                className={`button ${
+                  isSameDay(day, selectedDay) ? 'selected-day-button' : ''
+                }`}
               >
                 {format(day, DateFormat.DAY_NUMBER)}
               </IconButton>

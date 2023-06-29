@@ -1,7 +1,6 @@
 import { memo } from 'react'
 import { format } from 'date-fns'
 
-import colors from '../../theme/colors'
 import { DateFormat } from '../../constants'
 import Text from '../../components/Text'
 import IconButton from '../../components/IconButton'
@@ -27,10 +26,7 @@ const DayHeader = ({
             width: 50,
             height: 50,
             fontSize: '2rem',
-            backgroundColor: colors.powderBlue,
           }}
-          hoverBG={colors.powderBlue}
-          activeColor={colors.powderBlue}
           className="button selected-day-button"
         >
           {format(day, DateFormat.DAY_NUMBER)}
