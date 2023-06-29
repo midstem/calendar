@@ -37,11 +37,6 @@
   border-left: none;
 }
 
-.body {
-  display: flex;
-  flex-direction: column;
-}
-
 .row {
   display: flex;
   flex-direction: row;
@@ -63,7 +58,7 @@
   border-top: var(--border-styles);
 }
 
-.row:not(:first-child) .cell {
+.row:not(:nth-child(2)) .cell {
   border-top: none;
 }
 
