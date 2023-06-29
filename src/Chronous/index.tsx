@@ -92,6 +92,7 @@ const Calendar = ({
               customButton={prevButton}
               hoverBG={colors.powderBlue}
               ariaLabel="Left Arrow"
+              defaultStyles="button arrow-button"
               defaultButton={<LeftArrow color={colors.teal} />}
             />
             <NavigationButton
@@ -100,6 +101,7 @@ const Calendar = ({
               customButton={nextButton}
               hoverBG={colors.powderBlue}
               ariaLabel="Right Arrow"
+              defaultStyles="button arrow-button"
               defaultButton={<RightArrow color={colors.teal} />}
             />
           </Flex>

@@ -9,12 +9,13 @@ export const NavigationButton = ({
   hoverBG,
   ariaLabel,
   defaultButton,
+  defaultStyles,
 }: NavigationButtonProps): JSX.Element =>
   customButton ? (
     <IconButton
       isDisabled={isDisabled}
       onClick={onClick}
-      isDefault
+      resetDefaultStyles
       ariaLabel={ariaLabel}
     >
       {customButton}
@@ -23,7 +24,7 @@ export const NavigationButton = ({
     <IconButton
       isDisabled={isDisabled}
       onClick={onClick}
-      className="button arrow-button"
+      className={defaultStyles}
       outlined
       hoverBG={hoverBG}
       ariaLabel={ariaLabel}
