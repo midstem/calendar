@@ -27,7 +27,15 @@ The project is still in the development
 
 .event - styles the container that wraps event
 
-.header-grid - styles the grid container that wraps header items
+.header-grid - styles the grid container that wraps header items. To change the order of the elements, edit this styles:
+
+@media (min-width: 576px) 
+grid-template-areas: 'today arrows month year dropdown';
+
+For smaller screens:
+grid-template-areas:
+    'today arrows nothing'
+    'dropdown month year';
 
 .modal-cross - styles the cross button in the modal with other events
 ```

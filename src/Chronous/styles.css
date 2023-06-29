@@ -136,7 +136,7 @@
   grid-row-gap: 10px;
   grid-template-columns: max-content max-content min-content;
   grid-template-areas:
-    'today arrows a'
+    'today arrows nothing'
     'dropdown month year';
   align-items: center;
 }
