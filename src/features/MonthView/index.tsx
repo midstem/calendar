@@ -11,14 +11,12 @@ const MonthView = ({
 }: MonthViewProps): JSX.Element => {
   return (
     <>
-      <div className="body">
-        <MonthSlots
-          renderRows={renderRows}
-          onSelectDate={selectDateHandler}
-          onClickEvent={onClickEvent}
-          onClickCell={onClickCell}
-        />
-      </div>
+      <MonthSlots
+        renderRows={renderRows}
+        onSelectDate={selectDateHandler}
+        onClickEvent={onClickEvent}
+        onClickCell={onClickCell}
+      />
     </>
   )
 }
