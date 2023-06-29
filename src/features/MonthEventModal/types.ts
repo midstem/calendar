@@ -7,5 +7,4 @@ export type MonthEventModalProps = UserClickEvent<MonthCellType> & {
   cell: Cell
   closeModalHandler: (value: boolean) => void
   ref: ForwardedRef<any>
-  color: string
 }

@@ -9,7 +9,7 @@ const Text = ({
   className,
 }: TextProps): JSX.Element => {
   return (
-    <p style={sx} className={`typography ${variant} ${className}`}>
+    <p style={sx} className={`${variant} ${className}`}>
       {children}
     </p>
   )

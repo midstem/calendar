@@ -20,7 +20,7 @@ export type IconsT = {
   sx?: CSSProperties
   size?: ValueOF<IconSizes>
   onClick?: () => void
-  color: string
+  color?: string
 }
 
 export type WeekStartsOnType = 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined
