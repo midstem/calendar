@@ -13,6 +13,7 @@ const IconButton = ({
   activeColor,
   outlined = false,
   isDisabled = false,
+  isDefault = false,
   ariaLabel,
 }: IconButtonProps): JSX.Element => {
   const { handleClick, handleMouseOut, handleMouseOver } = useIconButton({
@@ -26,7 +27,7 @@ const IconButton = ({
       type="button"
       onClick={handleClick}
       style={{ border: outlined ? '' : 'none', ...sx }}
-      className={`icon-button ${
+      className={`${isDefault ? 'button-reset' : 'icon-button'} ${
         isDisabled ? 'disabled-button' : ''
       } ${className}`}
       onMouseOver={handleMouseOver}
