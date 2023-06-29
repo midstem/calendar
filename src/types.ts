@@ -18,7 +18,6 @@ export type ButtonStylesT = 'primary' | 'secondary'
 
 export type IconsT = {
   sx?: CSSProperties
-  color?: string
   size?: ValueOF<IconSizes>
   onClick?: () => void
 }

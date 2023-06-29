@@ -131,20 +131,56 @@
 
 .header-grid {
   display: grid;
-  grid-column-gap: 15px;
-  grid-template-areas: 'today arrows month year';
+  grid-row-gap: 10px;
+  grid-template-columns: max-content max-content min-content;
+  grid-template-areas:
+    'today arrows nothing'
+    'dropdown month year';
   align-items: center;
 }
 
+@media (min-width: 576px) {
+  .header-grid {
+    grid-gap: 15px;
+    grid-template-columns: min-content min-content minmax(5em, max-content) min-content;
+    grid-template-areas: 'today arrows month year dropdown';
+  }
+
+  .header-grid-dropdown {
+    justify-self: left;
+  }
+
+  .header-grid-today {
+    justify-self: right;
+  }
+
+  .header-grid-month {
+    margin: 0;
+  }
+
+  .header-grid-arrows {
+    justify-self: center;
+  }
+}
+
 .header-grid-today {
+  justify-self: left;
   grid-area: today;
 }
 .header-grid-arrows {
   grid-area: arrows;
+  justify-self: left;
 }
 .header-grid-month {
+  justify-self: center;
   grid-area: month;
+  margin: 0 10px;
 }
 .header-grid-year {
+  justify-self: center;
   grid-area: year;
+}
+.header-grid-dropdown {
+  justify-self: right;
+  grid-area: dropdown;
 }

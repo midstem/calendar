@@ -70,57 +70,49 @@ const Calendar = ({
       spacing={16}
       sx={{ margin: 16 }}
     >
-      <Flex
-        justify="space-between"
-        sx={{
-          flexWrap: 'wrap',
-          gap: '10px',
-        }}
-      >
-        <div className="header-grid">
-          <Button
-            ariaLabel="Today"
-            onClick={goToday}
-            className="today-button header-grid-today"
-          >
-            Today
-          </Button>
-          <Flex spacing={16} className="header-grid-arrows">
-            <NavigationButton
-              isDisabled={isDisabledPrevious}
-              onClick={previous}
-              customButton={prevButton}
-              hoverBG={colors.powderBlue}
-              ariaLabel="Left Arrow"
-              defaultStyles="button arrow-button"
-              defaultButton={<LeftArrow color={colors.teal} />}
-            />
-            <NavigationButton
-              isDisabled={isDisabledNext}
-              onClick={next}
-              customButton={nextButton}
-              hoverBG={colors.powderBlue}
-              ariaLabel="Right Arrow"
-              defaultStyles="button arrow-button"
-              defaultButton={<RightArrow color={colors.teal} />}
-            />
-          </Flex>
+      <div className="header-grid">
+        <Button
+          ariaLabel="Today"
+          onClick={goToday}
+          className="today-button header-grid-today"
+        >
+          Today
+        </Button>
+        <Flex spacing={16} className="header-grid-arrows">
+          <NavigationButton
+            isDisabled={isDisabledPrevious}
+            onClick={previous}
+            customButton={prevButton}
+            hoverBG={colors.powderBlue}
+            ariaLabel="Left Arrow"
+            defaultStyles="button arrow-button"
+            defaultButton={<LeftArrow color={colors.teal} />}
+          />
+          <NavigationButton
+            isDisabled={isDisabledNext}
+            onClick={next}
+            customButton={nextButton}
+            hoverBG={colors.powderBlue}
+            ariaLabel="Right Arrow"
+            defaultStyles="button arrow-button"
+            defaultButton={<RightArrow color={colors.teal} />}
+          />
+        </Flex>
 
-          <Text className="header-grid-month">
-            {format(startDate, DateFormat.MONTH_LONG)}
-            {startDate.getMonth() !== endDate.getMonth() &&
-              `-${format(endDate, DateFormat.MONTH_LONG)}`}
-          </Text>
+        <Text className="header-grid-month">
+          {format(startDate, DateFormat.MONTH_LONG)}
+          {startDate.getMonth() !== endDate.getMonth() &&
+            `-${format(endDate, DateFormat.MONTH_LONG)}`}
+        </Text>
 
-          <Text className="header-grid-year">{currentYear}</Text>
-        </div>
+        <Text className="header-grid-year">{currentYear}</Text>
         <DropDown
           list={Object.values(Views)}
           value={viewMode}
           onChange={mode => setViewMode(mode as ViewsT)}
           dropdownArrow={customDropdownArrow}
         />
-      </Flex>
+      </div>
       <div className="calendar">
         <View
           onClickCell={onClickCell}
