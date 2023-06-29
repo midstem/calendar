@@ -99,13 +99,13 @@ const Calendar = ({
           />
         </Flex>
 
-        <Text className="header-grid-month">
+        <Text className="current-date header-grid-month">
           {format(startDate, DateFormat.MONTH_LONG)}
           {startDate.getMonth() !== endDate.getMonth() &&
             `-${format(endDate, DateFormat.MONTH_LONG)}`}
         </Text>
 
-        <Text className="header-grid-year">{currentYear}</Text>
+        <Text className="current-date header-grid-year">{currentYear}</Text>
         <DropDown
           list={Object.values(Views)}
           value={viewMode}

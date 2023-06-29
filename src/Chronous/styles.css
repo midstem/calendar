@@ -133,6 +133,7 @@
     'today arrows nothing'
     'dropdown month year';
   align-items: center;
+  font-size: 16px;
 }
 
 @media (min-width: 576px) {
