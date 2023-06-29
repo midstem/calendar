@@ -7,7 +7,6 @@
   flex-wrap: wrap;
   align-items: stretch;
   min-width: 1000px;
-  height: 84vh;
 }
 
 .month-cell {
@@ -49,7 +48,6 @@
   border: 0px;
   border-radius: 50%;
   text-transform: none;
-  background-color: transparent;
 }
 
 .event-line {

@@ -29,7 +29,8 @@
   flex-grow: 0;
   flex-basis: 20%;
   text-align: center;
-  padding: 10px;
+  padding: 10px 0;
+  min-width: 85px;
 }
 
 .day:first-child {
@@ -38,7 +39,6 @@
 .body {
   display: flex;
   flex-direction: column;
-  height: 100%;
 }
 
 .row {
@@ -51,7 +51,7 @@
   flex-basis: 20%;
   border-right: var(--border-styles);
   border-bottom: var(--border-styles);
-  min-width: 80px;
+  min-width: 84px;
   height: var(--cell-height);
   position: relative;
   display: flex;
@@ -68,12 +68,11 @@
 
 .time {
   display: flex;
-  flex-basis: 0;
   justify-content: center;
   align-items: center;
-  padding: 0;
   border-left: var(--border-styles);
-  min-width: 82px;
+  flex-basis: 7em;
+  white-space: nowrap;
 }
 
 .event-container {
