@@ -8,6 +8,7 @@ export type IconButtonProps = ReactChildrenT &
     activeColor?: string
     ariaLabel?: string
     onClick?: () => void
+    resetDefaultStyles?: boolean
   }
 
 export type UseIconButtonT = {

@@ -9,8 +9,8 @@ import Button from '../features/Button'
 import { DateFormat, Views } from '../constants'
 import Text from '../components/Text'
 import RightArrow from '../components/RightArrow'
+import { NavigationButton } from '../components/NavigationButton'
 import LeftArrow from '../components/LeftArrow'
-import IconButton from '../components/IconButton'
 import Flex from '../components/Flex'
 import DropDown from '../components/DropDown'
 import ChevronDown from '../components/ChevronDown'
@@ -29,8 +29,8 @@ const Calendar = ({
   mode = Views.WEEK,
   startHour = 1,
   endHour = 24,
-  nextButton = <RightArrow color={colors.teal} />,
-  prevButton = <LeftArrow color={colors.teal} />,
+  nextButton,
+  prevButton,
   customDropdownArrow = <ChevronDown />,
   className,
   onClickEvent = () => {},
@@ -86,26 +86,24 @@ const Calendar = ({
             Today
           </Button>
           <Flex spacing={16} className="header-grid-arrows">
-            <IconButton
+            <NavigationButton
               isDisabled={isDisabledPrevious}
               onClick={previous}
-              className="arrow-button"
-              outlined
+              customButton={prevButton}
               hoverBG={colors.powderBlue}
               ariaLabel="Left Arrow"
-            >
-              {prevButton}
-            </IconButton>
-            <IconButton
+              defaultStyles="button arrow-button"
+              defaultButton={<LeftArrow color={colors.teal} />}
+            />
+            <NavigationButton
               isDisabled={isDisabledNext}
               onClick={next}
-              className="arrow-button"
-              outlined
+              customButton={nextButton}
               hoverBG={colors.powderBlue}
               ariaLabel="Right Arrow"
-            >
-              {nextButton}
-            </IconButton>
+              defaultStyles="button arrow-button"
+              defaultButton={<RightArrow color={colors.teal} />}
+            />
           </Flex>
 
           <Text className="header-grid-month">

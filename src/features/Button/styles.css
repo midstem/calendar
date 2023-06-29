@@ -1,4 +1,4 @@
-button {
+.button {
   position: relative;
   color: var(--teal);
   background-color: var(--white);
@@ -13,6 +13,20 @@ button {
   cursor: pointer;
   overflow: hidden;
   transition: var(--transition);
+}
+
+.arrow-button {
+  padding: 5px;
+  border-color: var(--powder-blue);
+}
+
+.dropdown-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 15px;
+  text-transform: none;
+  font-weight: 600;
 }
 
 .button:hover {
