@@ -127,11 +127,12 @@
 
 .header-grid {
   display: grid;
-  grid-row-gap: 10px;
+  grid-template-columns: repeat(3, max-content);
   grid-template-areas:
-    'today arrows .'
-    'dropdown month year';
+    'today arrows date'
+    'dropdown . .';
   align-items: center;
+  gap: 10px;
   font-size: 16px;
 }
 
@@ -143,25 +144,22 @@
   grid-area: arrows;
   justify-self: center;
 }
-.header-grid-month {
+.header-grid-date {
   justify-self: center;
-  grid-area: month;
+  grid-area: date;
   text-align: center;
 }
-.header-grid-year {
-  justify-self: center;
-  grid-area: year;
-}
+
 .header-grid-dropdown {
   justify-self: left;
   grid-area: dropdown;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 480px) {
   .header-grid {
-    grid-gap: 15px;
-    grid-template-columns: repeat(4, auto) 1fr;
-    grid-template-areas: 'today arrows month year dropdown';
+    grid-template-columns: repeat(3, auto) 1fr;
+    grid-template-areas: 'today arrows date dropdown';
+    gap: 15px;
   }
 
   .header-grid-dropdown {
