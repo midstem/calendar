@@ -63,6 +63,7 @@ export type MonthCellType = CellT
 export type EventComponentProps = {
   event: CalendarEventType
   isSelected: boolean
+  className: string
 }
 
 export type HandleClickOnCellT = {

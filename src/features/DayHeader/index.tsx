@@ -15,7 +15,7 @@ const DayHeader = ({
   return (
     <>
       <Flex
-        className="day"
+        className="day day-header"
         spacing={20}
         align="center"
         sx={{ flexBasis: '100%' }}
