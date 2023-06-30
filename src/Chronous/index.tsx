@@ -29,6 +29,7 @@ const Calendar = ({
   mode = Views.WEEK,
   startHour = 1,
   endHour = 24,
+  children,
   nextButton = <RightArrow color={colors.teal} />,
   prevButton = <LeftArrow color={colors.teal} />,
   customDropdownArrow = <ChevronDown />,
@@ -136,6 +137,7 @@ const Calendar = ({
           renderEventComponent={renderEventComponent}
         />
       </div>
+      {children}
     </Flex>
   )
 }
