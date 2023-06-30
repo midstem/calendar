@@ -7,11 +7,15 @@ import Flex from '../../components/Flex'
 
 import { applyOpacity, isClientEvent } from './helpers'
 
-const EventItem = ({ event, isSelected }: EventComponentProps): JSX.Element => {
+const EventItem = ({
+  event,
+  isSelected,
+  className,
+}: EventComponentProps): JSX.Element => {
   return (
     <Flex
       direction="column"
-      className={`event  ${isSelected && 'selected'}`}
+      className={`event ${isSelected ? 'selected' : ''} ${className}`}
       sx={{
         backgroundColor: applyOpacity(
           event?.color ?? '',

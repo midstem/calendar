@@ -51,7 +51,11 @@ const WeekSlots = ({
                       isSelected={isSelected}
                       position={event?.position}
                     >
-                      <Component event={event} isSelected={isSelected} />
+                      <Component
+                        event={event}
+                        isSelected={isSelected}
+                        className="week-event"
+                      />
                     </EventContainer>
                   )
                 })}
