@@ -17,6 +17,9 @@ export const NavigationButton = ({
       onClick={onClick}
       resetDefaultStyles
       ariaLabel={ariaLabel}
+      sx={{
+        cursor: 'pointer',
+      }}
     >
       {customButton}
     </IconButton>

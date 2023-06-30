@@ -160,7 +160,7 @@
 @media (min-width: 576px) {
   .header-grid {
     grid-gap: 15px;
-    grid-template-columns: repeat(4, max-content) 1fr;
+    grid-template-columns: repeat(4, auto) 1fr;
     grid-template-areas: 'today arrows month year dropdown';
   }
 
