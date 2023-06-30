@@ -128,26 +128,43 @@
 .header-grid {
   display: grid;
   grid-row-gap: 10px;
-  grid-template-columns: max-content max-content min-content;
   grid-template-areas:
-    'today arrows nothing'
+    'today arrows .'
     'dropdown month year';
   align-items: center;
   font-size: 16px;
 }
 
+.header-grid-today {
+  justify-self: left;
+  grid-area: today;
+}
+.header-grid-arrows {
+  grid-area: arrows;
+  justify-self: center;
+}
+.header-grid-month {
+  justify-self: center;
+  grid-area: month;
+  text-align: center;
+}
+.header-grid-year {
+  justify-self: center;
+  grid-area: year;
+}
+.header-grid-dropdown {
+  justify-self: left;
+  grid-area: dropdown;
+}
+
 @media (min-width: 576px) {
   .header-grid {
     grid-gap: 15px;
-    grid-template-columns: min-content min-content minmax(5em, max-content) min-content;
+    grid-template-columns: repeat(4, max-content) 1fr;
     grid-template-areas: 'today arrows month year dropdown';
   }
 
   .header-grid-dropdown {
-    justify-self: left;
-  }
-
-  .header-grid-today {
     justify-self: right;
   }
 
@@ -158,26 +175,4 @@
   .header-grid-arrows {
     justify-self: center;
   }
-}
-
-.header-grid-today {
-  justify-self: left;
-  grid-area: today;
-}
-.header-grid-arrows {
-  grid-area: arrows;
-  justify-self: left;
-}
-.header-grid-month {
-  justify-self: center;
-  grid-area: month;
-  margin: 0 10px;
-}
-.header-grid-year {
-  justify-self: center;
-  grid-area: year;
-}
-.header-grid-dropdown {
-  justify-self: right;
-  grid-area: dropdown;
 }
