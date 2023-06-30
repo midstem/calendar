@@ -31,7 +31,7 @@ const WeekHeader = ({
                 hoverBG={colors.powderBlue}
                 activeColor={colors.powderBlue}
                 className={`button ${
-                  isSameDay(day, selectedDay) ? 'selected-day-button' : ''
+                  isSameDay(day, selectedDay) ? 'current-day-button' : ''
                 }`}
               >
                 {format(day, DateFormat.DAY_NUMBER)}
