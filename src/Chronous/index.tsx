@@ -21,18 +21,18 @@ import { mockEvents } from './mockData'
 import { VIEW_MODES } from './constants'
 
 const Calendar = ({
-  events = mockEvents,
-  currentDay = new Date(),
-  selectedEvent,
-  renderEventComponent,
-  config = [],
-  mode = Views.WEEK,
-  startHour = 1,
-  endHour = 24,
+  className,
   nextButton,
   prevButton,
-  customDropdownArrow = <ChevronDown />,
-  className,
+  config = [],
+  endHour = 24,
+  startHour = 1,
+  selectedEvent,
+  events = mockEvents,
+  renderEventComponent,
+  mode = Views.WEEK,
+  currentDay = new Date(),
+  dropDownArrow = <ChevronDown />,
   onClickEvent = () => {},
   onClickCell = () => {},
   onChangeDate = () => {},
@@ -110,7 +110,7 @@ const Calendar = ({
           list={Object.values(Views)}
           value={viewMode}
           onChange={mode => setViewMode(mode as ViewsT)}
-          dropdownArrow={customDropdownArrow}
+          dropdownArrow={dropDownArrow}
         />
       </div>
       <div className="calendar">
