@@ -42,17 +42,15 @@ const WeekView = ({
           onSelectDate={selectDateHandler}
         />
       </div>
-      <div className="body">
-        <WeekSlots
-          startDate={startDate}
-          onClickCell={onClickCell}
-          eventsByDay={eventsByDay}
-          selectedEvent={selectedEvent}
-          renderRows={renderRows}
-          onClickEvent={onClickEvent}
-          renderEventComponent={renderEventComponent}
-        />
-      </div>
+      <WeekSlots
+        startDate={startDate}
+        onClickCell={onClickCell}
+        eventsByDay={eventsByDay}
+        selectedEvent={selectedEvent}
+        renderRows={renderRows}
+        onClickEvent={onClickEvent}
+        renderEventComponent={renderEventComponent}
+      />
     </>
   )
 }

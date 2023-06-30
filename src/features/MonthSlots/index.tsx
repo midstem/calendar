@@ -7,6 +7,7 @@ const MonthSlots = ({
   onClickEvent,
   onClickCell,
   renderRows,
+  selectedDate,
 }: MonthSlotsProps): JSX.Element => {
   const slotCells = renderRows.map(cell => ({ ...cell, modalOpen: false }))
 
@@ -21,6 +22,7 @@ const MonthSlots = ({
             onSelectDate={onSelectDate}
             onClickEvent={onClickEvent}
             onClickCell={onClickCell}
+            selectedDate={selectedDate}
           />
         ))}
       </div>

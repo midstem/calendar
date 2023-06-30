@@ -3,6 +3,17 @@
   --cell-height: 60px;
 }
 
+.button-reset {
+  background-color: transparent;
+  border-width: 0;
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  padding: 0;
+}
+
 .calendar {
   display: flex;
   flex-direction: column;
@@ -18,18 +29,12 @@
   flex-grow: 0;
   flex-basis: 20%;
   text-align: center;
-  padding: 10px;
-  min-width: 80px;
+  padding: 10px 0;
+  min-width: 90px;
 }
 
 .day:first-child {
   border-left: none;
-}
-.body {
-  display: flex;
-  flex-direction: column;
-  min-width: 1000px;
-  height: 100%;
 }
 
 .row {
@@ -42,7 +47,7 @@
   flex-basis: 20%;
   border-right: var(--border-styles);
   border-bottom: var(--border-styles);
-  min-width: 80px;
+  min-width: 89px;
   height: var(--cell-height);
   position: relative;
   display: flex;
@@ -53,17 +58,17 @@
   border-top: var(--border-styles);
 }
 
-.row:not(:first-child) .cell {
+.row:not(:nth-child(2)) .cell {
   border-top: none;
 }
 
 .time {
   display: flex;
-  flex-basis: 0;
   justify-content: center;
   align-items: center;
-  padding: 0;
   border-left: var(--border-styles);
+  flex-basis: 7em;
+  white-space: nowrap;
 }
 
 .event-container {
@@ -97,20 +102,6 @@
   overflow: hidden;
 }
 
-.arrow-button {
-  padding: 5px;
-  border-color: var(--powder-blue);
-}
-
-.dropdown-button {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 0 15px;
-  text-transform: none;
-  font-weight: 600;
-}
-
 .dropdown {
   z-index: 2;
   position: absolute;
@@ -136,20 +127,42 @@
 
 .header-grid {
   display: grid;
-  grid-column-gap: 15px;
-  grid-template-areas: 'today arrows month year';
+  grid-template-columns: repeat(3, max-content);
+  grid-template-areas:
+    'today arrows date'
+    'dropdown . .';
   align-items: center;
+  gap: 10px;
+  font-size: 16px;
 }
 
 .header-grid-today {
+  justify-self: left;
   grid-area: today;
 }
 .header-grid-arrows {
   grid-area: arrows;
+  justify-self: center;
 }
-.header-grid-month {
-  grid-area: month;
+.header-grid-date {
+  justify-self: center;
+  grid-area: date;
+  text-align: center;
 }
-.header-grid-year {
-  grid-area: year;
+
+.header-grid-dropdown {
+  justify-self: left;
+  grid-area: dropdown;
+}
+
+@media (min-width: 480px) {
+  .header-grid {
+    grid-template-columns: repeat(3, auto) 1fr;
+    grid-template-areas: 'today arrows date dropdown';
+    gap: 15px;
+  }
+
+  .header-grid-dropdown {
+    justify-self: right;
+  }
 }

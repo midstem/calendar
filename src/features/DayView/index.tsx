@@ -20,17 +20,15 @@ const DayView = ({
       <div className="header">
         <DayHeader day={startDate} />
       </div>
-      <div className="body">
-        <DaySlots
-          day={startDate}
-          eventsByDay={getEventsByDay(events, startDate)}
-          selectedEvent={selectedEvent}
-          renderRows={renderRows}
-          onClickCell={onClickCell}
-          onClickEvent={onClickEvent}
-          renderEventComponent={renderEventComponent}
-        />
-      </div>
+      <DaySlots
+        day={startDate}
+        eventsByDay={getEventsByDay(events, startDate)}
+        selectedEvent={selectedEvent}
+        renderRows={renderRows}
+        onClickCell={onClickCell}
+        onClickEvent={onClickEvent}
+        renderEventComponent={renderEventComponent}
+      />
     </>
   )
 }

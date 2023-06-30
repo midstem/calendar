@@ -9,8 +9,8 @@ import Button from '../features/Button'
 import { DateFormat, Views } from '../constants'
 import Text from '../components/Text'
 import RightArrow from '../components/RightArrow'
+import { NavigationButton } from '../components/NavigationButton'
 import LeftArrow from '../components/LeftArrow'
-import IconButton from '../components/IconButton'
 import Flex from '../components/Flex'
 import DropDown from '../components/DropDown'
 import ChevronDown from '../components/ChevronDown'
@@ -21,19 +21,19 @@ import { mockEvents } from './mockData'
 import { VIEW_MODES } from './constants'
 
 const Calendar = ({
-  events = mockEvents,
-  currentDay = new Date(),
-  selectedEvent,
-  renderEventComponent,
-  config = [],
-  mode = Views.WEEK,
-  startHour = 1,
-  endHour = 24,
   children,
-  nextButton = <RightArrow color={colors.teal} />,
-  prevButton = <LeftArrow color={colors.teal} />,
-  customDropdownArrow = <ChevronDown />,
   className,
+  nextButton,
+  prevButton,
+  config = [],
+  endHour = 24,
+  startHour = 1,
+  selectedEvent,
+  events = mockEvents,
+  renderEventComponent,
+  mode = Views.WEEK,
+  currentDay = new Date(),
+  dropDownArrow = <ChevronDown />,
   onClickEvent = () => {},
   onClickCell = () => {},
   onChangeDate = () => {},
@@ -71,59 +71,50 @@ const Calendar = ({
       spacing={16}
       sx={{ margin: 16 }}
     >
-      <Flex
-        justify="space-between"
-        sx={{
-          flexWrap: 'wrap',
-          gap: '10px',
-        }}
-      >
-        <div className="header-grid">
-          <Button
-            ariaLabel="Today"
-            onClick={goToday}
-            className="today-button header-grid-today"
-          >
-            Today
-          </Button>
-          <Flex spacing={16} className="header-grid-arrows">
-            <IconButton
-              isDisabled={isDisabledPrevious}
-              onClick={previous}
-              className="arrow-button"
-              outlined
-              hoverBG={colors.powderBlue}
-              ariaLabel="Left Arrow"
-            >
-              {prevButton}
-            </IconButton>
-            <IconButton
-              isDisabled={isDisabledNext}
-              onClick={next}
-              className="arrow-button"
-              outlined
-              hoverBG={colors.powderBlue}
-              ariaLabel="Right Arrow"
-            >
-              {nextButton}
-            </IconButton>
-          </Flex>
+      <div className="header-grid">
+        <Button
+          ariaLabel="Today"
+          onClick={goToday}
+          className="today-button header-grid-today"
+        >
+          Today
+        </Button>
+        <Flex spacing={16} className="header-grid-arrows">
+          <NavigationButton
+            isDisabled={isDisabledPrevious}
+            onClick={previous}
+            customButton={prevButton}
+            hoverBG={colors.powderBlue}
+            ariaLabel="Left Arrow"
+            defaultStyles="button arrow-button"
+            defaultButton={<LeftArrow color={colors.teal} />}
+          />
+          <NavigationButton
+            isDisabled={isDisabledNext}
+            onClick={next}
+            customButton={nextButton}
+            hoverBG={colors.powderBlue}
+            ariaLabel="Right Arrow"
+            defaultStyles="button arrow-button"
+            defaultButton={<RightArrow color={colors.teal} />}
+          />
+        </Flex>
 
-          <Text className="header-grid-month">
-            {format(startDate, DateFormat.MONTH_LONG)}
-            {startDate.getMonth() !== endDate.getMonth() &&
-              `-${format(endDate, DateFormat.MONTH_LONG)}`}
-          </Text>
+        <Text className="current-date header-grid-date">
+          {format(startDate, DateFormat.MONTH_LONG)}
+          {startDate.getMonth() !== endDate.getMonth() &&
+            `-${format(endDate, DateFormat.MONTH_LONG)}`}
+          {` `}
+          {currentYear}
+        </Text>
 
-          <Text className="header-grid-year">{currentYear}</Text>
-        </div>
         <DropDown
           list={Object.values(Views)}
           value={viewMode}
           onChange={mode => setViewMode(mode as ViewsT)}
-          dropdownArrow={customDropdownArrow}
+          dropdownArrow={dropDownArrow}
         />
-      </Flex>
+      </div>
       <div className="calendar">
         <View
           onClickCell={onClickCell}

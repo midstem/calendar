@@ -6,7 +6,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
-  height: 84vh;
+  min-width: 1000px;
 }
 
 .month-cell {
@@ -41,19 +41,22 @@
   margin-top: 5px;
   font-size: 16px;
   cursor: pointer;
+  height: 40px;
 }
 
 .month-cell-day {
+  position: absolute;
   color: var(--light-black);
   border: 0px;
   border-radius: 50%;
   text-transform: none;
+  aspect-ratio: 1 / 1;
 }
 
 .event-line {
   display: flex;
   gap: 6px;
-  width: 95%;
+  width: 100%;
   font-size: 14px;
   border-radius: 5px;
   transition: var(--transition);

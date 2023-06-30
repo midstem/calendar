@@ -18,9 +18,9 @@ export type ButtonStylesT = 'primary' | 'secondary'
 
 export type IconsT = {
   sx?: CSSProperties
-  color?: string
   size?: ValueOF<IconSizes>
   onClick?: () => void
+  color?: string
 }
 
 export type WeekStartsOnType = 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined
@@ -63,6 +63,7 @@ export type MonthCellType = CellT
 export type EventComponentProps = {
   event: CalendarEventType
   isSelected: boolean
+  className: string
 }
 
 export type HandleClickOnCellT = {

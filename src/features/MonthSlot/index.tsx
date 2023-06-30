@@ -1,4 +1,4 @@
-import { format } from 'date-fns'
+import { format, isSameDay } from 'date-fns'
 
 import { getSlotAttributes } from '../MonthSlots/helpers'
 import { MAX_DISPLAYED_SLOTS } from '../MonthSlots/constants'
@@ -16,6 +16,7 @@ export const MonthSlot = ({
   onSelectDate,
   onClickEvent,
   onClickCell,
+  selectedDate,
 }: MonthSlotProps): JSX.Element => {
   const { date, isCurrentMonth, slots } = cell
 
@@ -40,7 +41,7 @@ export const MonthSlot = ({
           ariaLabel="day"
           className={`month-cell-day ${
             !isCurrentMonth ? 'month-cell-day--othermonth' : ''
-          }`}
+          } ${isSameDay(date, selectedDate) ? 'current-day-button' : ''}`}
           onClick={() => {
             onSelectDate(date)
           }}
