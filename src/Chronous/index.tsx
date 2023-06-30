@@ -102,7 +102,8 @@ const Calendar = ({
         <Text className="current-date header-grid-date">
           {format(startDate, DateFormat.MONTH_LONG)}
           {startDate.getMonth() !== endDate.getMonth() &&
-            `-${format(endDate, DateFormat.MONTH_LONG)} `}
+            `-${format(endDate, DateFormat.MONTH_LONG)}`}
+          {` `}
           {currentYear}
         </Text>
 

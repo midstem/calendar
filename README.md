@@ -141,7 +141,7 @@ To change the order of the elements, edit this style: grid-template-areas: 'toda
 
 .today-button - styles the today button that gets a user to the current date
 
-.selected-day-button - styles the selected day button
+.current-day-button - styles the selected day button
 
 .dropdown-wrapper - styles the container that wraps dropdown
 

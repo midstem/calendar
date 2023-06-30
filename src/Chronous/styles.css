@@ -30,7 +30,7 @@
   flex-basis: 20%;
   text-align: center;
   padding: 10px 0;
-  min-width: 85px;
+  min-width: 90px;
 }
 
 .day:first-child {
@@ -47,7 +47,7 @@
   flex-basis: 20%;
   border-right: var(--border-styles);
   border-bottom: var(--border-styles);
-  min-width: 84px;
+  min-width: 89px;
   height: var(--cell-height);
   position: relative;
   display: flex;
