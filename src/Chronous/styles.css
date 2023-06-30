@@ -127,37 +127,13 @@
 
 .header-grid {
   display: grid;
-  grid-row-gap: 10px;
-  grid-template-columns: max-content max-content min-content;
+  grid-template-columns: repeat(3, max-content);
   grid-template-areas:
-    'today arrows nothing'
-    'dropdown month year';
+    'today arrows date'
+    'dropdown . .';
   align-items: center;
+  gap: 10px;
   font-size: 16px;
-}
-
-@media (min-width: 576px) {
-  .header-grid {
-    grid-gap: 15px;
-    grid-template-columns: min-content min-content minmax(5em, max-content) min-content;
-    grid-template-areas: 'today arrows month year dropdown';
-  }
-
-  .header-grid-dropdown {
-    justify-self: left;
-  }
-
-  .header-grid-today {
-    justify-self: right;
-  }
-
-  .header-grid-month {
-    margin: 0;
-  }
-
-  .header-grid-arrows {
-    justify-self: center;
-  }
 }
 
 .header-grid-today {
@@ -166,18 +142,27 @@
 }
 .header-grid-arrows {
   grid-area: arrows;
-  justify-self: left;
-}
-.header-grid-month {
   justify-self: center;
-  grid-area: month;
-  margin: 0 10px;
 }
-.header-grid-year {
+.header-grid-date {
   justify-self: center;
-  grid-area: year;
+  grid-area: date;
+  text-align: center;
 }
+
 .header-grid-dropdown {
-  justify-self: right;
+  justify-self: left;
   grid-area: dropdown;
+}
+
+@media (min-width: 480px) {
+  .header-grid {
+    grid-template-columns: repeat(3, auto) 1fr;
+    grid-template-areas: 'today arrows date dropdown';
+    gap: 15px;
+  }
+
+  .header-grid-dropdown {
+    justify-self: right;
+  }
 }
