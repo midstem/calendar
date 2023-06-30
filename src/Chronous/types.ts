@@ -29,7 +29,7 @@ export type CalendarProps = Partial<
   prevButton?: ReactNode
   currentDay?: Date | string
   events?: CalendarEventType[]
-  customDropdownArrow?: ReactNode
+  dropDownArrow?: ReactNode
   renderEventComponent?: FunctionComponent<EventComponentProps>
   onChangeDate?: (start: Date, end: Date) => void
 }
