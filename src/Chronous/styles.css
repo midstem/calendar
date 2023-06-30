@@ -167,12 +167,4 @@
   .header-grid-dropdown {
     justify-self: right;
   }
-
-  .header-grid-month {
-    margin: 0;
-  }
-
-  .header-grid-arrows {
-    justify-self: center;
-  }
 }
