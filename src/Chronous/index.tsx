@@ -21,6 +21,7 @@ import { mockEvents } from './mockData'
 import { VIEW_MODES } from './constants'
 
 const Calendar = ({
+  children,
   className,
   nextButton,
   prevButton,
@@ -127,6 +128,7 @@ const Calendar = ({
           renderEventComponent={renderEventComponent}
         />
       </div>
+      {children}
     </Flex>
   )
 }

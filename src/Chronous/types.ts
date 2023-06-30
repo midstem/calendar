@@ -22,6 +22,7 @@ export type CalendarProps = Partial<
   mode?: ViewsT
   endHour?: number
   config?: ConfigT[]
+  children?: ReactNode
   className?: string
   startHour?: number
   selectedEvent?: string
