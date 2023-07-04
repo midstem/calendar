@@ -1,7 +1,7 @@
 import EventItem from '../EventItem'
 import EventContainer from '../EventContainer'
 import { checkSelected, getDateOfWeekday } from '../../helpers'
-import { useModalContext } from '../../context/ModalContext/useModalContext'
+import { useModals } from '../../context/ModalContext/useModals'
 
 import { WeekSlotsProps } from './types'
 
@@ -16,7 +16,7 @@ const WeekSlots = ({
   eventModal,
   newEventModal,
 }: WeekSlotsProps): JSX.Element => {
-  const { onOpen, onClose } = useModalContext()
+  const { onOpen, onClose } = useModals()
 
   return (
     <>

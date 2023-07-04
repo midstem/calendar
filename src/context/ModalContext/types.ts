@@ -7,7 +7,7 @@ type PositionT = {
 }
 
 export type ModalContextT = {
-  showTooltip: boolean
+  showModal: boolean
   position: PositionT
   onOpen: <T = MouseEvent<HTMLDivElement, MouseEvent>>(
     event: T,

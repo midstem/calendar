@@ -3,7 +3,7 @@ import './styles.css'
 import EventItem from '../EventItem'
 import EventContainer from '../EventContainer'
 import { checkSelected } from '../../helpers'
-import { useModalContext } from '../../context/ModalContext/useModalContext'
+import { useModals } from '../../context/ModalContext/useModals'
 
 import { DaySlotsProps } from './types'
 
@@ -18,7 +18,7 @@ const DaySlots = ({
   eventModal,
   newEventModal,
 }: DaySlotsProps): JSX.Element => {
-  const { onOpen, onClose } = useModalContext()
+  const { onOpen, onClose } = useModals()
 
   return (
     <>

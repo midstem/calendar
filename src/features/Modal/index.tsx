@@ -7,7 +7,7 @@ const Modal = (): ReactPortal | null => {
   const {
     calendarElement,
     getIndentLeft,
-    showTooltip,
+    showModal,
     indentTop,
     ref,
     modalWidth,
@@ -26,7 +26,7 @@ const Modal = (): ReactPortal | null => {
           top: indentTop,
           left: getIndentLeft(),
           zIndex: 10,
-          display: showTooltip ? 'block' : 'none',
+          display: showModal ? 'block' : 'none',
           opacity: modalWidth ? 1 : 0,
         }}
       >
