@@ -8,6 +8,8 @@ const MonthSlots = ({
   onClickCell,
   renderRows,
   selectedDate,
+  eventModal,
+  newEventModal,
 }: MonthSlotsProps): JSX.Element => {
   const slotCells = renderRows.map(cell => ({ ...cell, modalOpen: false }))
 
@@ -16,6 +18,8 @@ const MonthSlots = ({
       <div className="month-cell-wrapper">
         {slotCells.map((cell, index) => (
           <MonthSlot
+            eventModal={eventModal}
+            newEventModal={newEventModal}
             key={cell.date.toDateString()}
             cell={cell}
             index={index}

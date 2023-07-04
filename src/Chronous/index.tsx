@@ -6,6 +6,7 @@ import { format } from 'date-fns'
 import { ViewsT } from '../types'
 import colors from '../theme/colors'
 import Button from '../features/Button'
+import { ModalProvider } from '../context/ModalContext'
 import { DateFormat, Views } from '../constants'
 import Text from '../components/Text'
 import RightArrow from '../components/RightArrow'
@@ -37,6 +38,8 @@ const Calendar = ({
   onClickEvent = () => {},
   onClickCell = () => {},
   onChangeDate = () => {},
+  eventModal,
+  newEventModal,
 }: CalendarProps): JSX.Element => {
   const {
     viewMode,
@@ -65,71 +68,75 @@ const Calendar = ({
   const View = VIEW_MODES[viewMode]
 
   return (
-    <Flex
-      direction="column"
-      className={className}
-      spacing={16}
-      sx={{ margin: 16 }}
-    >
-      <div className="header-grid">
-        <Button
-          ariaLabel="Today"
-          onClick={goToday}
-          className="today-button header-grid-today"
-        >
-          Today
-        </Button>
-        <Flex spacing={16} className="header-grid-arrows">
-          <NavigationButton
-            isDisabled={isDisabledPrevious}
-            onClick={previous}
-            customButton={prevButton}
-            hoverBG={colors.powderBlue}
-            ariaLabel="Left Arrow"
-            defaultStyles="button arrow-button"
-            defaultButton={<LeftArrow color={colors.teal} />}
-          />
-          <NavigationButton
-            isDisabled={isDisabledNext}
-            onClick={next}
-            customButton={nextButton}
-            hoverBG={colors.powderBlue}
-            ariaLabel="Right Arrow"
-            defaultStyles="button arrow-button"
-            defaultButton={<RightArrow color={colors.teal} />}
-          />
-        </Flex>
+    <ModalProvider>
+      <Flex
+        direction="column"
+        className={className}
+        spacing={16}
+        sx={{ margin: 16 }}
+      >
+        <div className="header-grid">
+          <Button
+            ariaLabel="Today"
+            onClick={goToday}
+            className="today-button header-grid-today"
+          >
+            Today
+          </Button>
+          <Flex spacing={16} className="header-grid-arrows">
+            <NavigationButton
+              isDisabled={isDisabledPrevious}
+              onClick={previous}
+              customButton={prevButton}
+              hoverBG={colors.powderBlue}
+              ariaLabel="Left Arrow"
+              defaultStyles="button arrow-button"
+              defaultButton={<LeftArrow color={colors.teal} />}
+            />
+            <NavigationButton
+              isDisabled={isDisabledNext}
+              onClick={next}
+              customButton={nextButton}
+              hoverBG={colors.powderBlue}
+              ariaLabel="Right Arrow"
+              defaultStyles="button arrow-button"
+              defaultButton={<RightArrow color={colors.teal} />}
+            />
+          </Flex>
 
-        <Text className="current-date header-grid-date">
-          {format(startDate, DateFormat.MONTH_LONG)}
-          {startDate.getMonth() !== endDate.getMonth() &&
-            `-${format(endDate, DateFormat.MONTH_LONG)}`}
-          {` `}
-          {currentYear}
-        </Text>
+          <Text className="current-date header-grid-date">
+            {format(startDate, DateFormat.MONTH_LONG)}
+            {startDate.getMonth() !== endDate.getMonth() &&
+              `-${format(endDate, DateFormat.MONTH_LONG)}`}
+            {` `}
+            {currentYear}
+          </Text>
 
-        <DropDown
-          list={Object.values(Views)}
-          value={viewMode}
-          onChange={mode => setViewMode(mode as ViewsT)}
-          dropdownArrow={dropDownArrow}
-        />
-      </div>
-      <div className="calendar">
-        <View
-          onClickCell={onClickCell}
-          events={events}
-          renderRows={renderRows as CombinedViewRowsType}
-          startDate={startDate}
-          selectedDate={selectedDate}
-          selectedEvent={selectedEvent}
-          selectDateHandler={selectDateHandler}
-          onClickEvent={onClickEvent}
-          renderEventComponent={renderEventComponent}
-        />
-      </div>
-      {children}
-    </Flex>
+          <DropDown
+            list={Object.values(Views)}
+            value={viewMode}
+            onChange={mode => setViewMode(mode as ViewsT)}
+            dropdownArrow={dropDownArrow}
+          />
+        </div>
+        <div className="calendar">
+          <View
+            eventModal={eventModal}
+            newEventModal={newEventModal}
+            onClickCell={onClickCell}
+            events={events}
+            renderRows={renderRows as CombinedViewRowsType}
+            startDate={startDate}
+            selectedDate={selectedDate}
+            selectedEvent={selectedEvent}
+            selectDateHandler={selectDateHandler}
+            onClickEvent={onClickEvent}
+            renderEventComponent={renderEventComponent}
+          />
+        </div>
+        {children}
+      </Flex>
+    </ModalProvider>
   )
 }
 

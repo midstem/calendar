@@ -1,6 +1,7 @@
 import EventItem from '../EventItem'
 import EventContainer from '../EventContainer'
 import { checkSelected, getDateOfWeekday } from '../../helpers'
+import { useModals } from '../../context/ModalContext/useModals'
 
 import { WeekSlotsProps } from './types'
 
@@ -12,7 +13,11 @@ const WeekSlots = ({
   onClickCell,
   selectedEvent,
   renderEventComponent: Component = EventItem,
+  eventModal,
+  newEventModal,
 }: WeekSlotsProps): JSX.Element => {
+  const { onOpen, onClose } = useModals()
+
   return (
     <>
       {renderRows.map(({ time, cells }) => (
@@ -24,9 +29,16 @@ const WeekSlots = ({
             return (
               <div
                 className="cell"
-                onClick={() =>
-                  onClickCell(time, getDateOfWeekday(index, startDate))
-                }
+                onClick={e => {
+                  const eventData = {
+                    time,
+                    day: getDateOfWeekday(index, startDate),
+                  }
+                  onClickCell(eventData)
+
+                  if (newEventModal)
+                    onOpen(e, newEventModal({ ...eventData, onClose }))
+                }}
                 key={`cell-${String(index)}`}
               >
                 {events.map(event => {
@@ -40,6 +52,9 @@ const WeekSlots = ({
                       onClick={e => {
                         e.stopPropagation()
                         onClickEvent(event)
+
+                        if (eventModal)
+                          onOpen(e, eventModal({ ...event, onClose }))
                       }}
                       key={event.id}
                       index={eventIndex}

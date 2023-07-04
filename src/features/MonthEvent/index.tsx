@@ -2,11 +2,11 @@ import { MonthEventProps } from './types'
 
 export const MonthEvent = ({
   event,
-  onClickEvent,
+  onClick,
   isCollapsedEvent = false,
 }: MonthEventProps): JSX.Element => {
   return (
-    <div className="event event-line" onClick={() => onClickEvent(event)}>
+    <div className="event event-line" onClick={onClick}>
       {!isCollapsedEvent && (
         <div
           className="event-line-circle"

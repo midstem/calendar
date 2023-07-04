@@ -1,8 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 
+import { useModals } from '../../context/ModalContext/useModals'
+
 export const useMonthSlot = () => {
   const [modalOpen, setModalOpen] = useState<boolean>(false)
   const modalRef = useRef<HTMLDivElement | null>(null)
+  const { onOpen, onClose } = useModals()
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -35,5 +38,7 @@ export const useMonthSlot = () => {
     closeModalHandler: setModalOpen,
     onEventClickHandler,
     modalRef,
+    onOpen,
+    onClose,
   }
 }

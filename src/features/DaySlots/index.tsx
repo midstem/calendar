@@ -3,6 +3,7 @@ import './styles.css'
 import EventItem from '../EventItem'
 import EventContainer from '../EventContainer'
 import { checkSelected } from '../../helpers'
+import { useModals } from '../../context/ModalContext/useModals'
 
 import { DaySlotsProps } from './types'
 
@@ -14,7 +15,11 @@ const DaySlots = ({
   onClickCell,
   selectedEvent,
   renderEventComponent: Component = EventItem,
+  eventModal,
+  newEventModal,
 }: DaySlotsProps): JSX.Element => {
+  const { onOpen, onClose } = useModals()
+
   return (
     <>
       {renderRows.map(({ time, cells }) => (
@@ -23,7 +28,13 @@ const DaySlots = ({
           {cells.map((events, index) => {
             return (
               <div
-                onClick={() => onClickCell(time, day)}
+                onClick={e => {
+                  const eventData = { time, day, onClose }
+
+                  if (newEventModal) onOpen(e, newEventModal(eventData))
+
+                  onClickCell(eventData)
+                }}
                 className="cell day-cell"
                 key="cell"
               >
@@ -35,6 +46,9 @@ const DaySlots = ({
                       onClick={e => {
                         e.stopPropagation()
                         onClickEvent(event)
+
+                        if (eventModal)
+                          onOpen(e, eventModal({ ...event, onClose }))
                       }}
                       key={event.id}
                       index={index}

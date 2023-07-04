@@ -6,6 +6,7 @@ import {
   DayCellType,
   DayRowsType,
   EventComponentProps,
+  ModalsT,
   MonthCellType,
   UserEvents,
   ViewsT,
@@ -16,24 +17,25 @@ import { Cell } from '../features/MonthSlots/types'
 
 export type CombinedViewRowsType = WeekRowsType[] & DayRowsType[] & Cell[]
 
-export type CalendarProps = Partial<
-  UserEvents<DayCellType | WeekCellType | MonthCellType>
-> & {
-  mode?: ViewsT
-  endHour?: number
-  config?: ConfigT[]
-  children?: ReactNode
-  className?: string
-  startHour?: number
-  selectedEvent?: string
-  nextButton?: ReactNode
-  prevButton?: ReactNode
-  currentDay?: Date | string
-  events?: CalendarEventType[]
-  dropDownArrow?: ReactNode
-  renderEventComponent?: FunctionComponent<EventComponentProps>
-  onChangeDate?: (start: Date, end: Date) => void
-}
+type EventT = DayCellType | WeekCellType | MonthCellType
+
+export type CalendarProps = Partial<UserEvents<EventT>> &
+  ModalsT<EventT> & {
+    mode?: ViewsT
+    endHour?: number
+    config?: ConfigT[]
+    children?: ReactNode
+    className?: string
+    startHour?: number
+    selectedEvent?: string
+    nextButton?: ReactNode
+    prevButton?: ReactNode
+    currentDay?: Date | string
+    events?: CalendarEventType[]
+    dropDownArrow?: ReactNode
+    renderEventComponent?: FunctionComponent<EventComponentProps>
+    onChangeDate?: (start: Date, end: Date) => void
+  }
 
 export type UseCalendarProps = {
   currentDay: Date

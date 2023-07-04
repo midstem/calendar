@@ -1,9 +1,10 @@
 import { Cell } from '../MonthSlots/types'
-import { MonthCellType, UserEvents } from '../../types'
+import { ModalsT, MonthCellType, UserEvents } from '../../types'
 
-export type MonthSlotProps = UserEvents<MonthCellType> & {
-  cell: Cell
-  index: number
-  selectedDate: Date
-  onSelectDate: (date: Date) => void
-}
+export type MonthSlotProps = UserEvents<MonthCellType> &
+  ModalsT<MonthCellType> & {
+    cell: Cell
+    index: number
+    selectedDate: Date
+    onSelectDate: (date: Date) => void
+  }

@@ -1,6 +1,9 @@
-import { CalendarEventType, MonthCellType, UserClickEvent } from '../../types'
+import { MouseEventHandler } from 'react'
 
-export type MonthEventProps = UserClickEvent<MonthCellType> & {
+import { CalendarEventType } from '../../types'
+
+export type MonthEventProps = {
   event: CalendarEventType
   isCollapsedEvent?: boolean
+  onClick: MouseEventHandler<HTMLDivElement>
 }
