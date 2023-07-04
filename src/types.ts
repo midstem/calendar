@@ -73,12 +73,30 @@ export type HandleClickOnCellT = {
   onClick: (time: string, day: Date) => void
 }
 
+type OnClickCellT = {
+  time: string
+  day: Date
+}
+
 export type UserClickEvent<EventT> = {
   onClickEvent: (event: EventT) => void
 }
 
 export type UserEvents<EventT> = UserClickEvent<EventT> & {
-  onClickCell: (time: string, day: Date) => void
+  onClickCell: (a: OnClickCellT) => void
+}
+
+type EventModalT<EventT> = EventT & {
+  onClose: () => void
+}
+
+type NewEventModalT = OnClickCellT & {
+  onClose: () => void
+}
+
+export type ModalsT<EventT> = {
+  eventModal?: (a: EventModalT<EventT>) => ReactNode
+  newEventModal?: (a: NewEventModalT) => ReactNode
 }
 
 export type ConfigT = {

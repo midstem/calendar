@@ -1,10 +1,16 @@
-import { CalendarEventType, MonthCellType, UserEvents } from '../../types'
+import {
+  CalendarEventType,
+  ModalsT,
+  MonthCellType,
+  UserEvents,
+} from '../../types'
 
-export type MonthSlotsProps = UserEvents<MonthCellType> & {
-  renderRows: Cell[]
-  onSelectDate: (date: Date) => void
-  selectedDate: Date
-}
+export type MonthSlotsProps = UserEvents<MonthCellType> &
+  ModalsT<MonthCellType> & {
+    renderRows: Cell[]
+    onSelectDate: (date: Date) => void
+    selectedDate: Date
+  }
 
 export type CreateCells = {
   currentYear: number

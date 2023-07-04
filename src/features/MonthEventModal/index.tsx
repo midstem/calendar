@@ -45,7 +45,7 @@ const MonthEventModal = forwardRef<HTMLDivElement | null, MonthEventModalProps>(
             <MonthEvent
               key={slot.id}
               event={event}
-              onClickEvent={onClickEvent}
+              onClick={() => onClickEvent(event)}
             />
           )
         })}

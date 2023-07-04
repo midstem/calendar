@@ -17,17 +17,29 @@ export const MonthSlot = ({
   onClickEvent,
   onClickCell,
   selectedDate,
+  eventModal,
+  newEventModal,
 }: MonthSlotProps): JSX.Element => {
   const { date, isCurrentMonth, slots } = cell
 
-  const { modalOpen, onEventClickHandler, closeModalHandler, modalRef } =
-    useMonthSlot()
+  const {
+    modalOpen,
+    onEventClickHandler,
+    closeModalHandler,
+    modalRef,
+    onClose,
+    onOpen,
+  } = useMonthSlot()
 
   return (
     <div
-      onClick={() => {
+      onClick={event => {
         if (!slots.length) {
-          onClickCell(`${Date.now()}`, date)
+          const eventData = { time: `${Date.now()}`, day: date }
+          onClickCell(eventData)
+
+          if (newEventModal)
+            onOpen(event, newEventModal({ ...eventData, onClose }))
         }
       }}
       className="cell month-cell"
@@ -63,8 +75,12 @@ export const MonthSlot = ({
             key={slot.id}
             event={event}
             isCollapsedEvent={isCollapsedSlot}
-            onClickEvent={() =>
-              onEventClickHandler(isCollapsedSlot, () => onClickEvent(slot))
+            onClick={e =>
+              onEventClickHandler(isCollapsedSlot, () => {
+                onClickEvent(slot)
+
+                if (eventModal) onOpen(e, eventModal({ ...event, onClose }))
+              })
             }
           />
         )

@@ -9,9 +9,13 @@ const MonthView = ({
   onClickCell,
   renderRows,
   selectedDate,
+  eventModal,
+  newEventModal,
 }: MonthViewProps): JSX.Element => {
   return (
     <MonthSlots
+      eventModal={eventModal}
+      newEventModal={newEventModal}
       renderRows={renderRows}
       onSelectDate={selectDateHandler}
       onClickEvent={onClickEvent}

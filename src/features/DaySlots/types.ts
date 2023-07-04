@@ -4,13 +4,15 @@ import {
   DayCellType,
   DayRowsType,
   EventComponentProps,
+  ModalsT,
   UserEvents,
 } from '../../types'
 
-export type DaySlotsProps = UserEvents<DayCellType> & {
-  day: Date
-  eventsByDay: DayCellType[]
-  renderRows: DayRowsType[]
-  selectedEvent?: string
-  renderEventComponent?: FunctionComponent<EventComponentProps>
-}
+export type DaySlotsProps = UserEvents<DayCellType> &
+  ModalsT<DayCellType> & {
+    day: Date
+    eventsByDay: DayCellType[]
+    renderRows: DayRowsType[]
+    selectedEvent?: string
+    renderEventComponent?: FunctionComponent<EventComponentProps>
+  }

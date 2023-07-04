@@ -18,6 +18,8 @@ const WeekView = ({
   onClickEvent,
   onClickCell,
   selectDateHandler,
+  eventModal,
+  newEventModal,
 }: WeekViewProps): JSX.Element => {
   const weekDays = useMemo(() => getWeekDays(startDate), [startDate])
 
@@ -43,6 +45,8 @@ const WeekView = ({
         />
       </div>
       <WeekSlots
+        eventModal={eventModal}
+        newEventModal={newEventModal}
         startDate={startDate}
         onClickCell={onClickCell}
         eventsByDay={eventsByDay}
