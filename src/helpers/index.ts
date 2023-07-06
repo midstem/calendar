@@ -1,3 +1,4 @@
+import { MouseEvent } from 'react'
 import { addDays } from 'date-fns'
 import { format } from 'date-fns'
 
@@ -32,4 +33,12 @@ export const getDateOfWeekday = (
 
 export const getScreenWidth = (): number => {
   return window.innerWidth
+}
+
+export const isEvent = (
+  event: MouseEvent<HTMLDivElement, MouseEvent>,
+): boolean => {
+  const element = event.target as HTMLElement
+
+  return !!element?.closest?.('.event')
 }
