@@ -3,11 +3,7 @@ import { useRef } from 'react'
 import { useModals } from '../../context/ModalContext/useModals'
 
 export const useModal = () => {
-  const {
-    showModal,
-    position: { x, y, containerW },
-    modal,
-  } = useModals()
+  const { x, y, containerW, userModal, isOpen } = useModals()
 
   const calendarElement = document.querySelector('.calendar')
   const ref = useRef<HTMLDivElement | null>(null)
@@ -22,10 +18,10 @@ export const useModal = () => {
   return {
     getIndentLeft,
     calendarElement,
-    showModal,
+    isOpen,
     indentTop: y,
     ref,
     modalWidth,
-    modal,
+    userModal,
   }
 }

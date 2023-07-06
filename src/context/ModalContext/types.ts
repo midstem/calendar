@@ -6,13 +6,15 @@ type PositionT = {
   containerW: number
 }
 
-export type ModalContextT = {
-  showModal: boolean
-  position: PositionT
+export type ModalT = PositionT & {
+  isOpen: boolean
+}
+
+export type ModalContextT = ModalT & {
   onOpen: <T = MouseEvent<HTMLDivElement, MouseEvent>>(
     event: T,
     modal: ReactNode,
   ) => void
   onClose: () => void
-  modal: ReactNode
+  userModal: ReactNode
 }

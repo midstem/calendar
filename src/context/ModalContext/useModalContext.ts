@@ -8,56 +8,50 @@ import {
   useState,
 } from 'react'
 
-import { ModalContextT } from './types'
+import { isEvent } from '../../helpers'
+
+import { ModalContextT, ModalT } from './types'
+import { initialModalData } from './constants'
 
 export const useModalContext = () => {
-  const [showModal, setShowModal] = useState(false)
-  const [position, setPosition] = useState({ x: 0, y: 0, containerW: 0 })
-  const previousState = useDeferredValue(showModal)
-  const [modal, setModal] = useState<ReactNode>()
+  const [modalData, setModalData] = useState<ModalT>(initialModalData)
+  const [userModal, setUserModal] = useState<ReactNode>()
+  const prevModalData = useDeferredValue(modalData)
 
   const onOpen = useCallback(
     (event: MouseEvent<HTMLDivElement, MouseEvent>, modal: ReactNode): void => {
       const calendarElement = document.querySelector('.calendar')
-      const element = event.target as HTMLElement
 
-      if (!showModal || element?.closest?.('.event')) {
-        setPosition({
+      if (!modalData.isOpen || isEvent(event)) {
+        setModalData({
           x: event.clientX,
           y: event.clientY,
           containerW: calendarElement?.clientWidth || 0,
+          isOpen: true,
         })
-        setShowModal(true)
-        setModal(modal)
+
+        setUserModal(modal)
       }
     },
-    [showModal],
+    [modalData.isOpen],
   ) as ModalContextT['onOpen']
 
   const onClose = (): void => {
-    setShowModal(false)
+    setModalData(initialModalData)
   }
 
-  const onClickOutside = useCallback(
-    (event: Event): void => {
-      const element = event.target as HTMLElement
-
-      if (previousState && !element.closest('.event')) {
-        onClose()
-      }
-    },
-    [previousState],
-  )
+  const onClickOutside = useCallback((): void => {
+    if (prevModalData.isOpen) onClose()
+  }, [prevModalData.isOpen])
 
   const contextValues: ModalContextT = useMemo(
     () => ({
-      showModal,
-      position,
+      ...modalData,
+      userModal,
       onOpen,
       onClose,
-      modal,
     }),
-    [modal, onOpen, position, showModal],
+    [userModal, modalData, onOpen],
   )
 
   useEffect(() => {
@@ -66,7 +60,7 @@ export const useModalContext = () => {
     return () => {
       document.removeEventListener('click', onClickOutside)
     }
-  }, [onClickOutside, previousState])
+  }, [onClickOutside])
 
   return { contextValues }
 }
