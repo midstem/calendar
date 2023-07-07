@@ -1,9 +1,3 @@
-import { CalendarSlotType } from '../../constants'
-
-export const isClientEvent = (type?: string): boolean =>
-  type === CalendarSlotType.CLIENT_APPOINTMENT ||
-  type === CalendarSlotType.CLIENT_AVAILABILITY
-
 export const applyOpacity = (hexColor: string, opacity: number): string => {
   hexColor = hexColor.replace('#', '')
 

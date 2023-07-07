@@ -48,13 +48,6 @@ export const DAY_IN_HOURS = 24
 
 export const daysOfWeek = Object.values(DaysOfTheWeek)
 
-export enum CalendarSlotType {
-  MEMBER_AVAILABILITY = 'member_availability',
-  CLIENT_AVAILABILITY = 'client_availability',
-  MEMBER_APPOINTMENT = 'member_appointment',
-  CLIENT_APPOINTMENT = 'client_appointment',
-}
-
 export enum MERIDIEM {
   BEFORE_MIDDAY = 'AM',
   AFTER_MIDDAY = 'PM',
