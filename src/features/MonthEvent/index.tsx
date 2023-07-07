@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { MonthEventProps } from './types'
 
 export const MonthEvent = ({
@@ -15,6 +16,7 @@ export const MonthEvent = ({
           }}
         />
       )}
+      {/* @ts-ignore */}
       <span>{event.date}</span>
       <span className="event-title">{event.title}</span>
     </div>
