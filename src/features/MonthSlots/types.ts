@@ -21,8 +21,8 @@ export type CreateCells = {
 }
 
 export type GenerateSlotsForDaysOfMonth = {
-  date: number
-  slotsData: CalendarEventType[]
+  startDate: number
+  events: CalendarEventType[]
 }
 
 export type Cell = {

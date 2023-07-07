@@ -66,7 +66,7 @@ export const App = () => (
     <td>events</td>
     <td>List of events to be displayed on the calendar</td>
     <td>-</td>
-    <td>{id: string; title: string; date: string; start: string; end: string; overlapping?: number; type?: string; position?: string; number; width?: string; color?: string; textColor?: string; opacity?: number}[]</td>
+    <td>{id: string; title: string; start: string; end: string; overlapping?: number; position?: string; number; width?: string; color?: string; textColor?: string; opacity?: number}[]</td>
   </tr>
   <tr>
     <td>mode</td>

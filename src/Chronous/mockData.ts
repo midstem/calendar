@@ -17,7 +17,6 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    date: returnDayDate(currentDate, 1),
   },
   {
     id: 'c0e982c0-c152-4930-8aae-b2a9b334052b',
@@ -30,7 +29,6 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    date: returnDayDate(currentDate, 1),
   },
   {
     id: '29af7782-5383-4a05-8d7a-ec402d6c9e47',
@@ -43,7 +41,6 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    date: returnDayDate(currentDate, 1),
   },
 
   // TUESDAY
@@ -58,7 +55,6 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.3,
-    date: returnDayDate(currentDate, 2),
   },
 
   // WEDNESDAY
@@ -73,7 +69,6 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    date: returnDayDate(currentDate, 3),
   },
   {
     id: '81cac69e-9da8-43b1-8765-9cec7aceafbc',
@@ -86,7 +81,6 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    date: returnDayDate(currentDate, 3),
   },
 
   // THURSDAY
@@ -101,7 +95,6 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    date: returnDayDate(currentDate, 4),
   },
   {
     id: '80b66527-8b45-4765-9ae1-88d21e3444ab',
@@ -114,7 +107,6 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    date: returnDayDate(currentDate, 4),
   },
   {
     id: 'f51ba7a4-da9a-44ce-ba07-a0ed1ebb51b7',
@@ -127,7 +119,6 @@ export const mockEvents: CalendarEventType[] = [
     color: '#C0CA33',
     textColor: '#1F1F1F',
     opacity: 0.3,
-    date: returnDayDate(currentDate, 4),
   },
   {
     id: 'f51ba7a4-da9a-44ce-ba07-ahdfghb51b7',
@@ -140,7 +131,6 @@ export const mockEvents: CalendarEventType[] = [
     color: '#C0CA33',
     textColor: '#1F1F1F',
     opacity: 0.3,
-    date: returnDayDate(currentDate, 4),
   },
   {
     id: '070d0f2f-917aa4-4f54-8c2a-3e20efb9a0a9',
@@ -153,7 +143,6 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    date: returnDayDate(currentDate, 4),
   },
   // FRIDAY
   {
@@ -167,7 +156,6 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    date: returnDayDate(currentDate, 5),
   },
   {
     id: '070d0f2f-9174-4f54-8c2a-3e20efb9a0a9',
@@ -180,7 +168,6 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.8,
-    date: returnDayDate(currentDate, 5),
   },
 
   // SATURDAY
@@ -195,7 +182,6 @@ export const mockEvents: CalendarEventType[] = [
     color: '#C0CA33',
     textColor: '#1F1F1F',
     opacity: 0.3,
-    date: returnDayDate(currentDate, 6),
   },
 
   // SUNDAY
@@ -210,6 +196,5 @@ export const mockEvents: CalendarEventType[] = [
     color: '#F4511E',
     textColor: '#FFFFFF',
     opacity: 0.3,
-    date: returnDayDate(currentDate, 7),
   },
 ]
