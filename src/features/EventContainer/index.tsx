@@ -1,6 +1,7 @@
 import { getBlockHeight, getStartPosition } from '../../helpers'
 
 import { EventContainerProps } from './types'
+import { EVENT_GAP } from './constants'
 
 const EventContainer = ({
   duration,
@@ -19,7 +20,7 @@ const EventContainer = ({
         zIndex: (overlapping ? overlapping : index) + 1,
         top: `${getStartPosition(start)}px`,
         height: `${getBlockHeight(duration)}px`,
-        width: `calc(100% - ${index * 15}px)`,
+        width: `calc(100% - ${index * EVENT_GAP}px)`,
         right: 0,
       }}
     >
