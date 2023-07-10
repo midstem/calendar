@@ -1,5 +1,4 @@
 import { getBlockHeight, getStartPosition } from '../../helpers'
-import { EVENT_GAP } from '../../constants'
 
 import { EventContainerProps } from './types'
 
@@ -8,10 +7,7 @@ const EventContainer = ({
   index,
   isSelected,
   overlapping,
-  position,
   start,
-  width,
-  numberOfEvents,
   children,
   onClick,
 }: EventContainerProps): JSX.Element => {
@@ -20,11 +16,11 @@ const EventContainer = ({
       onClick={e => onClick(e)}
       className={`event-container ${isSelected && 'selected'} `}
       style={{
-        zIndex: overlapping ? overlapping + 1 : 1,
+        zIndex: (overlapping ? overlapping : index) + 1,
         top: `${getStartPosition(start)}px`,
         height: `${getBlockHeight(duration)}px`,
-        left: position ?? `calc(${100 / numberOfEvents}% * ${index})`,
-        width: width ?? `calc(${100 / numberOfEvents}% - ${EVENT_GAP}px)`,
+        width: `calc(100% - ${index * 15}px)`,
+        right: 0,
       }}
     >
       {children}

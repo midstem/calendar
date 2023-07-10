@@ -5,7 +5,6 @@ import { useModals } from '../../context/ModalContext/useModals'
 export const useModal = () => {
   const { x, y, containerW, userModal, isOpen } = useModals()
 
-  const calendarElement = document.querySelector('.calendar')
   const ref = useRef<HTMLDivElement | null>(null)
   const modalWidth = ref.current?.offsetWidth || 0
 
@@ -17,7 +16,6 @@ export const useModal = () => {
 
   return {
     getIndentLeft,
-    calendarElement,
     isOpen,
     indentTop: y,
     ref,

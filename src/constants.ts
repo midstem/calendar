@@ -17,8 +17,6 @@ export enum DaysOfTheWeek {
 
 export const CELL_HEIGHT = 60
 
-export const EVENT_GAP = 2
-
 export const OVERLAP_STEP = 8
 
 export const DateFormat = {
@@ -29,6 +27,7 @@ export const DateFormat = {
   HOUR: 'HH',
   HOUR_AND_MINUTE: 'HH:mm',
   MERIDIEM_TIME: 'hh:mm a',
+  TIME_STAMP: 'h:mm a',
   MINUTE: 'mm',
   YEAR_MONTH_DAY: 'yyyy-LLLL-dd',
   DATE: 'yyyy-MM-dd',

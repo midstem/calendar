@@ -37,13 +37,12 @@ const WeekView = ({
 
   return (
     <>
-      <div className="header">
-        <WeekHeader
-          weekDays={weekDays}
-          selectedDay={selectedDate}
-          onSelectDate={selectDateHandler}
-        />
-      </div>
+      <WeekHeader
+        weekDays={weekDays}
+        selectedDay={selectedDate}
+        onSelectDate={selectDateHandler}
+      />
+
       <WeekSlots
         eventModal={eventModal}
         newEventModal={newEventModal}
