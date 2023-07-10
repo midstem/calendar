@@ -7,8 +7,6 @@ export type EventContainerProps = ReactChildrenT & {
   overlapping?: number
   start: string
   duration?: Duration
-  position?: number | string
-  width?: string
   index: number
   numberOfEvents: number
   onClick: (e: MouseEvent) => void

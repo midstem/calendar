@@ -14,7 +14,7 @@ const WeekHeader = ({
   formatOfDay = DateFormat.DAY_LONG,
 }: WeekHeaderProps): JSX.Element => {
   return (
-    <>
+    <div className="header">
       <div className="day time"></div>
       {weekDays.map(day => {
         return (
@@ -40,7 +40,7 @@ const WeekHeader = ({
           </div>
         )
       })}
-    </>
+    </div>
   )
 }
 

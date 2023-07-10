@@ -40,6 +40,9 @@ const DaySlots = ({
               >
                 {events.map(event => {
                   const isSelected = checkSelected(event.id, selectedEvent)
+                  const eventIndex = eventsByDay.findIndex(
+                    day => day.id === event.id,
+                  )
 
                   return (
                     <EventContainer
@@ -51,14 +54,12 @@ const DaySlots = ({
                           onOpen(e, eventModal({ ...event, onClose }))
                       }}
                       key={event.id}
-                      index={index}
+                      index={eventIndex}
                       overlapping={event?.overlapping}
                       start={event.start}
                       numberOfEvents={eventsByDay.length}
-                      width={event?.width}
                       duration={event?.duration}
                       isSelected={isSelected}
-                      position={event?.position}
                     >
                       <Component
                         event={event}

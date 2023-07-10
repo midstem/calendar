@@ -61,10 +61,8 @@ const WeekSlots = ({
                       overlapping={event?.overlapping}
                       start={event.start}
                       numberOfEvents={eventsByDay.length}
-                      width={event?.width}
                       duration={event?.duration}
                       isSelected={isSelected}
-                      position={event?.position}
                     >
                       <Component
                         event={event}
