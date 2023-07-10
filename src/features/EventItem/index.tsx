@@ -5,7 +5,7 @@ import { DateFormat } from '../../constants'
 import Text from '../../components/Text'
 import Flex from '../../components/Flex'
 
-import { applyOpacity, isClientEvent } from './helpers'
+import { applyOpacity } from './helpers'
 
 const EventItem = ({
   event,
@@ -25,16 +25,12 @@ const EventItem = ({
       }}
     >
       <Flex sx={{ flexWrap: 'wrap' }}>
-        <Text variant="caption">
-          {isClientEvent(event?.type) ? event.title : ''}
-        </Text>
+        <Text variant="caption">{event.title}</Text>
       </Flex>
-      {isClientEvent(event.type) ? (
-        <Text variant="caption" sx={{ fontWeight: 'bold', marginTop: 8 }}>
-          {format(new Date(event.start), DateFormat.MERIDIEM_TIME)} -{' '}
-          {format(new Date(event.end), DateFormat.MERIDIEM_TIME)}
-        </Text>
-      ) : null}
+      <Text variant="caption" sx={{ fontWeight: 'bold', marginTop: 8 }}>
+        {format(new Date(event.start), DateFormat.MERIDIEM_TIME)} -{' '}
+        {format(new Date(event.end), DateFormat.MERIDIEM_TIME)}
+      </Text>
     </Flex>
   )
 }

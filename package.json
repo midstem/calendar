@@ -1,6 +1,6 @@
 {
   "name": "chronous",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "license": "MIT",
   "author": "Maksym Tkachuk, Oleksandr Didyshen, Igor Kozlovskyi",
   "description": "Event Calendar written in TypeScript",
@@ -58,6 +58,7 @@
     "pre-commit": "^1.2.2",
     "prettier": "^2.8.8",
     "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "typescript": "^5.0.2",
     "vite": "^4.3.2",
     "vite-plugin-dts": "^2.3.0",

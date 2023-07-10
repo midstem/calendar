@@ -192,10 +192,10 @@ export const createCells = ({
   })
 
 export const generateSlotsForDaysOfMonth = ({
-  date,
-  slotsData,
+  startDate,
+  events,
 }: GenerateSlotsForDaysOfMonth): Cell[] => {
-  const currentDate = new Date(date)
+  const currentDate = new Date(startDate)
 
   const currentMonth = currentDate.getMonth()
   const currentYear = currentDate.getFullYear()
@@ -229,8 +229,8 @@ export const generateSlotsForDaysOfMonth = ({
   const allCells = [prevMonthCells, cells, nextMonthCells].flat()
 
   const newCells = allCells.map(cell => {
-    const matchingSlotData = slotsData.filter(({ date }) => {
-      const slotDate = new Date(date)
+    const matchingSlotData = events.filter(({ start }) => {
+      const slotDate = new Date(start)
 
       return (
         slotDate.getMonth() === cell.date.getMonth() &&
@@ -251,24 +251,6 @@ export const generateSlotsForDaysOfMonth = ({
 
   return newCells
 }
-// export const updateCalendarRow = (
-//   rows: any[],
-//   index: number,
-//   updatedRow: any,
-// ): any[] => {
-//   const updatedCells = [...updatedRow.cells]
-
-//   return rows.map((row, i) => {
-//     if (i !== index) {
-//       return row
-//     }
-
-//     return {
-//       ...updatedRow,
-//       cells: updatedCells,
-//     }
-//   })
-// }
 
 export const getRenderRows = (
   start: Date,
@@ -301,7 +283,7 @@ export const getRenderRows = (
       )
     }
     case Views.MONTH: {
-      return generateSlotsForDaysOfMonth({ date: startDate, slotsData: events })
+      return generateSlotsForDaysOfMonth({ startDate, events })
     }
     default: {
       return []
