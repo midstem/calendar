@@ -27,7 +27,7 @@ const DayHeader = ({
             height: 50,
             fontSize: '2rem',
           }}
-          className="button current-day"
+          className="button current-day-button"
         >
           {format(day, DateFormat.DAY_NUMBER)}
         </IconButton>

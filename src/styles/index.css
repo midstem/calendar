@@ -37,6 +37,6 @@ p {
   transition: var(--transition);
 }
 
-.current-day {
+.current-day-button {
   background-color: var(--powder-blue);
 }

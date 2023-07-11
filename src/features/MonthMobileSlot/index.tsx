@@ -24,7 +24,7 @@ const MonthMobileSlot = ({
           sx={{ width: 30, height: 30 }}
           className={`button  ${!isCurrentMonth ? 'mobile--other-month' : ''} ${
             isWeekend(date) ? 'weekend' : ''
-          } ${isSameDay(date, selectedDate) ? 'current-day' : ''}`}
+          } ${isSameDay(date, selectedDate) ? 'current-day-button' : ''}`}
           hoverBG={colors.powderBlue}
           activeColor={colors.powderBlue}
           onClick={() => onSelectDate(date)}
