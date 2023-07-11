@@ -53,7 +53,7 @@ export const MonthSlot = ({
           ariaLabel="day"
           className={`month-cell-day ${
             !isCurrentMonth ? 'month-cell-day--othermonth' : ''
-          } ${isSameDay(date, selectedDate) ? 'current-day-button' : ''}`}
+          } ${isSameDay(date, selectedDate) ? 'current-day' : ''}`}
           onClick={() => {
             onSelectDate(date)
           }}
